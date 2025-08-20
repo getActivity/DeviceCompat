@@ -220,6 +220,72 @@ DeviceBrand.isMotorola();
 // 判断当前设备的品牌是否为传音
 DeviceBrand.isTranssion();
 
+// 判断当前设备的品牌是否为朵唯
+DeviceBrand.isDoov();
+
+// 判断当前设备的品牌是否为飞利浦
+DeviceBrand.isPhilips();
+
+// 判断当前设备的品牌是否为黑鲨
+DeviceBrand.isBlackShark();
+
+// 判断当前设备的品牌是否为乐移动
+DeviceBrand.isLeMobile();
+
+// 判断当前设备的品牌是否为 COOL
+DeviceBrand.isCool();
+
+// 判断当前设备的品牌是否为海信
+DeviceBrand.isHisense();
+
+// 判断当前设备的品牌是否为百事乐
+DeviceBrand.isLeBest();
+
+// 判断当前设备的品牌是否为天语
+DeviceBrand.isKTouch();
+
+// 判断当前设备的品牌是否为奕为
+DeviceBrand.isYieWay();
+
+// 判断当前设备的品牌是否为 WIKO
+DeviceBrand.isWiko();
+
+// 判断当前设备的品牌是否为联通
+DeviceBrand.isLianTong();
+
+// 判断当前设备的品牌是否为移动
+DeviceBrand.isCmdc();
+
+// 判断当前设备的品牌是否为 PTAC
+DeviceBrand.isPtac();
+
+// 判断当前设备的品牌是否为天翼
+DeviceBrand.isTianYi();
+
+// 判断当前设备的品牌是否为小星
+DeviceBrand.isStarlet();
+
+// 判断当前设备的品牌是否为 Qopo
+DeviceBrand.isQopo();
+
+// 判断当前设备的品牌是否为硕王
+DeviceBrand.isShuoWang();
+
+// 判断当前设备的品牌是否为 Poxo
+DeviceBrand.isPoxo();
+
+// 判断当前设备的品牌是否为美图
+DeviceBrand.isMeiTu();
+
+// 判断当前设备的品牌是否为汇威
+DeviceBrand.isHomecare();
+
+// 判断当前设备的品牌是否为黑云
+DeviceBrand.isPccy();
+
+// 判断当前设备的品牌是否为百合
+DeviceBrand.isBihee();
+
 // 获取当前设备的品牌名称
 DeviceBrand.getBrandName();
 ```
