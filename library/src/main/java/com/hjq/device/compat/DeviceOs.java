@@ -484,11 +484,11 @@ public final class DeviceOs {
             }
         }
 
-        if (TextUtils.isEmpty(sCurrentOsName)) {
+        if (sCurrentOsName == null) {
             sCurrentOsName = "";
         }
 
-        if (TextUtils.isEmpty(sCurrentOriginalOsVersionName)) {
+        if (!TextUtils.isEmpty(sCurrentOsName) && TextUtils.isEmpty(sCurrentOriginalOsVersionName)) {
             sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_UNKNOWN);
         }
     }
