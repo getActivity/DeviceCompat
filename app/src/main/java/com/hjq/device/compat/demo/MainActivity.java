@@ -22,10 +22,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         TextView messageView = findViewById(R.id.btn_main_messages);
         StringBuilder stringBuilder = new StringBuilder()
-            .append("\nDeviceBrand：" + DeviceBrand.getBrandName())
-            .append("\nDeviceOs：" + DeviceOs.getOsName())
-            .append("\nDeviceOsVersionName：" + DeviceOs.getOsVersionName())
-            .append("\nDeviceOriginalOsVersionName：" + DeviceOs.getOsVersionName());
+            .append("\nBrand：" + DeviceBrand.getBrandName())
+            .append("\nOs：" + DeviceOs.getOsName())
+            .append("\nOriginalOsVersionName：" + DeviceOs.getOsVersionName())
+            .append("\nOsVersionName：" + DeviceOs.getOsVersionName())
+            .append("\nOsBigVersionCode：" + DeviceOs.getOsBigVersionCode());
         messageView.setText(stringBuilder);
 
         findViewById(R.id.btn_main_about_device).setOnClickListener(this);
