@@ -93,63 +93,15 @@ public final class DeviceBrand {
     private static final String BRAND_NAME_BLACKSHARK = "BlackShark";
     private static final String[] BRAND_ID_BLACKSHARK = { "blackshark" };
     
-    private static final String BRAND_NAME_LEMOBILE = "LeMobile";
-    private static final String[] BRAND_ID_LEMOBILE = { "LeMobile" };
-    
-    private static final String BRAND_NAME_COOL = "COOL";
-    private static final String[] BRAND_ID_COOL = { "COOL" };
-    
     private static final String BRAND_NAME_HISENSE = "Hisense";
     private static final String[] BRAND_ID_HISENSE = { "Hisense" };
-    
-    private static final String BRAND_NAME_LEBEST = "LeBest";
-    private static final String[] BRAND_ID_LEBEST = { "LeBest" };
     
     private static final String BRAND_NAME_KTOUCH = "K-Touch";
     private static final String[] BRAND_ID_KTOUCH = { "K-Touch", "KTOUCH" };
     
-    private static final String BRAND_NAME_YIEWAY = "YIEWAY";
-    private static final String[] BRAND_ID_YIEWAY = { "YIEWAY" };
-    
-    private static final String BRAND_NAME_WIKO = "WIKO";
-    private static final String[] BRAND_ID_WIKO = { "WIKO" };
-    
-    private static final String BRAND_NAME_LIANTONG = "Liantong";
-    private static final String[] BRAND_ID_LIANTONG = { "Liantong" };
-    
-    private static final String BRAND_NAME_CMDC = "CMDC";
-    private static final String[] BRAND_ID_CMDC = { "CMDC" };
-
-    private static final String BRAND_NAME_PTAC = "PTAC";
-    private static final String[] BRAND_ID_PTAC = { "PTAC" };
-    
-    private static final String BRAND_NAME_TIANYI = "Tianyi";
-    private static final String[] BRAND_ID_TIANYI = { "Tianyi" };
-    
-    private static final String BRAND_NAME_STARLET = "Starlet";
-    private static final String[] BRAND_ID_STARLET = { "starlet" };
-    
-    private static final String BRAND_NAME_QOPO = "Qopo";
-    private static final String[] BRAND_ID_QOPO = { "qopo" };
-    
-    private static final String BRAND_NAME_SHUOWANG = "SHUOWANG";
-    private static final String[] BRAND_ID_SHUOWANG = { "SHUOWANG" };
-    
-    private static final String BRAND_NAME_POXO = "POXO";
-    private static final String[] BRAND_ID_POXO = { "POXO" };
-    
     private static final String BRAND_NAME_MEITU = "Meitu";
     private static final String[] BRAND_ID_MEITU = { "Meitu" };
     
-    private static final String BRAND_NAME_HOMECARE = "Homecare";
-    private static final String[] BRAND_ID_HOMECARE = { "Homecare" };
-    
-    private static final String BRAND_NAME_PCCY = "PCCY";
-    private static final String[] BRAND_ID_PCCY = { "PCCY" };
-    
-    private static final String BRAND_NAME_BIHEE = "BIHEE";
-    private static final String[] BRAND_ID_BIHEE = { "BIHEE" };
-
     @NonNull
     private static final String CURRENT_BRAND_NAME;
 
@@ -211,44 +163,12 @@ public final class DeviceBrand {
             CURRENT_BRAND_NAME = BRAND_NAME_PHILIPS;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_BLACKSHARK)) {
             CURRENT_BRAND_NAME = BRAND_NAME_BLACKSHARK;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LEMOBILE)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_LEMOBILE;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_COOL)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_COOL;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_HISENSE)) {
             CURRENT_BRAND_NAME = BRAND_NAME_HISENSE;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LEBEST)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_LEBEST;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_KTOUCH)) {
             CURRENT_BRAND_NAME = BRAND_NAME_KTOUCH;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_YIEWAY)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_YIEWAY;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_WIKO)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_WIKO;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LIANTONG)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_LIANTONG;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_CMDC)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_CMDC;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_PTAC)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_PTAC;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_TIANYI)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_TIANYI;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_STARLET)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_STARLET;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_QOPO)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_QOPO;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_SHUOWANG)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_SHUOWANG;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_POXO)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_POXO;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_MEITU)) {
             CURRENT_BRAND_NAME = BRAND_NAME_MEITU;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_HOMECARE)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_HOMECARE;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_PCCY)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_PCCY;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_BIHEE)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_BIHEE;
         } else {
             if (!TextUtils.isEmpty(brand)) {
                 CURRENT_BRAND_NAME = brand;
@@ -443,110 +363,20 @@ public final class DeviceBrand {
     }
     
     /**
-     * 判断当前设备的品牌是否为乐移动
-     */
-    public static boolean isLeMobile() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_LEMOBILE);
-    }
-    
-    /**
-     * 判断当前设备的品牌是否为 COOL
-     */
-    public static boolean isCool() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_COOL);
-    }
-    
-    /**
      * 判断当前设备的品牌是否为海信
      */
     public static boolean isHisense() {
         return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_HISENSE);
     }
-    
-    /**
-     * 判断当前设备的品牌是否为百事乐
-     */
-    public static boolean isLeBest() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_LEBEST);
-    }
-    
+
     /**
      * 判断当前设备的品牌是否为天语
      */
     public static boolean isKTouch() {
         return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_KTOUCH);
     }
-    
-    /**
-     * 判断当前设备的品牌是否为奕为
-     */
-    public static boolean isYieWay() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_YIEWAY);
-    }
-    
-    /**
-     * 判断当前设备的品牌是否为 WIKO
-     */
-    public static boolean isWiko() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_WIKO);
-    }
-    
-    /**
-     * 判断当前设备的品牌是否为联通
-     */
-    public static boolean isLianTong() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_LIANTONG);
-    }
-    
-    /**
-     * 判断当前设备的品牌是否为移动
-     */
-    public static boolean isCmdc() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_CMDC);
-    }
-    
-    /**
-     * 判断当前设备的品牌是否为 PTAC
-     */
-    public static boolean isPtac() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_PTAC);
-    }
-    
-    /**
-     * 判断当前设备的品牌是否为天翼
-     */
-    public static boolean isTianYi() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_TIANYI);
-    }
-    
-    /**
-     * 判断当前设备的品牌是否为小星
-     */
-    public static boolean isStarlet() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_STARLET);
-    }
-    
-    /**
-     * 判断当前设备的品牌是否为 Qopo
-     */
-    public static boolean isQopo() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_QOPO);
-    }
-    
-    /**
-     * 判断当前设备的品牌是否为硕王
-     */
-    public static boolean isShuoWang() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_SHUOWANG);
-    }
-    
-    /**
-     * 判断当前设备的品牌是否为 Poxo
-     */
-    public static boolean isPoxo() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_POXO);
-    }
-    
+
+
     /**
      * 判断当前设备的品牌是否为美图
      */
@@ -554,27 +384,6 @@ public final class DeviceBrand {
         return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_MEITU);
     }
     
-    /**
-     * 判断当前设备的品牌是否为汇威
-     */
-    public static boolean isHomecare() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_HOMECARE);
-    }
-    
-    /**
-     * 判断当前设备的品牌是否为黑云
-     */
-    public static boolean isPccy() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_PCCY);
-    }
-    
-    /**
-     * 判断当前设备的品牌是否为百合
-     */
-    public static boolean isBihee() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_BIHEE);
-    }
-
     /**
      * 获取当前设备品牌的名称
      */
