@@ -174,15 +174,15 @@ public final class DeviceOs {
     static final String OS_NAME_ONE_UI = "OneUI";
 
     /**
-     * OneUi 高版本
-     * OneUi 8.0：[ro.build.version.oneui]: [80000]
-     * OneUi 7.0： [ro.build.version.oneui]: [70000]
-     * OneUi 6.1：[ro.build.version.oneui]: [60101]
-     * OneUi 5.1.1：[ro.build.version.oneui]: [50101]
+     * OneUI 高版本
+     * OneUI 8.0：[ro.build.version.oneui]: [80000]
+     * OneUI 7.0： [ro.build.version.oneui]: [70000]
+     * OneUI 6.1：[ro.build.version.oneui]: [60101]
+     * OneUI 5.1.1：[ro.build.version.oneui]: [50101]
      */
     static final String OS_VERSION_NAME_ONE_UI_NEW = "ro.build.version.oneui";
     /**
-     * OneUi 低版本：https://github.com/the-ntf/xspstarterkit/blob/7d6fcce101edd35a5fe3c6df99c894f9570023a1/extlib/com.ibm.xsp.extlib.core/src/com/ibm/xsp/extlib/util/ThemeUtil.java#L61
+     * OneUI 低版本：https://github.com/the-ntf/xspstarterkit/blob/7d6fcce101edd35a5fe3c6df99c894f9570023a1/extlib/com.ibm.xsp.extlib.core/src/com/ibm/xsp/extlib/util/ThemeUtil.java#L61
      * [extlib.oneui.Version]: [oneuiv2]
      * [extlib.oneui.Version]: [oneuiv2.1]
      * [extlib.oneui.Version]: [oneuiv3]
@@ -391,7 +391,7 @@ public final class DeviceOs {
             if (!TextUtils.isEmpty(oneUiVersion)) {
                 sCurrentOsName = OS_NAME_ONE_UI;
                 try {
-                    // OneUi 5.1.1 获取到的值是 50101 再经过一通计算得出 5.1.1
+                    // OneUI 5.1.1 获取到的值是 50101 再经过一通计算得出 5.1.1
                     int oneUiVersionCode = Integer.parseInt(oneUiVersion);
                     sCurrentOriginalOsVersionName = getOneUiVersionNameByVersionCode(oneUiVersionCode);
                 } catch (Exception e) {
@@ -415,8 +415,9 @@ public final class DeviceOs {
                 int superfluousValue = 90000;
                 if (semPlatformVersion >= superfluousValue) {
                     // https://stackoverflow.com/questions/60122037/how-can-i-detect-samsung-one-ui
-                    // OneUi 7.0 获取到的值是 160000，160000 - 90000 = 70000，70000 再经过一通计算得出 7.0 的版本号
-                    // OneUi 5.1.1 获取到的值是 140500，无法通过计算得出 5.1.1 的版本号，所以这种方法不是最佳的答案
+                    // OneUI 7.0 获取到的值是 160000，160000 - 90000 = 70000，70000 再经过一通计算得出 7.0 的版本号
+                    // OneUI 5.1.1 获取到的值是 140500，无法通过计算得出 5.1.1 的版本号，所以这种方法不是最佳的答案
+                    // OneUI 2.5 获取到的值是 110500，110500 - 90000 = 25000，20500 再经过一通计算得出 2.5 的版本号
                     int oneUiVersionCode = semPlatformVersion - superfluousValue;
                     sCurrentOriginalOsVersionName = getOneUiVersionNameByVersionCode(oneUiVersionCode);
                 } else {
@@ -797,23 +798,23 @@ public final class DeviceOs {
     }
 
     /**
-     * 根据 OneUi 的版本号计算出来 OneUi 的版本号
+     * 根据 OneUI 的版本号计算出来 OneUI 的版本号
      */
     @NonNull
     private static String getOneUiVersionNameByVersionCode(int oneUiVersionCode) {
-        // OneUi 8.0：[ro.build.version.oneui]: [80000]
-        // OneUi 7.0：[ro.build.version.oneui]: [70000]
-        // OneUi 6.1：[ro.build.version.oneui]: [60101]
-        // OneUi 5.1.1：[ro.build.version.oneui]: [50101]
+        // OneUI 8.0：[ro.build.version.oneui]: [80000]
+        // OneUI 7.0：[ro.build.version.oneui]: [70000]
+        // OneUI 6.1：[ro.build.version.oneui]: [60101]
+        // OneUI 5.1.1：[ro.build.version.oneui]: [50101]
         int oneVersion = oneUiVersionCode / 10000;
         int twoVersion = oneUiVersionCode % 10000;
         int threeVersion = oneUiVersionCode % 100;
         if (threeVersion > 0) {
-            // OneUi 5.1.1 的版本号是 50101，计算出来的结果是 5.1.1
-            // OneUi 6.1 的版本号是 60101，计算出来的结果是 6.1.1，虽然不太准但也是没有办法
+            // OneUI 5.1.1 的版本号是 50101，计算出来的结果是 5.1.1
+            // OneUI 6.1 的版本号是 60101，计算出来的结果是 6.1.1，虽然不太准但也是没有办法
             return oneVersion + "." + (twoVersion / 100) + "." + threeVersion;
         } else {
-            // OneUi 8.0 的版本号是 80000，计算出来的结果是 8.0
+            // OneUI 8.0 的版本号是 80000，计算出来的结果是 8.0
             return oneVersion + "." + (twoVersion / 100);
         }
     }
