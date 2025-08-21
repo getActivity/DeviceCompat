@@ -373,11 +373,8 @@ public final class DeviceOs {
                     sCurrentOsName = OS_NAME_HARMONY_OS;
                     sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_HARMONY_OS);
                 }
-            } catch (ClassNotFoundException ignore) {
-                // 如果是类找不到的问题，就不打印日志，否则会影响看 Logcat 的体验
-                // 相关 Github issue 地址：https://github.com/getActivity/XXPermissions/issues/368
-            } catch (Throwable throwable) {
-                throwable.printStackTrace();
+            } catch (Exception ignore) {
+                // default implementation ignored
             }
         }
 
@@ -426,7 +423,6 @@ public final class DeviceOs {
                     sCurrentOriginalOsVersionName = String.valueOf(semPlatformVersion);
                 }
             } catch (Exception ignore) {
-                // 走到这里来证明不是三星手机
                 // default implementation ignored
             }
         }
