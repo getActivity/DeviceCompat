@@ -108,10 +108,10 @@ DeviceOs.isEmui();
 // 判断当前设备的厂商系统是否为 OneUI（三星系统）
 DeviceOs.isOneUi();
 
-// 判断当前设备的厂商系统是否为 OxygenOS（一加的老系统）
+// 判断当前设备的厂商系统是否为 OxygenOS（一加的老系统，相当于 H2OS 的海外版）
 DeviceOs.isOxygenOs();
 
-// 判断当前设备的厂商系统是否为 H2OS（一加的老系统）
+// 判断当前设备的厂商系统是否为 H2OS（一加的老系统，相当于 OxygenOS 的国内版）
 DeviceOs.isH2Os();
 
 // 判断当前设备的厂商系统是否为 Flyme（魅族系统）

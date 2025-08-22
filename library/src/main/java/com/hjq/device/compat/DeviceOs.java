@@ -66,7 +66,7 @@ public final class DeviceOs {
     /**
      * [ro.build.version.incremental]: [V9.6.1.0.MHOCNFD]
      * [ro.build.description]: [kenzo-user 6.0.1 MMB29M V9.6.1.0.MHOCNFD release-keys]
-     * [ro.build.fingerprint]:[Xiaomi/kenzo/kenzo:6.0.1/MMB29M| V9.6.1.0.MH0cNFD:user/release-keys]
+     * [ro.build.fingerprint]: [Xiaomi/kenzo/kenzo:6.0.1/MMB29M| V9.6.1.0.MH0cNFD:user/release-keys]
      * [ro.bootimage.build.fingerprint]: [Xiaomi/kenzo/kenzo:6.0.1/MMB29M/ V9.6.1.0.MHOCNFD:user/release-keys]
      */
     static final String OS_VERSION_NAME_MIUI = SYSTEM_PROPERTY_BUILD_VERSION_INCREMENTAL;
@@ -267,11 +267,11 @@ public final class DeviceOs {
     /**
      * [ro.letv.release.version_date]: [5.8.001D_09093]
      * [ro.product.letv_model]: [Le X620]
-     * [ro.product.letv_name]：[乐2]
+     * [ro.product.letv_name]: [乐2]
      * [sys.letv.fmodelaid]: [10120]
      * [persist.sys.leui.bootreason]: [0]
      * [ro.config.leui_ringtone_slot2]: [Default.ogg]
-     * [ro.leui_oem_unlock_enable]:[1]
+     * [ro.leui_oem_unlock_enable]: [1]
      */
     static final String[] OS_CONDITIONS_EUI_OS = { OS_VERSION_NAME_EUI_OS,
                                                    "ro.letv.release.version_date",
@@ -305,7 +305,7 @@ public final class DeviceOs {
 
     static final String OS_NAME_360_UI = "360UI";
     /**
-     * Android 8.0：[ro.build.uiversion]:[360UI:V3.0]
+     * Android 8.0：[ro.build.uiversion]: [360UI:V3.0]
      */
     static final String OS_VERSION_NAME_360_UI = "ro.build.uiversion";
 
@@ -668,14 +668,14 @@ public final class DeviceOs {
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 OxygenOS（一加的老系统）
+     * 判断当前设备的厂商系统是否为 OxygenOS（一加的老系统，相当于 H2OS 的海外版）
      */
     public static boolean isOxygenOs() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_OXYGEN_OS);
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 H2OS（一加的老系统）
+     * 判断当前设备的厂商系统是否为 H2OS（一加的老系统，相当于 OxygenOS 的国内版）
      */
     public static boolean isH2Os() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_H2_OS);
