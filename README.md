@@ -96,13 +96,13 @@ DeviceOs.isOriginOs();
 // 判断当前设备的厂商系统是否为 FuntouchOS（VIVO 的老系统）
 DeviceOs.isFuntouchOs();
 
-// 判断当前设备的厂商系统是否为 MagicOS（荣耀系统）
+// 判断当前设备的厂商系统是否为 MagicOS 或者 MagicUI（荣耀系统）
 DeviceOs.isMagicOs();
 
 // 判断当前设备的厂商系统是否为 HarmonyOS（华为鸿蒙的系统）
 DeviceOs.isHarmonyOs();      
 
-// 判断当前设备的厂商系统是否为 EMUI（华为和荣耀的老系统）
+// 判断当前设备的厂商系统是否为 EMUI 或者 EmotionUI（华为和荣耀的老系统）
 DeviceOs.isEmui();
 
 // 判断当前设备的厂商系统是否为 OneUI（三星系统）

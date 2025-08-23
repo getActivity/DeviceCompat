@@ -640,7 +640,7 @@ public final class DeviceOs {
     }
 
     /**
-     * 判断当前是否为 MagicOs（荣耀手机的系统）
+     * 判断当前是否为 MagicOs 或者 MagicUI（荣耀手机的系统）
      */
     public static boolean isMagicOs() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_MAGIC_OS);
@@ -654,7 +654,7 @@ public final class DeviceOs {
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 EMUI（华为的老系统）
+     * 判断当前设备的厂商系统是否为 EMUI 或者 EmotionUI（华为的老系统）
      */
     public static boolean isEmui() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_EMUI);
