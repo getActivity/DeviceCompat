@@ -282,13 +282,13 @@ public final class DeviceOs {
                                                    "ro.config.leui_ringtone_slot2",
                                                    "ro.leui_oem_unlock_enable" };
 
-    /* ---------------------------------------- 下面是摩托罗拉的系统 ---------------------------------------- */
+    /* ---------------------------------------- 下面是联想的系统 ---------------------------------------- */
 
     static final String OS_NAME_ZUI_OS = "ZUI";
     /**
      * [ro.com.zui.version]: [3.5]
      */
-    static final String OS_VERSION_NAME_ZUI_OS = "ro.letv.release.version";
+    static final String OS_VERSION_NAME_ZUI_OS = "ro.com.zui.version";
     /**
      * [ro.zui.version.status]: [ST]
      * [ro.zui.hardware.displayid]: [H201]
@@ -744,7 +744,7 @@ public final class DeviceOs {
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 ZUI（摩托罗拉的系统）
+     * 判断当前设备的厂商系统是否为 ZUI（联想的系统）
      */
     public static boolean isZui() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_ZUI_OS);

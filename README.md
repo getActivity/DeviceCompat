@@ -129,7 +129,7 @@ DeviceOs.isSmartisanOs();
 // 判断当前设备的厂商系统是否为 EUI（乐视的系统）
 DeviceOs.isEui();
 
-// 判断当前设备的厂商系统是否为 ZUI（摩托罗拉的系统）
+// 判断当前设备的厂商系统是否为 ZUI（联想的系统）
 DeviceOs.isZui();
 
 // 判断当前设备的厂商系统是否为 nubiaUI（努比亚的老系统）
