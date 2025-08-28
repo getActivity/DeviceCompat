@@ -301,6 +301,25 @@ public final class DeviceOs {
                                                     "persist.radio.zui.feature",
                                                     "ro.config.zuisdk.enabled" };
 
+    /* ---------------------------------------- 下面是努比亚的老系统 ---------------------------------------- */
+
+    static final String OS_NAME_NUBIA_UI = "nubiaUI";
+    /**
+     * [ro.build.nubia.rom.code]: [V1.6]
+     * [ro.build.nubia.rom.code]: [V2.0]
+     * [ro.build.nubia.rom.code]: [V3.0]
+     * [ro.build.nubia.rom.code]: [V3.7]
+     * [ro.build.nubia.rom.code]: [V4.0]
+     * [ro.build.nubia.rom.code]: [V6.0]
+     */
+    static final String OS_VERSION_NAME_NUBIA_UI = "ro.build.nubia.rom.code";
+
+    /**
+     * [ro.build.nubia.rom.name]: [nubiaUI]
+     */
+    static final String[] OS_CONDITIONS_NUBIA_UI = { "ro.build.nubia.rom.name",
+                                                     OS_VERSION_NAME_NUBIA_UI };
+
     /* ---------------------------------------- 下面是 360 的系统 ---------------------------------------- */
 
     static final String OS_NAME_360_UI = "360UI";
@@ -471,6 +490,14 @@ public final class DeviceOs {
         if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_ZUI_OS)) {
             sCurrentOsName = OS_NAME_ZUI_OS;
             sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_ZUI_OS);
+        }
+
+        if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_NUBIA_UI)) {
+            sCurrentOsName = OS_NAME_NUBIA_UI;
+            String nubiaUiVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_NUBIA_UI);
+            if (!TextUtils.isEmpty(nubiaUiVersion)) {
+                sCurrentOriginalOsVersionName = nubiaUiVersion;
+            }
         }
 
         if (sCurrentOsName == null) {
@@ -721,6 +748,13 @@ public final class DeviceOs {
      */
     public static boolean isZui() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_ZUI_OS);
+    }
+
+    /**
+     * 判断当前设备的厂商系统是否为 nubiaUI（努比亚的老系统）
+     */
+    public static boolean isNubiaUi() {
+        return TextUtils.equals(sCurrentOsName, OS_NAME_NUBIA_UI);
     }
 
     /**

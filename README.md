@@ -132,6 +132,9 @@ DeviceOs.isEui();
 // 判断当前设备的厂商系统是否为 ZUI（摩托罗拉的系统）
 DeviceOs.isZui();
 
+// 判断当前设备的厂商系统是否为 nubiaUI（努比亚的老系统）
+DeviceOs.isNubiaUi();
+
 // 判断当前设备的厂商系统是否为 360UI（360 系统）
 DeviceOs.is360Ui();
 
