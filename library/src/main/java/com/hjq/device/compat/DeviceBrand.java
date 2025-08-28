@@ -101,6 +101,9 @@ public final class DeviceBrand {
     
     private static final String BRAND_NAME_MEITU = "Meitu";
     private static final String[] BRAND_ID_MEITU = { "Meitu" };
+
+    private static final String BRAND_NAME_NOKIA = "Nokia";
+    private static final String[] BRAND_ID_NOKIA = { "Nokia" };
     
     @NonNull
     private static final String CURRENT_BRAND_NAME;
@@ -169,6 +172,8 @@ public final class DeviceBrand {
             CURRENT_BRAND_NAME = BRAND_NAME_KTOUCH;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_MEITU)) {
             CURRENT_BRAND_NAME = BRAND_NAME_MEITU;
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_NOKIA)) {
+            CURRENT_BRAND_NAME = BRAND_NAME_NOKIA;
         } else {
             if (!TextUtils.isEmpty(brand)) {
                 CURRENT_BRAND_NAME = brand;
@@ -382,6 +387,13 @@ public final class DeviceBrand {
      */
     public static boolean isMeiTu() {
         return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_MEITU);
+    }
+
+    /**
+     * 判断当前设备的品牌是否为诺基亚
+     */
+    public static boolean isNokia() {
+        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_NOKIA);
     }
     
     /**

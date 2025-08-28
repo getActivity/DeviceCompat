@@ -238,6 +238,9 @@ DeviceBrand.isKTouch();
 // 判断当前设备的品牌是否为美图
 DeviceBrand.isMeiTu();
 
+// 判断当前设备的品牌是否为诺基亚
+DeviceBrand.isNokia();
+
 // 获取当前设备的品牌名称
 DeviceBrand.getBrandName();
 ```
