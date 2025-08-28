@@ -21,6 +21,9 @@ public final class DeviceBrand {
     private static final String BRAND_NAME_XIAOMI = "XiaoMi";
     private static final String[] BRAND_ID_XIAOMI = { "xiaomi" };
 
+    private static final String BRAND_NAME_REDMI = "Redmi";
+    private static final String[] BRAND_ID_REDMI = { "Redmi" };
+
     private static final String BRAND_NAME_OPPO = "Oppo";
     private static final String[] BRAND_ID_OPPO = { "oppo" };
 
@@ -118,6 +121,8 @@ public final class DeviceBrand {
             CURRENT_BRAND_NAME = BRAND_NAME_VIVO;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_XIAOMI)) {
             CURRENT_BRAND_NAME = BRAND_NAME_XIAOMI;
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_REDMI)) {
+            CURRENT_BRAND_NAME = BRAND_NAME_REDMI;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_OPPO)) {
             CURRENT_BRAND_NAME = BRAND_NAME_OPPO;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_REALME)) {
@@ -211,6 +216,13 @@ public final class DeviceBrand {
      */
     public static boolean isXiaoMi() {
         return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_XIAOMI);
+    }
+
+    /**
+     * 判断当前设备的品牌是否为红米
+     */
+    public static boolean isRedMi() {
+        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_REDMI);
     }
 
     /**

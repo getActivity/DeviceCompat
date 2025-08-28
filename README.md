@@ -163,6 +163,9 @@ DeviceBrand.isVivo();
 // 判断当前设备的品牌是否为小米
 DeviceBrand.isXiaoMi();
 
+// 判断当前设备的品牌是否为红米
+DeviceBrand.isRedMi();
+
 // 判断当前设备的品牌是否为 OPPO
 DeviceBrand.isOppo();
 
