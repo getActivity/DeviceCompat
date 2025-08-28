@@ -13,100 +13,100 @@ import android.text.TextUtils;
 public final class DeviceBrand {
 
     private static final String BRAND_NAME_HUAWEI = "HuaWei";
-    private static final String[] BRAND_ID_HUAWEI = { "huawei" };
+    private static final String[] BRAND_ID_LOWER_CASE_HUAWEI = { "huawei" };
 
     private static final String BRAND_NAME_VIVO = "Vivo";
-    private static final String[] BRAND_ID_VIVO = { "vivo" };
+    private static final String[] BRAND_ID_LOWER_CASE_VIVO = { "vivo" };
 
     private static final String BRAND_NAME_XIAOMI = "XiaoMi";
-    private static final String[] BRAND_ID_XIAOMI = { "xiaomi" };
+    private static final String[] BRAND_ID_LOWER_CASE_XIAOMI = { "xiaomi" };
 
-    private static final String BRAND_NAME_REDMI = "Redmi";
-    private static final String[] BRAND_ID_REDMI = { "Redmi" };
+    private static final String BRAND_NAME_REDMI = "RedMi";
+    private static final String[] BRAND_ID_LOWER_CASE_REDMI = { "redmi" };
 
     private static final String BRAND_NAME_OPPO = "Oppo";
-    private static final String[] BRAND_ID_OPPO = { "oppo" };
+    private static final String[] BRAND_ID_LOWER_CASE_OPPO = { "oppo" };
 
     private static final String BRAND_NAME_REALME = "RealMe";
-    private static final String[] BRAND_ID_REALME = { "realme" };
+    private static final String[] BRAND_ID_LOWER_CASE_REALME = { "realme" };
 
     private static final String BRAND_NAME_LEECO  = "LeEco";
-    private static final String[] BRAND_ID_LEECO  = { "leeco", "letv" };
+    private static final String[] BRAND_ID_LOWER_CASE_LEECO = { "leeco", "letv" };
 
     private static final String BRAND_NAME_360 = "360";
-    private static final String[] BRAND_ID_360 = { "360", "qiku" };
+    private static final String[] BRAND_ID_LOWER_CASE_360 = { "360", "qiku" };
 
     private static final String BRAND_NAME_ZTE = "ZTE";
-    private static final String[] BRAND_ID_ZTE = { "zte" };
+    private static final String[] BRAND_ID_LOWER_CASE_ZTE = { "zte" };
 
     private static final String BRAND_NAME_ONEPLUS = "OnePlus";
-    private static final String[] BRAND_ID_ONEPLUS = { "oneplus" };
+    private static final String[] BRAND_ID_LOWER_CASE_ONEPLUS = { "oneplus" };
 
     private static final String BRAND_NAME_NUBIA = "Nubia";
-    private static final String[] BRAND_ID_NUBIA = { "nubia" };
+    private static final String[] BRAND_ID_LOWER_CASE_NUBIA = { "nubia" };
 
     private static final String BRAND_NAME_SAMSUNG = "Samsung";
-    private static final String[] BRAND_ID_SAMSUNG = { "samsung" };
+    private static final String[] BRAND_ID_LOWER_CASE_SAMSUNG = { "samsung" };
 
     private static final String BRAND_NAME_HONOR = "Honor";
-    private static final String[] BRAND_ID_HONOR = { "honor" };
+    private static final String[] BRAND_ID_LOWER_CASE_HONOR = { "honor" };
 
     private static final String BRAND_NAME_SMARTISAN = "Smartisan";
-    private static final String[] BRAND_ID_SMARTISAN = { "smartisan", "deltainno" };
+    private static final String[] BRAND_ID_LOWER_CASE_SMARTISAN = { "smartisan", "deltainno" };
 
     private static final String BRAND_NAME_COOLPAD = "CoolPad";
-    private static final String[] BRAND_ID_COOLPAD = { "coolpad", "yulong", "cp" };
+    private static final String[] BRAND_ID_LOWER_CASE_COOLPAD = { "coolpad", "yulong", "cp" };
 
     private static final String BRAND_NAME_LG = "LG";
-    private static final String[] BRAND_ID_LG = { "lg", "lge" };
+    private static final String[] BRAND_ID_LOWER_CASE_LG = { "lg", "lge" };
 
     private static final String BRAND_NAME_GOOGLE = "Google";
-    private static final String[] BRAND_ID_GOOGLE = { "google" };
+    private static final String[] BRAND_ID_LOWER_CASE_GOOGLE = { "google" };
 
     private static final String BRAND_NAME_MEIZU = "MeiZu";
-    private static final String[] BRAND_ID_MEIZU = { "meizu" };
+    private static final String[] BRAND_ID_LOWER_CASE_MEIZU = { "meizu" };
 
     private static final String BRAND_NAME_LENOVO = "Lenovo";
-    private static final String[] BRAND_ID_LENOVO = { "lenovo", "ZUK" };
+    private static final String[] BRAND_ID_LOWER_CASE_LENOVO = { "lenovo", "zuk" };
 
     private static final String BRAND_NAME_HTC = "HTC";
-    private static final String[] BRAND_ID_HTC = { "htc" };
+    private static final String[] BRAND_ID_LOWER_CASE_HTC = { "htc" };
 
     private static final String BRAND_NAME_SONY = "Sony";
-    private static final String[] BRAND_ID_SONY = { "sony" };
+    private static final String[] BRAND_ID_LOWER_CASE_SONY = { "sony" };
 
     private static final String BRAND_NAME_GIONEE = "Gionee";
-    private static final String[] BRAND_ID_GIONEE = { "gionee", "amigo" };
+    private static final String[] BRAND_ID_LOWER_CASE_GIONEE = { "gionee", "amigo" };
 
     private static final String BRAND_NAME_MOTOROLA = "Motorola";
-    private static final String[] BRAND_ID_MOTOROLA = { "motorola" };
+    private static final String[] BRAND_ID_LOWER_CASE_MOTOROLA = { "motorola" };
 
     private static final String BRAND_NAME_ASUS = "Asus";
-    private static final String[] BRAND_ID_ASUS = { "asus" };
+    private static final String[] BRAND_ID_LOWER_CASE_ASUS = { "asus" };
 
     private static final String BRAND_NAME_TRANSSION = "Transsion";
-    private static final String[] BRAND_ID_TRANSSION = { "INFINIX MOBILITY LIMITED", "itel", "TECNO" };
+    private static final String[] BRAND_ID_LOWER_CASE_TRANSSION = { "infinix mobility limited", "itel", "tecno" };
 
     private static final String BRAND_NAME_DOOV = "DOOV";
-    private static final String[] BRAND_ID_DOOV = { "DOOV" };
+    private static final String[] BRAND_ID_LOWER_CASE_DOOV = { "DOOV" };
 
     private static final String BRAND_NAME_PHILIPS = "Philips";
-    private static final String[] BRAND_ID_PHILIPS = { "Philips" };
+    private static final String[] BRAND_ID_LOWER_CASE_PHILIPS = { "philips" };
     
     private static final String BRAND_NAME_BLACKSHARK = "BlackShark";
-    private static final String[] BRAND_ID_BLACKSHARK = { "blackshark" };
+    private static final String[] BRAND_ID_LOWER_CASE_BLACKSHARK = { "blackshark" };
     
     private static final String BRAND_NAME_HISENSE = "Hisense";
-    private static final String[] BRAND_ID_HISENSE = { "Hisense" };
+    private static final String[] BRAND_ID_LOWER_CASE_HISENSE = { "hisense" };
     
     private static final String BRAND_NAME_KTOUCH = "K-Touch";
-    private static final String[] BRAND_ID_KTOUCH = { "K-Touch", "KTOUCH" };
+    private static final String[] BRAND_ID_LOWER_CASE_KTOUCH = { "k-touch", "ktouch" };
     
-    private static final String BRAND_NAME_MEITU = "Meitu";
-    private static final String[] BRAND_ID_MEITU = { "Meitu" };
+    private static final String BRAND_NAME_MEITU = "MeiTu";
+    private static final String[] BRAND_ID_LOWER_CASE_MEITU = { "meitu" };
 
     private static final String BRAND_NAME_NOKIA = "Nokia";
-    private static final String[] BRAND_ID_NOKIA = { "Nokia" };
+    private static final String[] BRAND_ID_LOWER_CASE_NOKIA = { "nokia" };
     
     @NonNull
     private static final String CURRENT_BRAND_NAME;
@@ -115,69 +115,69 @@ public final class DeviceBrand {
         String brand = Build.BRAND.toLowerCase();
         String manufacturer = Build.MANUFACTURER.toLowerCase();
 
-        if (compareBrand(brand, manufacturer, BRAND_ID_HUAWEI)) {
+        if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_HUAWEI)) {
             CURRENT_BRAND_NAME = BRAND_NAME_HUAWEI;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_VIVO)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_VIVO)) {
             CURRENT_BRAND_NAME = BRAND_NAME_VIVO;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_XIAOMI)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_XIAOMI)) {
             CURRENT_BRAND_NAME = BRAND_NAME_XIAOMI;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_REDMI)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_REDMI)) {
             CURRENT_BRAND_NAME = BRAND_NAME_REDMI;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_OPPO)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_OPPO)) {
             CURRENT_BRAND_NAME = BRAND_NAME_OPPO;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_REALME)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_REALME)) {
             CURRENT_BRAND_NAME = BRAND_NAME_REALME;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LEECO)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_LEECO)) {
             CURRENT_BRAND_NAME = BRAND_NAME_LEECO;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_360)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_360)) {
             CURRENT_BRAND_NAME = BRAND_NAME_360;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_ZTE)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_ZTE)) {
             CURRENT_BRAND_NAME = BRAND_NAME_ZTE;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_ONEPLUS)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_ONEPLUS)) {
             CURRENT_BRAND_NAME = BRAND_NAME_ONEPLUS;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_NUBIA)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_NUBIA)) {
             CURRENT_BRAND_NAME = BRAND_NAME_NUBIA;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_SAMSUNG)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_SAMSUNG)) {
             CURRENT_BRAND_NAME = BRAND_NAME_SAMSUNG;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_HONOR)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_HONOR)) {
             CURRENT_BRAND_NAME = BRAND_NAME_HONOR;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_SMARTISAN)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_SMARTISAN)) {
             CURRENT_BRAND_NAME = BRAND_NAME_SMARTISAN;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_COOLPAD)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_COOLPAD)) {
             CURRENT_BRAND_NAME = BRAND_NAME_COOLPAD;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LG)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_LG)) {
             CURRENT_BRAND_NAME = BRAND_NAME_LG;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_GOOGLE)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_GOOGLE)) {
             CURRENT_BRAND_NAME = BRAND_NAME_GOOGLE;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_MEIZU)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_MEIZU)) {
             CURRENT_BRAND_NAME = BRAND_NAME_MEIZU;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LENOVO)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_LENOVO)) {
             CURRENT_BRAND_NAME = BRAND_NAME_LENOVO;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_HTC)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_HTC)) {
             CURRENT_BRAND_NAME = BRAND_NAME_HTC;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_SONY)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_SONY)) {
             CURRENT_BRAND_NAME = BRAND_NAME_SONY;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_GIONEE)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_GIONEE)) {
             CURRENT_BRAND_NAME = BRAND_NAME_GIONEE;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_MOTOROLA)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_MOTOROLA)) {
             CURRENT_BRAND_NAME = BRAND_NAME_MOTOROLA;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_ASUS)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_ASUS)) {
             CURRENT_BRAND_NAME = BRAND_NAME_ASUS;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_TRANSSION)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_TRANSSION)) {
             CURRENT_BRAND_NAME = BRAND_NAME_TRANSSION;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_DOOV)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_DOOV)) {
             CURRENT_BRAND_NAME = BRAND_NAME_DOOV;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_PHILIPS)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_PHILIPS)) {
             CURRENT_BRAND_NAME = BRAND_NAME_PHILIPS;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_BLACKSHARK)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_BLACKSHARK)) {
             CURRENT_BRAND_NAME = BRAND_NAME_BLACKSHARK;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_HISENSE)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_HISENSE)) {
             CURRENT_BRAND_NAME = BRAND_NAME_HISENSE;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_KTOUCH)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_KTOUCH)) {
             CURRENT_BRAND_NAME = BRAND_NAME_KTOUCH;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_MEITU)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_MEITU)) {
             CURRENT_BRAND_NAME = BRAND_NAME_MEITU;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_NOKIA)) {
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_NOKIA)) {
             CURRENT_BRAND_NAME = BRAND_NAME_NOKIA;
         } else {
             if (!TextUtils.isEmpty(brand)) {
