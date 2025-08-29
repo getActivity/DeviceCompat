@@ -282,7 +282,7 @@ public final class DeviceOs {
                                                    "ro.config.leui_ringtone_slot2",
                                                    "ro.leui_oem_unlock_enable" };
 
-    /* ---------------------------------------- 下面是联想的系统 ---------------------------------------- */
+    /* ---------------------------------------- 下面是联想、摩托罗拉的系统 ---------------------------------------- */
 
     static final String OS_NAME_ZUI_OS = "ZUI";
     /**
@@ -518,7 +518,7 @@ public final class DeviceOs {
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 HyperOS（小米或者红米手机的系统）
+     * 判断当前设备的厂商系统是否为 HyperOS（小米手机、红米手机的系统）
      */
     public static boolean isHyperOs() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_HYPER_OS);
@@ -564,7 +564,7 @@ public final class DeviceOs {
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 MIUI（小米或者红米手机的系统）
+     * 判断当前设备的厂商系统是否为 MIUI（小米手机、红米手机的老系统）
      */
     public static boolean isMiui() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_MIUI);
@@ -646,21 +646,21 @@ public final class DeviceOs {
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 ColorOS（ OPPO 手机的系统））
+     * 判断当前设备的厂商系统是否为 ColorOS（ OPPO、一加手机的系统）
      */
     public static boolean isColorOs() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_COLOR_OS);
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 OriginOS（ VIVO 手机的系统）
+     * 判断当前设备的厂商系统是否为 OriginOS（ vivo 手机的系统）
      */
     public static boolean isOriginOs() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_ORIGIN_OS);
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 FuntouchOS（（vivo 手机的老系统））
+     * 判断当前设备的厂商系统是否为 FuntouchOS（vivo 手机的老系统）
      */
     public static boolean isFuntouchOs() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_FUNTOUCH_OS);
@@ -674,91 +674,91 @@ public final class DeviceOs {
     }
 
     /**
-     * 判断当前是否为鸿蒙系统（华为的系统）
+     * 判断当前设备的厂商系统是否为 HarmonyOS（华为手机、荣耀手机的系统）
      */
     public static boolean isHarmonyOs() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_HARMONY_OS);
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 EMUI 或者 EmotionUI（华为的老系统）
+     * 判断当前设备的厂商系统是否为 EMUI 或者 EmotionUI（华为手机、荣耀手机的老系统）
      */
     public static boolean isEmui() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_EMUI);
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 OneUI（三星的系统）
+     * 判断当前设备的厂商系统是否为 OneUI（三星手机的系统）
      */
     public static boolean isOneUi() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_ONE_UI);
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 OxygenOS（一加的老系统，相当于 H2OS 的海外版）
+     * 判断当前设备的厂商系统是否为 OxygenOS（一加手机的老系统，相当于 H2OS 的海外版）
      */
     public static boolean isOxygenOs() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_OXYGEN_OS);
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 H2OS（一加的老系统，相当于 OxygenOS 的国内版）
+     * 判断当前设备的厂商系统是否为 H2OS（一加手机的老系统，相当于 OxygenOS 的国内版）
      */
     public static boolean isH2Os() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_H2_OS);
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 Flyme（魅族的系统）
+     * 判断当前设备的厂商系统是否为 Flyme（魅族手机的系统）
      */
     public static boolean isFlyme() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_FLYME);
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 MyOS（中兴或者努比亚的系统）
+     * 判断当前设备的厂商系统是否为 MyOS（中兴手机、努比亚手机的系统）
      */
     public static boolean isMyOs() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_MY_OS);
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 MifavorUI（中兴的老系统）
+     * 判断当前设备的厂商系统是否为 MifavorUI（中兴手机的老系统）
      */
     public static boolean isMifavorUi() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_MIFAVOR_UI);
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 SmartisanOS（锤子的系统）
+     * 判断当前设备的厂商系统是否为 SmartisanOS（锤子手机的系统）
      */
     public static boolean isSmartisanOs() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_SMARTISAN_OS);
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 EUI（乐视的系统）
+     * 判断当前设备的厂商系统是否为 EUI（乐视手机的系统）
      */
     public static boolean isEui() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_EUI_OS);
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 ZUI（联想的系统）
+     * 判断当前设备的厂商系统是否为 ZUI（联想手机、摩托罗拉手机的系统）
      */
     public static boolean isZui() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_ZUI_OS);
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 nubiaUI（努比亚的老系统）
+     * 判断当前设备的厂商系统是否为 nubiaUI（努比亚手机的老系统）
      */
     public static boolean isNubiaUi() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_NUBIA_UI);
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 360UI（360 的系统）
+     * 判断当前设备的厂商系统是否为 360UI（360 手机的系统）
      */
     public static boolean is360Ui() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_360_UI);

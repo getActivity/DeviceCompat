@@ -66,7 +66,7 @@ dependencies {
 * 判断系统类型
 
 ```java
-// 判断当前设备的厂商系统是否为 HyperOS（小米新系统）
+// 判断当前设备的厂商系统是否为 HyperOS（小米手机、红米手机的系统）
 DeviceOs.isHyperOs();
 // 判断当前设备的厂商系统是否为国内版本的 HyperOS
 DeviceOs.isHyperOsByChina();
@@ -75,7 +75,7 @@ DeviceOs.isHyperOsByGlobal();
 // 判断当前设备的厂商系统开启了 HyperOS 的系统优化选项
 DeviceOs.isHyperOsOptimization();
 
-// 判断当前设备的厂商系统是否为 MIUI（小米老系统）
+// 判断当前设备的厂商系统是否为 MIUI（小米手机、红米手机的老系统）
 DeviceOs.isMiui();
 // 判断当前设备的厂商系统是否为国内版本的 MIUI
 DeviceOs.isMiuiByChina();
@@ -84,58 +84,58 @@ DeviceOs.isMiuiByGlobal();
 // 判断当前设备的厂商系统是否开启了 MIUI 优化选项
 DeviceOs.isMiuiOptimization();
 
-// 判断当前设备的厂商系统是否为 RealmeUI（真我系统）
+// 判断当前设备的厂商系统是否为 RealmeUI（真我手机的系统）
 DeviceOs.isRealmeUi();
 
-// 判断当前设备的厂商系统是否为 ColorOS（OPPO 系统）
+// 判断当前设备的厂商系统是否为 ColorOS（OPPO 手机、一加手机的系统）
 DeviceOs.isColorOs();
 
-// 判断当前设备的厂商系统是否为 OriginOS（VIVO 系统）
+// 判断当前设备的厂商系统是否为 OriginOS（vivo 手机的系统）
 DeviceOs.isOriginOs();
 
-// 判断当前设备的厂商系统是否为 FuntouchOS（VIVO 的老系统）
+// 判断当前设备的厂商系统是否为 FuntouchOS（vivo 手机的老系统）
 DeviceOs.isFuntouchOs();
 
-// 判断当前设备的厂商系统是否为 MagicOS 或者 MagicUI（荣耀系统）
+// 判断当前设备的厂商系统是否为 MagicOS 或者 MagicUI（荣耀手机的系统）
 DeviceOs.isMagicOs();
 
-// 判断当前设备的厂商系统是否为 HarmonyOS（华为鸿蒙的系统）
+// 判断当前设备的厂商系统是否为 HarmonyOS（华为手机、荣耀手机的系统）
 DeviceOs.isHarmonyOs();      
 
-// 判断当前设备的厂商系统是否为 EMUI 或者 EmotionUI（华为和荣耀的老系统）
+// 判断当前设备的厂商系统是否为 EMUI 或者 EmotionUI（华为手机、荣耀手机的老系统）
 DeviceOs.isEmui();
 
-// 判断当前设备的厂商系统是否为 OneUI（三星系统）
+// 判断当前设备的厂商系统是否为 OneUI（三星手机的系统）
 DeviceOs.isOneUi();
 
-// 判断当前设备的厂商系统是否为 OxygenOS（一加的老系统，相当于 H2OS 的海外版）
+// 判断当前设备的厂商系统是否为 OxygenOS（一加手机的老系统，相当于 H2OS 的海外版）
 DeviceOs.isOxygenOs();
 
-// 判断当前设备的厂商系统是否为 H2OS（一加的老系统，相当于 OxygenOS 的国内版）
+// 判断当前设备的厂商系统是否为 H2OS（一加手机的老系统，相当于 OxygenOS 的国内版）
 DeviceOs.isH2Os();
 
-// 判断当前设备的厂商系统是否为 Flyme（魅族系统）
+// 判断当前设备的厂商系统是否为 Flyme（魅族手机的系统）
 DeviceOs.isFlyme();
 
-// 判断当前设备的厂商系统是否为 MyOS（中兴或者努比亚的系统）
+// 判断当前设备的厂商系统是否为 MyOS（中兴手机、努比亚手机的系统）
 DeviceOs.isMyOs();
 
-// 判断当前设备的厂商系统是否为 MifavorUI（中兴老系统）
+// 判断当前设备的厂商系统是否为 MifavorUI（中兴手机的老系统）
 DeviceOs.isMifavorUi();
 
-// 判断当前设备的厂商系统是否为 SmartisanOS（锤子系统）
+// 判断当前设备的厂商系统是否为 SmartisanOS（锤子手机的系统）
 DeviceOs.isSmartisanOs();
 
-// 判断当前设备的厂商系统是否为 EUI（乐视的系统）
+// 判断当前设备的厂商系统是否为 EUI（乐视手机的系统）
 DeviceOs.isEui();
 
-// 判断当前设备的厂商系统是否为 ZUI（联想的系统）
+// 判断当前设备的厂商系统是否为 ZUI（联想手机、摩托罗拉手机的系统）
 DeviceOs.isZui();
 
-// 判断当前设备的厂商系统是否为 nubiaUI（努比亚的老系统）
+// 判断当前设备的厂商系统是否为 nubiaUI（努比亚手机的老系统）
 DeviceOs.isNubiaUi();
 
-// 判断当前设备的厂商系统是否为 360UI（360 系统）
+// 判断当前设备的厂商系统是否为 360UI（360 手机的系统）
 DeviceOs.is360Ui();
 
 // 获取当前设备的厂商系统名称
