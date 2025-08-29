@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="com.hjq.device.compat.demo.MainActivity">
+    tools:context=".MainActivity">
 
     <com.hjq.bar.TitleBar
         android:id="@+id/tb_main_bar"
@@ -17,7 +17,7 @@
         app:title="https://github.com/getActivity/DeviceCompat" />
 
     <TextView
-        android:id="@+id/btn_main_messages"
+        android:id="@+id/tv_main_messages"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp" />
@@ -28,6 +28,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="Go to About Device Page" />
+
+    <Button
+        android:id="@+id/btn_main_get_system_property"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Get System Property Info" />
 
     <Button
         android:id="@+id/btn_main_android_settings"
