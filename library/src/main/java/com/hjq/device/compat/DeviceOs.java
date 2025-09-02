@@ -236,17 +236,20 @@ public final class DeviceOs {
                                                    "ro.vendor.mifavor.mfvkeyguard.type",
                                                    "ro.vendor.mifavor.voicetotext" };
 
-    static final String OS_NAME_MY_OS = "MyOS";
     /**
-     * [ro.build.display.id]: [MyOS12.0.14_A2121]
+     * RedMagicOS 返回：[ro.build.display.id]: [RedMagicOS10.0.12]
+     * MyOS 返回：[ro.build.display.id]: [MyOS12.0.14_A2121]
+     * MifavorUI 返回：注意不能用 ro.build.display.id 获取，获取到的与实际不符合，获取到的值为：[ro.build.display.id]: [ZTE_A2021_PROV1.0.2B05]
      */
-    static final String OS_VERSION_NAME_MY_OS = SYSTEM_PROPERTY_BUILD_DISPLAY_ID;
+    static final String OS_VERSION_NAME_ZTE_OS = SYSTEM_PROPERTY_BUILD_DISPLAY_ID;
+
+    static final String OS_NAME_RED_MAGIC_OS = "RedMagicOS";
+
+    static final String OS_NAME_MY_OS = "MyOS";
 
     static final String OS_NAME_MIFAVOR_UI = "MifavorUI";
     /**
      * Android 10 返回：[ro.build.MiFavor_version]: [10.1]
-     *
-     * 注意不能用 ro.build.display.id 获取，获取到的与实际不符合，获取到的值为：[ro.build.display.id]: [ZTE_A2021_PROV1.0.2B05]
      */
     static final String OS_VERSION_NAME_MIFAVOR_UI = OS_VERSION_ZTE_OS;
 
@@ -467,13 +470,19 @@ public final class DeviceOs {
         }
 
         if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_ZTE_OS)) {
-            String myOsVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_MY_OS);
-            if (!TextUtils.isEmpty(myOsVersion) && myOsVersion.toLowerCase().contains("myos")) {
-                sCurrentOsName = OS_NAME_MY_OS;
-                sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_MY_OS);
-            } else {
-                sCurrentOsName = OS_NAME_MIFAVOR_UI;
-                sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_MIFAVOR_UI);
+            String osVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_ZTE_OS);
+            if (!TextUtils.isEmpty(osVersion)) {
+                String lowerCaseOsVersion = osVersion.toLowerCase();
+                if (lowerCaseOsVersion.contains("redmagicos")) {
+                    sCurrentOsName = OS_NAME_RED_MAGIC_OS;
+                    sCurrentOriginalOsVersionName = osVersion;
+                } else if (lowerCaseOsVersion.contains("myos")) {
+                    sCurrentOsName = OS_NAME_MY_OS;
+                    sCurrentOriginalOsVersionName = osVersion;
+                } else if (lowerCaseOsVersion.contains("zte")) {
+                    sCurrentOsName = OS_NAME_MIFAVOR_UI;
+                    sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_MIFAVOR_UI);
+                }
             }
         }
 
@@ -713,6 +722,13 @@ public final class DeviceOs {
      */
     public static boolean isFlyme() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_FLYME);
+    }
+
+    /**
+     * 判断当前设备的厂商系统是否为 RedMagicOS（努比亚红魔手机的系统，努比亚红魔是中兴旗下的子品牌）
+     */
+    public static boolean isRedMagicOs() {
+        return TextUtils.equals(sCurrentOsName, OS_NAME_RED_MAGIC_OS);
     }
 
     /**

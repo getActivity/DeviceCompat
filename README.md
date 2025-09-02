@@ -117,6 +117,9 @@ DeviceOs.isH2Os();
 // 判断当前设备的厂商系统是否为 Flyme（魅族手机的系统）
 DeviceOs.isFlyme();
 
+// 判断当前设备的厂商系统是否为 RedMagicOS（努比亚红魔手机的系统，努比亚红魔是中兴旗下的子品牌）
+DeviceOs.isRedMagicOs();
+
 // 判断当前设备的厂商系统是否为 MyOS（中兴手机、努比亚手机的系统）
 DeviceOs.isMyOs();
 
@@ -325,8 +328,6 @@ SystemPropertyCompat.isSystemPropertyAnyOneExist(@Nullable String[] keys);
 #### 如果您觉得我的开源库帮你节省了大量的开发时间，请扫描下方的二维码随意打赏，要是能打赏个 10.24 :monkey_face:就太:thumbsup:了。您的支持将鼓励我继续创作:octocat:（[点击查看捐赠列表](https://github.com/getActivity/Donate)）
 
 ![](https://raw.githubusercontent.com/getActivity/Donate/master/picture/pay_ali.png) ![](https://raw.githubusercontent.com/getActivity/Donate/master/picture/pay_wechat.png)
-
-## License
 
 ## License
 
