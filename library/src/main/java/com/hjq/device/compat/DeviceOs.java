@@ -549,7 +549,7 @@ public final class DeviceOs {
             String osName = SystemPropertyCompat.getSystemPropertyValue(OS_CONDITIONS_NUBIA_UI);
             if (!TextUtils.isEmpty(osName) && osName.toLowerCase().contains("nubiaui")) {
                 sCurrentOsName = OS_NAME_NUBIA_UI;
-                sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_NUBIA_UI);;
+                sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_NUBIA_UI);
             }
         }
 
