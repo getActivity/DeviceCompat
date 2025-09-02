@@ -321,6 +321,7 @@ public final class DeviceOs {
 
     static final String OS_NAME_NUBIA_UI = "nubiaUI";
     /**
+     * [ro.build.nubia.rom.code]: [V1.0]
      * [ro.build.nubia.rom.code]: [V1.6]
      * [ro.build.nubia.rom.code]: [V2.0]
      * [ro.build.nubia.rom.code]: [V3.0]
@@ -333,8 +334,7 @@ public final class DeviceOs {
     /**
      * [ro.build.nubia.rom.name]: [nubiaUI]
      */
-    static final String[] OS_CONDITIONS_NUBIA_UI = { "ro.build.nubia.rom.name",
-                                                     OS_VERSION_NAME_NUBIA_UI };
+    static final String OS_CONDITIONS_NUBIA_UI = "ro.build.nubia.rom.name";
 
     /* ---------------------------------------- 下面是 360 的系统 ---------------------------------------- */
 
@@ -521,11 +521,11 @@ public final class DeviceOs {
             }
         }
 
-        if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_NUBIA_UI)) {
-            sCurrentOsName = OS_NAME_NUBIA_UI;
-            String nubiaUiVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_NUBIA_UI);
-            if (!TextUtils.isEmpty(nubiaUiVersion)) {
-                sCurrentOriginalOsVersionName = nubiaUiVersion;
+        if (sCurrentOsName == null) {
+            String osName = SystemPropertyCompat.getSystemPropertyValue(OS_CONDITIONS_NUBIA_UI);
+            if (!TextUtils.isEmpty(osName) && osName.toLowerCase().contains("nubiaui")) {
+                sCurrentOsName = OS_NAME_NUBIA_UI;
+                sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_NUBIA_UI);;
             }
         }
 
