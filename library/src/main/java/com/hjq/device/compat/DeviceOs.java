@@ -441,7 +441,7 @@ public final class DeviceOs {
 
         if (sCurrentOsName == null) {
             String emuiVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_EMUI);
-            // 在 MagicUI 6.1.0 上会返回 [ro.build.version.magic]: [MagicUI_6.1.0]，这里要注意过滤掉
+            // 在 MagicUI 6.1.0 上会返回 [ro.build.version.emui]: [MagicUI_6.1.0]，这里要注意过滤掉
             if (!TextUtils.isEmpty(emuiVersion) && emuiVersion.toLowerCase().contains("emotionui")) {
                 sCurrentOsName = OS_NAME_EMUI;
                 sCurrentOriginalOsVersionName = emuiVersion;
@@ -454,7 +454,8 @@ public final class DeviceOs {
                 sCurrentOsName = OS_NAME_ONE_UI;
                 try {
                     // OneUI 5.1.1 获取到的值是 50101 再经过一通计算得出 5.1.1
-                    int oneUiVersionCode = Integer.parseInt(oneUiVersion);
+                    int oneUiVersionCode;
+                    oneUiVersionCode = Integer.parseInt(oneUiVersion);
                     sCurrentOriginalOsVersionName = getOneUiVersionNameByVersionCode(oneUiVersionCode);
                 } catch (Exception e) {
                     sCurrentOriginalOsVersionName = oneUiVersion;
