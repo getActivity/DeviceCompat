@@ -104,8 +104,14 @@ public final class DeviceOs {
      */
     static final String OS_VERSION_NAME_REALME_UI = "ro.build.version.realmeui";
 
+    /**
+     * [ro.build.version.oplusrom]: [V13.1.0]
+     * [ro.build.version.oplusrom.confidential]: [V13.1.0]
+     * [ro.build.version.oplusrom.display]: [13.1]
+     */
     static final String OS_NAME_COLOR_OS = "ColorOS";
     static final String[] OS_VERSION_NAME_COLOR_OS = { "ro.build.version.opporom",
+                                                       "ro.build.version.oplusrom.confidential",
                                                        "ro.build.version.oplusrom.display" };
 
     /* ---------------------------------------- 下面是 VIVO 的系统 ---------------------------------------- */
