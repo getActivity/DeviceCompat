@@ -218,11 +218,24 @@ public final class DeviceOs {
 
     static final String OS_NAME_FLYME = "Flyme";
     /**
-     * Android 5.1 [ro.build.display.id]: [Flyme OS 5.1.3.0A]
-     * Android 11 [ro.flyme.version.id]: [Flyme 9.3.1.0A]
+     * ro.flyme.version.id 属性：
+     * Android 5.1 返回：[ro.build.display.id]: [Flyme OS 5.1.3.0A]
+     * Android 9 返回：[ro.flyme.version.id]: [Flyme 8.1.8.0A]
+     * Android 11 返回：[ro.flyme.version.id]: [Flyme 9.3.1.0A]
+     * Android 13 返回：[ro.flyme.version.id]: [Flyme 10.5.0.1A]
+     * Android 15 返回：[ro.flyme.version.id]: [AQ3A.250129.001_]（错误）
+     *
+     * ro.build.display.id 属性：
+     * Android 9 返回：[ro.build.display.id]: [Flyme 8.1.8.0A]
+     * Android 13 返回：[ro.build.display.id]: [Flyme 10.5.0.1A]
+     * Android 15 返回：[ro.build.display.id]: [Flyme 12.1.0.0A]
+     *
+     * 结论：优先用 ro.flyme.version.id 属性获取系统版本号，获取到的值必须包含 Flyme 字眼，否则再用 ro.build.display.id 属性获取
      */
-    static final String[] OS_VERSION_NAME_FLYME = { "ro.flyme.version.id",
-                                                    SYSTEM_PROPERTY_BUILD_DISPLAY_ID };
+    static final String OS_VERSION_NAME_FLYME_1 =  "ro.flyme.version.id";
+    static final String OS_VERSION_NAME_FLYME_2 = SYSTEM_PROPERTY_BUILD_DISPLAY_ID;
+
+
     /**
      * [ro.flyme.published]: [true]
      * [ro.flyme.version.id]: [Flyme 9.3.1.0A]
@@ -485,7 +498,12 @@ public final class DeviceOs {
 
         if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_FLYME)) {
             sCurrentOsName = OS_NAME_FLYME;
-            sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_FLYME);
+            String flymeVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_FLYME_1);
+            if (!TextUtils.isEmpty(flymeVersion) && flymeVersion.toLowerCase().contains("flyme")) {
+                sCurrentOriginalOsVersionName = flymeVersion;
+            } else {
+                sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_FLYME_2);
+            }
         }
 
         if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_ZTE_OS)) {
