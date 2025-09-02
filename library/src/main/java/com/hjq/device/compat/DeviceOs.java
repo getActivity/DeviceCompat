@@ -196,15 +196,7 @@ public final class DeviceOs {
      * OneUI 6.1：[ro.build.version.oneui]: [60101]
      * OneUI 5.1.1：[ro.build.version.oneui]: [50101]
      */
-    static final String OS_VERSION_NAME_ONE_UI_NEW = "ro.build.version.oneui";
-    /**
-     * OneUI 低版本：https://github.com/the-ntf/xspstarterkit/blob/7d6fcce101edd35a5fe3c6df99c894f9570023a1/extlib/com.ibm.xsp.extlib.core/src/com/ibm/xsp/extlib/util/ThemeUtil.java#L61
-     * [extlib.oneui.Version]: [oneuiv2]
-     * [extlib.oneui.Version]: [oneuiv2.1]
-     * [extlib.oneui.Version]: [oneuiv3]
-     * [extlib.oneui.Version]: [oneuiv3.0.2]
-     */
-    static final String OS_VERSION_NAME_ONE_UI_OLD = "extlib.oneui.Version";
+    static final String OS_VERSION_NAME_ONE_UI = "ro.build.version.oneui";
 
     /* ---------------------------------------- 下面是一加的系统 ---------------------------------------- */
 
@@ -439,7 +431,7 @@ public final class DeviceOs {
         }
 
         if (sCurrentOsName == null) {
-            String oneUiVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_ONE_UI_NEW);
+            String oneUiVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_ONE_UI);
             if (!TextUtils.isEmpty(oneUiVersion)) {
                 sCurrentOsName = OS_NAME_ONE_UI;
                 try {
@@ -449,34 +441,26 @@ public final class DeviceOs {
                 } catch (Exception e) {
                     sCurrentOriginalOsVersionName = oneUiVersion;
                 }
-            }
-        }
-        if (sCurrentOsName == null) {
-            String oneUiVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_ONE_UI_OLD);
-            if (!TextUtils.isEmpty(oneUiVersion)) {
-                sCurrentOsName = OS_NAME_ONE_UI;
-                sCurrentOriginalOsVersionName = oneUiVersion;
-            }
-        }
-        if (sCurrentOsName == null) {
-            try {
-                Field semPlatformIntField = Build.VERSION.class.getDeclaredField("SEM_PLATFORM_INT");
-                semPlatformIntField.setAccessible(true);
-                int semPlatformVersion = semPlatformIntField.getInt(null);
-                sCurrentOsName = OS_NAME_ONE_UI;
-                int superfluousValue = 90000;
-                if (semPlatformVersion >= superfluousValue) {
-                    // https://stackoverflow.com/questions/60122037/how-can-i-detect-samsung-one-ui
-                    // OneUI 7.0 获取到的值是 160000，160000 - 90000 = 70000，70000 再经过一通计算得出 7.0 的版本号
-                    // OneUI 5.1.1 获取到的值是 140500，无法通过计算得出 5.1.1 的版本号，所以这种方法不是最佳的答案
-                    // OneUI 2.5 获取到的值是 110500，110500 - 90000 = 25000，20500 再经过一通计算得出 2.5 的版本号
-                    int oneUiVersionCode = semPlatformVersion - superfluousValue;
-                    sCurrentOriginalOsVersionName = getOneUiVersionNameByVersionCode(oneUiVersionCode);
-                } else {
-                    sCurrentOriginalOsVersionName = String.valueOf(semPlatformVersion);
+            } else {
+                try {
+                    Field semPlatformIntField = Build.VERSION.class.getDeclaredField("SEM_PLATFORM_INT");
+                    semPlatformIntField.setAccessible(true);
+                    int semPlatformVersion = semPlatformIntField.getInt(null);
+                    sCurrentOsName = OS_NAME_ONE_UI;
+                    int superfluousValue = 90000;
+                    if (semPlatformVersion >= superfluousValue) {
+                        // https://stackoverflow.com/questions/60122037/how-can-i-detect-samsung-one-ui
+                        // OneUI 7.0 获取到的值是 160000，160000 - 90000 = 70000，70000 再经过一通计算得出 7.0 的版本号
+                        // OneUI 5.1.1 获取到的值是 140500，无法通过计算得出 5.1.1 的版本号，所以这种方法不是最佳的答案
+                        // OneUI 2.5 获取到的值是 110500，110500 - 90000 = 25000，20500 再经过一通计算得出 2.5 的版本号
+                        int oneUiVersionCode = semPlatformVersion - superfluousValue;
+                        sCurrentOriginalOsVersionName = getOneUiVersionNameByVersionCode(oneUiVersionCode);
+                    } else {
+                        sCurrentOriginalOsVersionName = String.valueOf(semPlatformVersion);
+                    }
+                } catch (Exception ignore) {
+                    // default implementation ignored
                 }
-            } catch (Exception ignore) {
-                // default implementation ignored
             }
         }
 
