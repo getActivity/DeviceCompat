@@ -201,11 +201,15 @@ public final class DeviceOs {
     /* ---------------------------------------- 下面是一加的系统 ---------------------------------------- */
 
     static final String OS_NAME_OXYGEN_OS = "OxygenOS";
+    /**
+     * [ro.oxygen.version]: [9.0.4]
+     */
     static final String OS_VERSION_NAME_OXYGEN_OS = "ro.oxygen.version";
 
     static final String OS_NAME_H2_OS = "H2OS";
     /**
      * Android 7.1.1：[ro.rom.version]: [H2OS V3.5]
+     * Android 9.0：[ro.rom.version]: [9.0.11]
      * Android 11：[ro.rom.version]: [11.1.2.2]
      */
     static final String OS_VERSION_NAME_H2_OS = "ro.rom.version";
@@ -469,12 +473,13 @@ public final class DeviceOs {
             if (!TextUtils.isEmpty(oxygenOsVersion)) {
                 sCurrentOsName = OS_NAME_OXYGEN_OS;
                 sCurrentOriginalOsVersionName = oxygenOsVersion;
-            } else {
-                String h2OsVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_H2_OS);
-                if (!TextUtils.isEmpty(h2OsVersion)) {
-                    sCurrentOsName = OS_NAME_H2_OS;
-                    sCurrentOriginalOsVersionName = h2OsVersion;
-                }
+            }
+        }
+        if (sCurrentOsName == null) {
+            String h2OsVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_H2_OS);
+            if (!TextUtils.isEmpty(h2OsVersion)) {
+                sCurrentOsName = OS_NAME_H2_OS;
+                sCurrentOriginalOsVersionName = h2OsVersion;
             }
         }
 
