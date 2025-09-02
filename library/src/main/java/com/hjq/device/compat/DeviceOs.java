@@ -429,7 +429,8 @@ public final class DeviceOs {
             try {
                 Class<?> buildExClass = Class.forName("com.huawei.system.BuildEx");
                 Object osBrand = buildExClass.getMethod("getOsBrand").invoke(buildExClass);
-                if ("Harmony".equalsIgnoreCase(String.valueOf(osBrand))) {
+                // 在 HarmonyOS 2.0、3.0 上测试，osBrand 字段的值等于 harmony，但是这里为了逻辑严谨，还是用 contains 去判断
+                if (osBrand != null && osBrand.toString().toLowerCase().contains("harmony")) {
                     sCurrentOsName = OS_NAME_HARMONY_OS;
                     sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_HARMONY_OS);
                 }
