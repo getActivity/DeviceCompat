@@ -287,22 +287,35 @@ public final class DeviceOs {
 
     /* ---------------------------------------- 下面是联想、摩托罗拉的系统 ---------------------------------------- */
 
-    static final String OS_NAME_ZUI_OS = "ZUI";
+    static final String OS_NAME_ZUX_OS = "ZUXOS";
+    /**
+     * [ro.config.lgsi.fp.incremental]: [ZUXOS_1.1.350_250418_PRC]
+     * [ro.config.lgsi.os.version]: [1.1]
+     */
+    static final String[] OS_VERSION_NAME_ZUX_OS = { "ro.config.lgsi.fp.incremental",
+                                                      "ro.config.lgsi.os.version" };
+    /**
+     * [ro.config.lgsi.os.name]: [ZUXOS]
+     */
+    static final String OS_CONDITIONS_ZUX_OS = "ro.config.lgsi.os.name";
+
+
+    static final String OS_NAME_ZUI = "ZUI";
     /**
      * [ro.com.zui.version]: [3.5]
      */
-    static final String OS_VERSION_NAME_ZUI_OS = "ro.com.zui.version";
+    static final String OS_VERSION_NAME_ZUI = "ro.com.zui.version";
     /**
      * [ro.zui.version.status]: [ST]
      * [ro.zui.hardware.displayid]: [H201]
      * [persist.radio.zui.feature]: [true]
      * [ro.config.zuisdk.enabled]: [true]
      */
-    static final String[] OS_CONDITIONS_ZUI_OS = { OS_VERSION_NAME_ZUI_OS,
-                                                    "ro.zui.version.status",
-                                                    "ro.zui.hardware.displayid",
-                                                    "persist.radio.zui.feature",
-                                                    "ro.config.zuisdk.enabled" };
+    static final String[] OS_CONDITIONS_ZUI = { OS_VERSION_NAME_ZUI,
+                                                "ro.zui.version.status",
+                                                "ro.zui.hardware.displayid",
+                                                "persist.radio.zui.feature",
+                                                "ro.config.zuisdk.enabled" };
 
     /* ---------------------------------------- 下面是努比亚的老系统 ---------------------------------------- */
 
@@ -496,9 +509,16 @@ public final class DeviceOs {
             sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_EUI_OS);
         }
 
-        if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_ZUI_OS)) {
-            sCurrentOsName = OS_NAME_ZUI_OS;
-            sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_ZUI_OS);
+        if (sCurrentOsName == null) {
+            String zuxOsName = SystemPropertyCompat.getSystemPropertyValue(OS_CONDITIONS_ZUX_OS);
+            // ZUXOS 一定要放在 ZUI 之前判断，因为 ZUXOS 是 ZUI 的另外一个分支
+            if (!TextUtils.isEmpty(zuxOsName) && zuxOsName.toLowerCase().contains("zuxos")) {
+                sCurrentOsName = OS_NAME_ZUX_OS;
+                sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_ZUX_OS);
+            } else if (SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_ZUI)) {
+                sCurrentOsName = OS_NAME_ZUI;
+                sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_ZUI);
+            }
         }
 
         if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_NUBIA_UI)) {
@@ -760,10 +780,17 @@ public final class DeviceOs {
     }
 
     /**
-     * 判断当前设备的厂商系统是否为 ZUI（联想手机、摩托罗拉手机的系统）
+     * 判断当前设备的厂商系统是否为 ZUXOS（联想手机、摩托罗拉手机的系统）
+     */
+    public static boolean isZuxOs() {
+        return TextUtils.equals(sCurrentOsName, OS_NAME_ZUX_OS);
+    }
+
+    /**
+     * 判断当前设备的厂商系统是否为 ZUI（联想手机、摩托罗拉手机的老系统）
      */
     public static boolean isZui() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_ZUI_OS);
+        return TextUtils.equals(sCurrentOsName, OS_NAME_ZUI);
     }
 
     /**

@@ -132,7 +132,10 @@ DeviceOs.isSmartisanOs();
 // 判断当前设备的厂商系统是否为 EUI（乐视手机的系统）
 DeviceOs.isEui();
 
-// 判断当前设备的厂商系统是否为 ZUI（联想手机、摩托罗拉手机的系统）
+// 判断当前设备的厂商系统是否为 ZUXOS（联想手机、摩托罗拉手机的系统）
+DeviceOs.isZuxOs();
+
+// 判断当前设备的厂商系统是否为 ZUI（联想手机、摩托罗拉手机的老系统）
 DeviceOs.isZui();
 
 // 判断当前设备的厂商系统是否为 nubiaUI（努比亚手机的老系统）
