@@ -173,6 +173,16 @@ public final class DeviceOs {
                                                          "ro.comp.hl.product_base_version" };
 
     static final String OS_NAME_EMUI = "EMUI";
+    /**
+     * [ro.build.version.emui]: [EmotionUI_8.0.0]
+     * [ro.build.version.emui]: [EmotionUI_9.1.0]
+     * [ro.build.version.emui]: [EmotionUI_9.1.1]
+     * [ro.build.version.emui]: [EmotionUI_10.1.1]
+     * [ro.build.version.emui]: [EmotionUI_11.1.0]
+     * [ro.build.version.emui]: [EmotionUI_13.0.0]
+     * [ro.build.version.emui]: [EmotionUI_14.0.0]
+     * [ro.build.version.emui]: [EmotionUI_14.2.0]
+     */
     static final String OS_VERSION_NAME_EMUI = "ro.build.version.emui";
 
     /* ---------------------------------------- 下面是三星的系统 ---------------------------------------- */
@@ -421,7 +431,8 @@ public final class DeviceOs {
 
         if (sCurrentOsName == null) {
             String emuiVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_EMUI);
-            if (!TextUtils.isEmpty(emuiVersion)) {
+            // 在 MagicUI 6.1.0 上会返回 [ro.build.version.magic]: [MagicUI_6.1.0]，这里要注意过滤掉
+            if (!TextUtils.isEmpty(emuiVersion) && emuiVersion.toLowerCase().contains("emotionui")) {
                 sCurrentOsName = OS_NAME_EMUI;
                 sCurrentOriginalOsVersionName = emuiVersion;
             }
