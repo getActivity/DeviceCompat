@@ -276,6 +276,10 @@ SystemPropertyCompat.isSystemPropertyExist(@Nullable String key);
 SystemPropertyCompat.isSystemPropertyAnyOneExist(@Nullable String[] keys);
 ```
 
+#### 需要大家协助
+
+* 这个框架一经发布深受大家的喜欢，但是很快我就遇到了瓶颈，这个瓶颈不是技术导致的，而是我手头没有那么多设备，为了 DeviceCompat 能够做得更好（判断更加精准），现在需要征集大家手机的系统属性，目前已经收集了上百个机型的系统属性，但是这远远不够，需要借助大家的力量一起完善，参与地址：[AndroidSystemPropertyCollect](https://github.com/getActivity/AndroidSystemPropertyCollect)
+
 #### 作者的其他开源项目
 
 * 安卓技术中台：[AndroidProject](https://github.com/getActivity/AndroidProject) ![](https://img.shields.io/github/stars/getActivity/AndroidProject.svg) ![](https://img.shields.io/github/forks/getActivity/AndroidProject.svg)
