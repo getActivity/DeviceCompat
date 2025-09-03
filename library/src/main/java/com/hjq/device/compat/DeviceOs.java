@@ -885,7 +885,7 @@ public final class DeviceOs {
     }
 
     /**
-     * 获取原始的厂商系统版本号
+     * 获取原始的厂商系统版本号（没有经过美化的）
      */
     @NonNull
     public static String getOriginalOsVersionName() {
@@ -895,7 +895,7 @@ public final class DeviceOs {
     /**
      * 获取厂商系统版本的大版本号
      *
-     * @return               如果获取不到则返回 0
+     * @return               如果获取不到则返回 -1
      */
     public static int getOsBigVersionCode() {
         String osVersionName = getOsVersionName();
@@ -910,7 +910,7 @@ public final class DeviceOs {
             return Integer.parseInt(array[0]);
         } catch (Exception e) {
             // java.lang.NumberFormatException: Invalid int: "0 "
-            return 0;
+            return -1;
         }
     }
 
