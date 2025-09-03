@@ -401,7 +401,7 @@ public final class DeviceOs {
 
         if (sCurrentOsName == null) {
             String realmeUiVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_REALME_UI);
-            // RealmeUI 一定要放在 ColorOS 之前判断，因为 RealmeUI 是 ColorOS 的另外一个分支
+            // realmeUI 一定要放在 ColorOS 之前判断，因为 realmeUI 是 ColorOS 的另外一个分支
             if (!TextUtils.isEmpty(realmeUiVersion)) {
                 sCurrentOsName = OS_NAME_REALME_UI;
                 sCurrentOriginalOsVersionName = realmeUiVersion;
@@ -737,7 +737,7 @@ public final class DeviceOs {
     }
 
     /**
-     * 判断当前是否为 RealmeUI（真我手机的系统）
+     * 判断当前是否为 realmeUI（真我手机的系统）
      */
     public static boolean isRealmeUi() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_REALME_UI);

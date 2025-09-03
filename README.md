@@ -88,7 +88,7 @@ DeviceOs.isMiuiByGlobal();
 // 判断当前设备的厂商系统是否开启了 MIUI 优化选项
 DeviceOs.isMiuiOptimization();
 
-// 判断当前设备的厂商系统是否为 RealmeUI（真我手机的系统）
+// 判断当前设备的厂商系统是否为 realmeUI（真我手机的系统）
 DeviceOs.isRealmeUi();
 
 // 判断当前设备的厂商系统是否为 ColorOS（OPPO 手机、一加手机的系统）
