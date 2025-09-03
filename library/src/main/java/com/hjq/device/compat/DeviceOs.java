@@ -104,7 +104,7 @@ public final class DeviceOs {
 
     /* ---------------------------------------- 下面是真我、OPPO 的系统 ---------------------------------------- */
 
-    static final String OS_NAME_REALME_UI = "RealmeUI";
+    static final String OS_NAME_REALME_UI = "realmeUI";
     /**
      * [ro.build.version.realmeui]: [V5.0]
      */
