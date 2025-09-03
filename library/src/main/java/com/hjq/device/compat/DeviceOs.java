@@ -20,6 +20,12 @@ public final class DeviceOs {
 
     /* ---------------------------------------- 我是一条华丽的分割线 ---------------------------------------- */
 
+    static final String REGEX_VERSION_NAME = "(\\d+(?:\\.\\d+)+)";
+
+    static final String REGEX_NUMBER = "\\d+";
+
+    /* ---------------------------------------- 我是一条华丽的分割线 ---------------------------------------- */
+
     static final String SYSTEM_PROPERTY_BUILD_VERSION_INCREMENTAL = "ro.build.version.incremental";
     static final String SYSTEM_PROPERTY_BUILD_DISPLAY_ID = "ro.build.display.id";
 
@@ -452,15 +458,21 @@ public final class DeviceOs {
             String oneUiVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_ONE_UI);
             if (!TextUtils.isEmpty(oneUiVersion)) {
                 sCurrentOsName = OS_NAME_ONE_UI;
-                try {
-                    // OneUI 5.1.1 获取到的值是 50101 再经过一通计算得出 5.1.1
-                    int oneUiVersionCode;
-                    oneUiVersionCode = Integer.parseInt(oneUiVersion);
-                    sCurrentOriginalOsVersionName = getOneUiVersionNameByVersionCode(oneUiVersionCode);
-                } catch (Exception e) {
+                if (oneUiVersion.matches("\\d+")) {
+                    try {
+                        // OneUI 5.1.1 获取到的值是 50101 再经过一通计算得出 5.1.1
+                        int oneUiVersionCode;
+                        oneUiVersionCode = Integer.parseInt(oneUiVersion);
+                        sCurrentOriginalOsVersionName = getOneUiVersionNameByVersionCode(oneUiVersionCode);
+                    } catch (Exception e) {
+                        // default implementation ignored
+                    }
+                } else if (oneUiVersion.matches(REGEX_VERSION_NAME)) {
                     sCurrentOriginalOsVersionName = oneUiVersion;
                 }
-            } else {
+            }
+
+            if (sCurrentOsName == null || sCurrentOriginalOsVersionName == null) {
                 try {
                     Field semPlatformIntField = Build.VERSION.class.getDeclaredField("SEM_PLATFORM_INT");
                     semPlatformIntField.setAccessible(true);
@@ -474,12 +486,14 @@ public final class DeviceOs {
                         // OneUI 2.5 获取到的值是 110500，110500 - 90000 = 25000，20500 再经过一通计算得出 2.5 的版本号
                         int oneUiVersionCode = semPlatformVersion - superfluousValue;
                         sCurrentOriginalOsVersionName = getOneUiVersionNameByVersionCode(oneUiVersionCode);
-                    } else {
-                        sCurrentOriginalOsVersionName = String.valueOf(semPlatformVersion);
                     }
                 } catch (Exception ignore) {
                     // default implementation ignored
                 }
+            }
+
+            if (sCurrentOsName != null && TextUtils.isEmpty(sCurrentOriginalOsVersionName)) {
+                sCurrentOriginalOsVersionName = "0";
             }
         }
 
@@ -850,7 +864,7 @@ public final class DeviceOs {
     public static String getOsVersionName() {
         String originalOsVersionName = getOriginalOsVersionName();
         // 使用正则表达式匹配数字和点号组成的版本号
-        Pattern pattern = Pattern.compile("(\\d+(?:\\.\\d+)+)");
+        Pattern pattern = Pattern.compile(REGEX_VERSION_NAME);
         Matcher matcher = pattern.matcher(originalOsVersionName);
 
         if (matcher.find()) {
@@ -860,7 +874,7 @@ public final class DeviceOs {
 
         // 需要注意的是 华为畅享 5S Android 5.1 获取到的厂商版本号是 EmotionUI 3，而不是 3.1 或者 3.0 这种
         // 使用正则表达式匹配数字和点号组成的版本号
-        pattern = Pattern.compile("(\\d+)");
+        pattern = Pattern.compile(REGEX_NUMBER);
         matcher = pattern.matcher(originalOsVersionName);
 
         if (matcher.find()) {
