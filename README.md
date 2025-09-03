@@ -16,6 +16,10 @@
 
 ![](picture/demo_home_page.png)
 
+* 用一张图带你梳理 Android 各大厂商 Os 系统
+
+![](picture/android_brand_os_summary.png)
+
 #### 框架亮点
 
 * 支持识别各种定制 Android 系统（HarmonyOS、MagicOS、MIUI、HyperOS、ColorOS、OriginOS 等）
