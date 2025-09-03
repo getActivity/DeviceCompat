@@ -149,11 +149,11 @@ DeviceOs.getOsName();
 
 // 获取当前设备的厂商系统名称
 DeviceOs.getOsName();
-// 获取经过美化的厂商系统版本号
+// 获取经过美化的厂商系统版本名称
 DeviceOs.getOsVersionName();
 // 获取厂商系统版本的大版本号（如果获取不到则返回 -1）
 DeviceOs.getOsBigVersionCode();
-// 获取原始的厂商系统版本号（没有经过美化的）
+// 获取原始的厂商系统版本名称（没有经过美化的）
 DeviceOs.getOriginalOsVersionName();
 ```
 
