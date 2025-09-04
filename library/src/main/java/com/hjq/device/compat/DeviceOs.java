@@ -125,16 +125,29 @@ public final class DeviceOs {
     /**
      * [ro.vivo.os.build.display.id]: [OriginOS 4]
      * [ro.vivo.os.build.display.id]: [OriginOS 5]
-     * [ro.vivo.os.build.display.id]:[Funtouch 0S_2.5]
+     * [ro.vivo.os.build.display.id]: [Funtouch 0S_2.5]
      */
     static final String OS_CONDITIONS_VIVO_OS = "ro.vivo.os.build.display.id";
 
     static final String OS_NAME_ORIGIN_OS = "OriginOS";
     /**
-     * [ro.vivo.os.build.display.id]: [OriginOS 4]
-     * [ro.vivo.os.build.display.id]: [OriginOS 5]
+     * [ro.vivo.product.version]: [PD2359C_A_15.1.19.20.W10.V000L1]
+     * [ro.vivo.product.version.incremental]: [15.1.19.20.W10.V000L1]
+     * [ro.vivo.build.version.incremental]: [15.1.19.20.W10]
+     * [ro.vivo.build.version]: [PD2359C_A_15.1.19.20.W10]
+     * [ro.vivo.default.version]: [PD2309_A_15.1.19.20.W10.V000L1]
+     * [ro.build.display.id]: [PD2309_A_15.1.19.20.W10.V000L1]
+     * [ro.vivo.system.product.version]: [PD2309_A_15.1.19.20.W10]
+     * [ro.build.software.version]: [PD2359C_A_15.1.19.20.W10]
      */
-    static final String[] OS_VERSION_NAME_ORIGIN_OS = { OS_CONDITIONS_VIVO_OS };
+    static final String[] OS_VERSION_NAME_ORIGIN_OS = { "ro.vivo.product.version",
+                                                        "ro.vivo.product.version.incremental",
+                                                        "ro.vivo.build.version.incremental",
+                                                        "ro.vivo.build.version",
+                                                        "ro.vivo.default.version",
+                                                        SYSTEM_PROPERTY_BUILD_DISPLAY_ID,
+                                                        "ro.vivo.system.product.version",
+                                                        "ro.build.software.version" };
 
     static final String OS_NAME_FUNTOUCH_OS = "FuntouchOS";
     // [ro.vivo.os.name]: [Funtouch]
@@ -430,6 +443,8 @@ public final class DeviceOs {
             if (!TextUtils.isEmpty(vivoOsName)) {
                 if (vivoOsName.toLowerCase().contains("origin")) {
                     sCurrentOsName = OS_NAME_ORIGIN_OS;
+                    // OriginOS 5 获取到的版本包含 15.x.x，例如：[ro.vivo.product.version]: [PD2429_A_15.0.18.12.W10.V000L1]
+                    // OriginOS 4 获取到的版本包含 14.x.x，例如：[ro.vivo.product.version]: [PD2220D_A_14.2.6.5.W10.V000L1]
                     sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_ORIGIN_OS);
                     sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
                 } else if (vivoOsName.toLowerCase().contains("funtouch")) {
