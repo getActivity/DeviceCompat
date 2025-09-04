@@ -247,7 +247,7 @@ public final class DeviceOs {
      * [ro.flyme.version.id]: [Flyme 9.3.1.0A]
      */
     static final String[] OS_CONDITIONS_FLYME = { "ro.flyme.published",
-                                                  "ro.flyme.version.id" };
+                                                   OS_VERSION_NAME_FLYME_1 };
 
     /* ---------------------------------------- 下面是中兴或者努比亚的系统 ---------------------------------------- */
 
@@ -270,7 +270,7 @@ public final class DeviceOs {
     /**
      * RedMagicOS 返回：[ro.build.display.id]: [RedMagicOS10.0.12]
      * MyOS 返回：[ro.build.display.id]: [MyOS12.0.14_A2121]
-     * MifavorUI 返回：注意不能用 ro.build.display.id 获取，获取到的与实际不符合，获取到的值为：[ro.build.display.id]: [ZTE_A2021_PROV1.0.2B05]
+     * MifavorUI 返回：注意不能用 [ro.build.display.id]: [ZTE_A2021_PROV1.0.2B05]（错误），应该用 ro.build.MiFavor_version
      */
     static final String OS_VERSION_NAME_ZTE_OS = SYSTEM_PROPERTY_BUILD_DISPLAY_ID;
 
@@ -280,7 +280,8 @@ public final class DeviceOs {
 
     static final String OS_NAME_MIFAVOR_UI = "MifavorUI";
     /**
-     * Android 10 返回：[ro.build.MiFavor_version]: [10.1]
+     * [ro.build.MiFavor_version]: [10.1]
+     * [ro.build.MiFavor_version]: [4.0]
      */
     static final String OS_VERSION_NAME_MIFAVOR_UI = OS_VERSION_ZTE_OS;
 
@@ -505,11 +506,6 @@ public final class DeviceOs {
                     // default implementation ignored
                 }
             }
-
-            if (sCurrentOsName != null && TextUtils.isEmpty(sCurrentOriginalOsVersionName)) {
-                sCurrentOriginalOsVersionName = "0";
-                sCurrentBeautificationVersionName = "0.0";
-            }
         }
 
         if (sCurrentOsName == null) {
@@ -609,9 +605,12 @@ public final class DeviceOs {
             sCurrentOsName = "";
         }
 
-        if (!TextUtils.isEmpty(sCurrentOsName) && TextUtils.isEmpty(sCurrentOriginalOsVersionName)) {
-            sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_UNKNOWN);
-            sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+        if (sCurrentOriginalOsVersionName == null) {
+            sCurrentOriginalOsVersionName = "";
+        }
+
+        if (sCurrentBeautificationVersionName == null) {
+            sCurrentBeautificationVersionName = "";
         }
     }
 
