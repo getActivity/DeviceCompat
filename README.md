@@ -4,7 +4,7 @@
 
 * 项目地址：[Github](https://github.com/getActivity/DeviceCompat)
 
-* 可以扫码下载 Demo 进行演示或者测试，如果扫码下载不了的，[点击此处可直接下载](https://github.com/getActivity/DeviceCompat/releases/download/1.5/DeviceCompat.apk)
+* 可以扫码下载 Demo 进行演示或者测试，如果扫码下载不了的，[点击此处可直接下载](https://github.com/getActivity/DeviceCompat/releases/download/1.6/DeviceCompat.apk)
 
 ![](picture/download_demo_apk_qr_code.png)
 
@@ -61,7 +61,7 @@ dependencyResolutionManagement {
 ```groovy
 dependencies {
     // 设备兼容框架：https://github.com/getActivity/DeviceCompat
-    implementation 'com.github.getActivity:DeviceCompat:1.5'
+    implementation 'com.github.getActivity:DeviceCompat:1.6'
 }
 ```
 
