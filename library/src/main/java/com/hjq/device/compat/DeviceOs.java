@@ -20,7 +20,7 @@ public final class DeviceOs {
 
     /* ---------------------------------------- 我是一条华丽的分割线 ---------------------------------------- */
 
-    static final String REGEX_VERSION_NAME = "(\\d+(?:\\.\\d+)+)";
+    static final String REGEX_VERSION_NAME = "\\d+(?:\\.\\d+)+";
 
     static final String REGEX_NUMBER = "\\d+";
 
@@ -401,11 +401,11 @@ public final class DeviceOs {
         if (SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_HYPER_OS)) {
             sCurrentOsName = OS_NAME_HYPER_OS;
             sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_HYPER_OS);
-            sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+            sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
         } else if (SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_MIUI)) {
             sCurrentOsName = OS_NAME_MIUI;
             sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_MIUI);
-            sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+            sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
         }
 
         if (sCurrentOsName == null) {
@@ -414,13 +414,13 @@ public final class DeviceOs {
             if (!TextUtils.isEmpty(realmeUiVersion)) {
                 sCurrentOsName = OS_NAME_REALME_UI;
                 sCurrentOriginalOsVersionName = realmeUiVersion;
-                sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
             } else {
                 String colorOsVersion = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_COLOR_OS);
                 if (!TextUtils.isEmpty(colorOsVersion)) {
                     sCurrentOsName = OS_NAME_COLOR_OS;
                     sCurrentOriginalOsVersionName = colorOsVersion;
-                    sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                    sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
                 }
             }
         }
@@ -431,11 +431,11 @@ public final class DeviceOs {
                 if (vivoOsName.toLowerCase().contains("origin")) {
                     sCurrentOsName = OS_NAME_ORIGIN_OS;
                     sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_ORIGIN_OS);
-                    sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                    sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
                 } else if (vivoOsName.toLowerCase().contains("funtouch")) {
                     sCurrentOsName = OS_NAME_FUNTOUCH_OS;
                     sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_FUNTOUCH_OS);
-                    sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                    sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
                 }
             }
         }
@@ -445,7 +445,7 @@ public final class DeviceOs {
             if (!TextUtils.isEmpty(magicOsVersion)) {
                 sCurrentOsName = OS_NAME_MAGIC_OS;
                 sCurrentOriginalOsVersionName = magicOsVersion;
-                sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
             }
         }
 
@@ -457,7 +457,7 @@ public final class DeviceOs {
                 if (osBrand != null && osBrand.toString().toLowerCase().contains("harmony")) {
                     sCurrentOsName = OS_NAME_HARMONY_OS;
                     sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_HARMONY_OS);
-                    sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                    sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
                 }
             } catch (Exception ignore) {
                 // default implementation ignored
@@ -470,7 +470,7 @@ public final class DeviceOs {
             if (!TextUtils.isEmpty(emuiVersion) && emuiVersion.toLowerCase().contains("emotionui")) {
                 sCurrentOsName = OS_NAME_EMUI;
                 sCurrentOriginalOsVersionName = emuiVersion;
-                sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
             }
         }
 
@@ -478,19 +478,19 @@ public final class DeviceOs {
             String oneUiVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_ONE_UI);
             if (!TextUtils.isEmpty(oneUiVersion)) {
                 sCurrentOsName = OS_NAME_ONE_UI;
-                if (oneUiVersion.matches("\\d+")) {
+                if (oneUiVersion.matches(REGEX_NUMBER)) {
                     try {
                         // OneUI 5.1.1 获取到的值是 50101 再经过一通计算得出 5.1.1
                         int oneUiVersionCode;
                         oneUiVersionCode = Integer.parseInt(oneUiVersion);
                         sCurrentOriginalOsVersionName = getOneUiVersionNameByVersionCode(oneUiVersionCode);
-                        sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                        sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
                     } catch (Exception e) {
                         // default implementation ignored
                     }
                 } else if (oneUiVersion.matches(REGEX_VERSION_NAME)) {
                     sCurrentOriginalOsVersionName = oneUiVersion;
-                    sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                    sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
                 }
             }
 
@@ -508,7 +508,7 @@ public final class DeviceOs {
                         // OneUI 2.5 获取到的值是 110500，110500 - 90000 = 25000，20500 再经过一通计算得出 2.5 的版本号
                         int oneUiVersionCode = semPlatformVersion - superfluousValue;
                         sCurrentOriginalOsVersionName = getOneUiVersionNameByVersionCode(oneUiVersionCode);
-                        sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                        sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
                     }
                 } catch (Exception ignore) {
                     // default implementation ignored
@@ -521,7 +521,7 @@ public final class DeviceOs {
             if (!TextUtils.isEmpty(oxygenOsVersion)) {
                 sCurrentOsName = OS_NAME_OXYGEN_OS;
                 sCurrentOriginalOsVersionName = oxygenOsVersion;
-                sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
             }
         }
         if (sCurrentOsName == null) {
@@ -529,7 +529,7 @@ public final class DeviceOs {
             if (!TextUtils.isEmpty(h2OsVersion)) {
                 sCurrentOsName = OS_NAME_H2_OS;
                 sCurrentOriginalOsVersionName = h2OsVersion;
-                sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
             }
         }
 
@@ -538,10 +538,10 @@ public final class DeviceOs {
             String flymeVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_FLYME_1);
             if (!TextUtils.isEmpty(flymeVersion) && flymeVersion.toLowerCase().contains("flyme")) {
                 sCurrentOriginalOsVersionName = flymeVersion;
-                sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
             } else {
                 sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_FLYME_2);
-                sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
             }
         }
 
@@ -552,15 +552,15 @@ public final class DeviceOs {
                 if (lowerCaseOsVersion.contains("redmagicos")) {
                     sCurrentOsName = OS_NAME_RED_MAGIC_OS;
                     sCurrentOriginalOsVersionName = osVersion;
-                    sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                    sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
                 } else if (lowerCaseOsVersion.contains("myos")) {
                     sCurrentOsName = OS_NAME_MY_OS;
                     sCurrentOriginalOsVersionName = osVersion;
-                    sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                    sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
                 } else if (lowerCaseOsVersion.contains("zte")) {
                     sCurrentOsName = OS_NAME_MIFAVOR_UI;
                     sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_MIFAVOR_UI);
-                    sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                    sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
                 }
             }
         }
@@ -568,13 +568,13 @@ public final class DeviceOs {
         if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_SMARTISAN_OS)) {
             sCurrentOsName = OS_NAME_SMARTISAN_OS;
             sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_SMARTISAN_OS);
-            sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+            sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
         }
 
         if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_EUI_OS)) {
             sCurrentOsName = OS_NAME_EUI_OS;
             sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_EUI_OS);
-            sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+            sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
         }
 
         if (sCurrentOsName == null) {
@@ -583,11 +583,11 @@ public final class DeviceOs {
             if (!TextUtils.isEmpty(zuxOsName) && zuxOsName.toLowerCase().contains("zuxos")) {
                 sCurrentOsName = OS_NAME_ZUX_OS;
                 sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_ZUX_OS);
-                sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
             } else if (SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_ZUI)) {
                 sCurrentOsName = OS_NAME_ZUI;
                 sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_ZUI);
-                sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
             }
         }
 
@@ -596,7 +596,7 @@ public final class DeviceOs {
             if (!TextUtils.isEmpty(osName) && osName.toLowerCase().contains("nubiaui")) {
                 sCurrentOsName = OS_NAME_NUBIA_UI;
                 sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_NUBIA_UI);
-                sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
             }
         }
 
@@ -605,7 +605,7 @@ public final class DeviceOs {
             if (!TextUtils.isEmpty(osVersion) && osVersion.toLowerCase().contains("360ui")) {
                 sCurrentOsName = OS_NAME_360_UI;
                 sCurrentOriginalOsVersionName = osVersion;
-                sCurrentBeautificationVersionName = getBeautificationVersionName(sCurrentOriginalOsVersionName);
+                sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
             }
         }
 
@@ -954,27 +954,38 @@ public final class DeviceOs {
     }
 
     /**
-     * 获取经过美化的版本名称
+     * 从文本提取字符串中的版本号（只保留数字和点号）
      */
     @NonNull
-    private static String getBeautificationVersionName(String originalOsVersionName) {
-        // 使用正则表达式匹配数字和点号组成的版本号
-        Pattern pattern = Pattern.compile(REGEX_VERSION_NAME);
-        Matcher matcher = pattern.matcher(originalOsVersionName);
+    private static String extractVersionNameByText(@Nullable String text) {
+        if (TextUtils.isEmpty(text)) {
+            return "";
+        }
 
-        if (matcher.find()) {
+        // 使用正则表达式匹配数字和点号组成的版本号
+        // 这里需要注意：因为是获取正则表达式的分组，所以需要在 Pattern.compile 时加上括号
+        // Github 地址：https://github.com/getActivity/DeviceCompat/pull/3
+        Pattern pattern = Pattern.compile("(" + REGEX_VERSION_NAME + ")");
+        Matcher matcher = pattern.matcher(text);
+
+        if (matcher.find() && matcher.groupCount() > 0) {
             String result = matcher.group(1);
-            return result != null ? result : "";
+            if (result != null) {
+                return result;
+            }
         }
 
         // 需要注意的是 华为畅享 5S Android 5.1 获取到的厂商版本号是 EmotionUI_3，而不是 3.1 或者 3.0 这种
-        // 使用正则表达式匹配数字和点号组成的版本号
-        pattern = Pattern.compile(REGEX_NUMBER);
-        matcher = pattern.matcher(originalOsVersionName);
+        // 这里需要注意：因为是获取正则表达式的分组，所以需要在 Pattern.compile 时加上括号
+        // Github 地址：https://github.com/getActivity/DeviceCompat/pull/3
+        pattern = Pattern.compile("(" + REGEX_NUMBER + ")");
+        matcher = pattern.matcher(text);
 
-        if (matcher.find()) {
+        if (matcher.find() && matcher.groupCount() > 0) {
             String result = matcher.group(1);
-            return result != null ? result : "";
+            if (result != null) {
+                return result;
+            }
         }
         return "";
     }
