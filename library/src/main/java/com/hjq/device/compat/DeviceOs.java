@@ -177,6 +177,14 @@ public final class DeviceOs {
                                                          "persist.mygote.build.id",
                                                          "persist.sys.hiview.base_version",
                                                          "ro.comp.hl.product_base_version" };
+    /**
+     * 实测下面的属性在 HarmonyOS 2.0、3.0、4.0、4.2 上面都存在，但是在 4.3 上面不存在
+     * [ro.build.ohos.devicetype]: [phone]
+     * [ro.build.ohos.devicetype]: [tablet]
+     * [persist.sys.ohos.osd.cloud.switch]: [true]
+     */
+    // static final String[] OS_CONDITIONS_HARMONY_OS = { "ro.build.ohos.devicetype",
+    //                                                   "persist.sys.ohos.osd.cloud.switch" };
 
     static final String OS_NAME_EMUI = "EMUI";
     /**
