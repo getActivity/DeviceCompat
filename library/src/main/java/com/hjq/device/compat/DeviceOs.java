@@ -22,7 +22,7 @@ public final class DeviceOs {
 
     static final String REGEX_VERSION_NAME = "(\\d+(?:\\.\\d+)+)";
 
-    static final String REGEX_NUMBER = "\\d+";
+    static final String REGEX_NUMBER = "(\\d+)";
 
     /* ---------------------------------------- 我是一条华丽的分割线 ---------------------------------------- */
 
@@ -945,6 +945,7 @@ public final class DeviceOs {
             return oneVersion + "." + (twoVersion / 100);
         }
     }
+
 
     /**
      * 获取经过美化的版本名称
