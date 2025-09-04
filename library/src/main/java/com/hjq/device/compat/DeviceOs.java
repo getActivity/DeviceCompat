@@ -969,7 +969,7 @@ public final class DeviceOs {
     }
 
     /**
-     * 从文本提取字符串中的版本号（只保留数字和点号）
+     * 从文本提取版本号（只保留数字和点号）
      */
     @NonNull
     private static String extractVersionNameByText(@Nullable String text) {
@@ -999,7 +999,7 @@ public final class DeviceOs {
         if (matcher.find() && matcher.groupCount() > 0) {
             String result = matcher.group(1);
             if (result != null) {
-                return result;
+                return result + ".0";
             }
         }
         return "";
