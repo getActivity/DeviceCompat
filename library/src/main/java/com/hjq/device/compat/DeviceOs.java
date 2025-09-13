@@ -236,13 +236,15 @@ public final class DeviceOs {
      * [ro.huawei.build.version.incremental]: [3.0.1.178C00]
      *
      * 所以综合取舍下来最优解是：
-     * [ro.build.display.id]: [BVL-AN16 9.0.0.175(C00E175R110P22)]
      * [ro.honor.build.display.id]: [ANY-AN00 7.0.0.225(C00E225R1P4)]
+     * [persist.sys.hiview.base_version]: [ANY-LGRP1-CHN 7.0.0.225]
+     * [ro.comp.hl.product_base_version]: [ANY-LGRP1-CHN 7.0.0.225]
+     * [ro.build.display.id]: [ANY-AN00 7.0.0.225(C00E225R1P4)]
      */
-    static final String[] OS_VERSION_NAME_MAGIC_OS = { SYSTEM_PROPERTY_BUILD_DISPLAY_ID,
-                                                       "ro.honor.build.display.id",
-                                                       OS_CONDITIONS_NAME_MAGIC_OS[0],
-                                                       OS_CONDITIONS_NAME_MAGIC_OS[1] };
+    static final String[] OS_VERSION_NAME_MAGIC_OS = { "ro.honor.build.display.id",
+                                                       "persist.sys.hiview.base_version",
+                                                       "ro.comp.hl.product_base_version",
+                                                        SYSTEM_PROPERTY_BUILD_DISPLAY_ID };
 
     static final String OS_NAME_HARMONY_OS = "HarmonyOS";
 
