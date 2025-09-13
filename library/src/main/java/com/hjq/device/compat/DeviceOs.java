@@ -268,8 +268,10 @@ public final class DeviceOs {
     /* ---------------------------------------- 下面是中兴或者努比亚的系统 ---------------------------------------- */
 
     /**
-     * MyOS 系统返回：[ro.build.MiFavor_version]: [12]
-     * MiFavor 系统返回：[ro.build.MiFavor_version]: [10.1]
+     * NebulaAIOS 返回：[ro.build.MiFavor_version]: [NebulaOS1.0]
+     * RedMagicOS 返回：[ro.build.MiFavor_version]: [NebulaOS1.0]
+     * MyOS 返回：[ro.build.MiFavor_version]: [12]
+     * MiFavor 返回：[ro.build.MiFavor_version]: [10.1]
      */
     static final String OS_VERSION_ZTE_OS = "ro.build.MiFavor_version" ;
 
@@ -284,6 +286,7 @@ public final class DeviceOs {
                                                    "ro.vendor.mifavor.voicetotext" };
 
     /**
+     * NebulaAIOS 返回：[ro.build.display.id]: [NebulaAIOS1.0.14_NX712J]
      * RedMagicOS 返回：[ro.build.display.id]: [RedMagicOS10.0.12]
      * MyOS 返回：[ro.build.display.id]: [MyOS12.0.14_A2121]
      * MifavorUI 返回：注意不能用 [ro.build.display.id]: [ZTE_A2021_PROV1.0.2B05]（错误），应该用 ro.build.MiFavor_version
@@ -571,7 +574,7 @@ public final class DeviceOs {
                     sCurrentOsName = OS_NAME_RED_MAGIC_OS;
                     sCurrentOriginalOsVersionName = osVersion;
                     sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
-                } else if (lowerCaseOsVersion.contains("nebulaos")) {
+                } else if (lowerCaseOsVersion.contains("nebulaaios")) {
                     sCurrentOsName = OS_NAME_NEBULA_AIOS;
                     sCurrentOriginalOsVersionName = osVersion;
                     sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
