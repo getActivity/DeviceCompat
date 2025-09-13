@@ -276,16 +276,6 @@ public final class DeviceOs {
     static final String OS_VERSION_ZTE_OS = "ro.build.MiFavor_version" ;
 
     /**
-     * [ro.vendor.mifavor.custom]: [home]
-     * [ro.vendor.mifavor.mfvkeyguard.type]: [2]
-     * [ro.vendor.mifavor.voicetotext]: [1]
-     */
-    static final String[] OS_CONDITIONS_ZTE_OS = { OS_VERSION_ZTE_OS,
-                                                   "ro.vendor.mifavor.custom",
-                                                   "ro.vendor.mifavor.mfvkeyguard.type",
-                                                   "ro.vendor.mifavor.voicetotext" };
-
-    /**
      * NebulaAIOS 返回：[ro.build.display.id]: [NebulaAIOS1.0.14_NX712J]
      * RedMagicOS 返回：[ro.build.display.id]: [RedMagicOS10.0.12]
      * MyOS 返回：[ro.build.display.id]: [MyOS12.0.14_A2121]
@@ -566,7 +556,7 @@ public final class DeviceOs {
             sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
         }
 
-        if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_ZTE_OS)) {
+        if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyExist(OS_VERSION_ZTE_OS)) {
             String osVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_ZTE_OS);
             if (!TextUtils.isEmpty(osVersion)) {
                 String lowerCaseOsVersion = osVersion.toLowerCase();
