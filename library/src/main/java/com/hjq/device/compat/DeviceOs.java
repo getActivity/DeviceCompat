@@ -292,6 +292,8 @@ public final class DeviceOs {
 
     static final String OS_NAME_RED_MAGIC_OS = "RedMagicOS";
 
+    static final String OS_NAME_NEBULA_AIOS = "NebulaAIOS";
+
     static final String OS_NAME_MY_OS = "MyOS";
 
     static final String OS_NAME_MIFAVOR_UI = "MifavorUI";
@@ -555,6 +557,10 @@ public final class DeviceOs {
                 String lowerCaseOsVersion = osVersion.toLowerCase();
                 if (lowerCaseOsVersion.contains("redmagicos")) {
                     sCurrentOsName = OS_NAME_RED_MAGIC_OS;
+                    sCurrentOriginalOsVersionName = osVersion;
+                    sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
+                } else if (lowerCaseOsVersion.contains("nebulaos")) {
+                    sCurrentOsName = OS_NAME_NEBULA_AIOS;
                     sCurrentOriginalOsVersionName = osVersion;
                     sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
                 } else if (lowerCaseOsVersion.contains("myos")) {
@@ -829,6 +835,13 @@ public final class DeviceOs {
      */
     public static boolean isRedMagicOs() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_RED_MAGIC_OS);
+    }
+
+    /**
+     * 判断当前设备的厂商系统是否为 NebulaAIOS（努比亚手机的系统）
+     */
+    public static boolean isNebulaAiOs() {
+        return TextUtils.equals(sCurrentOsName, OS_NAME_NEBULA_AIOS);
     }
 
     /**

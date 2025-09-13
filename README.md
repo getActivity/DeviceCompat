@@ -124,6 +124,9 @@ DeviceOs.isFlyme();
 // 判断当前设备的厂商系统是否为 RedMagicOS（努比亚红魔手机的系统，努比亚红魔是中兴旗下的子品牌）
 DeviceOs.isRedMagicOs();
 
+// 判断当前设备的厂商系统是否为 NebulaAIOS（努比亚手机的系统）
+DeviceOs.isNebulaAiOs();
+
 // 判断当前设备的厂商系统是否为 MyOS（中兴手机、努比亚手机的系统）
 DeviceOs.isMyOs();
 
