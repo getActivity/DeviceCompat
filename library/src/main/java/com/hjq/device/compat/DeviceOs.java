@@ -16,6 +16,7 @@ import java.util.regex.Pattern;
  *    time   : 2025/08/12
  *    desc   : 厂商系统判断
  */
+@SuppressWarnings("JavaReflectionMemberAccess")
 public final class DeviceOs {
 
     /* ---------------------------------------- 我是一条华丽的分割线 ---------------------------------------- */
