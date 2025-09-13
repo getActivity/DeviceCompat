@@ -244,28 +244,63 @@ public final class DeviceOs {
                                                        OS_CONDITIONS_NAME_MAGIC_OS[1] };
 
     static final String OS_NAME_HARMONY_OS = "HarmonyOS";
+
     /**
-     * [ro.huawei.build.display.id]: [NOH-AN00 2.0.0.165(C00E160R6P2)]
-     * [ro.build.display.id]: [NOH-AN00 2.0.0.165(C00E160R6P2)]
-     * [hwouc.hwpatch.version]: [2.0.0.165(C00E160R6P2patch04)]
-     * [persist.mygote.build.id]: [NOH-AN00 2.0.0.165(C00E160R6P2)]
-     * [persist.sys.hiview.base_version]: [NOH-LGRP1-CHN 2.0.0.165]
-     * [ro.comp.hl.product_base_version]: [NOH-LGRP1-CHN 2.0.0.165]
+     * HarmonyOS 4.3.0 版本属性：
+     * [persist.ark.build.id]: [CLS-AL00 4.3.0.126(SP7C00E126R4P4)]
+     * [persist.sys.hiview.base_version]: [CLS-LGRP1-CHN 4.3.0.126(SP7)]
+     * [persist.sys.hiview.cust_version]: [CLS-AL00-CUST 4.3.0.126(C00)]
+     * [ro.build.display.id]: [CLS-AL00 4.3.0.126(SP7C00E126R4P4)]
+     * [ro.comp.hl.product_base_version]: [CLS-LGRP1-CHN 4.3.0.126(SP7)]
+     * [ro.comp.hl.product_cust_version]: [CLS-AL00-CUST 4.3.0.126(C00)]
+     * [ro.huawei.build.display.id]: [CLS-AL00 4.3.0.126(SP7C00E126R4P4)]
+     *
+     * HarmonyOS 4.2.0 版本属性：
+     * [hwouc.hwpatch.version]: [4.2.0.120(SP1C00E100R5P4patch01)]
+     * [persist.ark.build.id]: [LIO-AL00 4.2.0.120(SP1C00E100R5P4)]
+     * [persist.sys.hiview.base_version]: [LIO-LGRP1-CHN 4.2.0.120(SP1)]
+     * [ro.build.display.id]: [LIO-AL00 4.2.0.120(SP1C00E100R5P4)]
+     * [ro.comp.hl.product_base_version]: [LIO-LGRP1-CHN 4.2.0.120(SP1)]
+     * [ro.huawei.build.display.id]: [LIO-AL00 4.2.0.120(SP1C00E100R5P4)]
+     * [hw_sc.build.platform.version]: [4.2.0]
+     *
+     * HarmonyOS 4.0.0 版本属性：
+     * [hwouc.hwpatch.version]: [4.0.0.121(C00E120R8P4patch02)]
+     * [persist.mygote.build.id]: [YAL-AL10 4.0.0.121(C00E120R8P4)]
+     * [persist.sys.hiview.base_version]: [YAL-LGRP1-CHN 4.0.0.121]
+     * [ro.build.ver.physical]: [YAL-AL10 104.0.0.121(C00E120R8P4)]
+     * [ro.comp.hl.product_base_version]: [YAL-LGRP1-CHN 4.0.0.121]
+     * [ro.comp.hl.product_base_version.real]: [YAL-LGRP1-CHN 104.0.0.121]
+     * [ro.huawei.build.display.id]: [YAL-AL10 4.0.0.121(C00E120R8P4)]
+     * [hw_sc.build.platform.version]: [4.0.0]
+     *
+     * HarmonyOS 3.0.0 版本属性：
+     * [hwouc.hwpatch.version]: [3.0.0.165(C00E160R5P3patch03)]
+     * [persist.mygote.build.id]: [YAL-AL50 3.0.0.165(C00E160R5P3)]
+     * [persist.sys.hiview.base_version]: [YAL-LGRP3-CHN 3.0.0.165]
+     * [ro.build.display.id]: [YAL-AL50 3.0.0.165(C00E160R5P3)]
+     * [ro.comp.hl.product_base_version]: [YAL-LGRP3-CHN 3.0.0.165]
+     * [ro.huawei.build.display.id]: [YAL-AL50 3.0.0.165(C00E160R5P3)]
+     * [hw_sc.build.platform.version]: [3.0.0]
+     *
+     * HarmonyOS 2.0.0 版本属性：
+     * [persist.sys.hiview.base_version]: [MAR-LGRP1-CHN 2.0.0.185]
+     * [persist.sys.hiview.cust_version]: [MAR-AL00-CUST 2.0.0.185(C00)]
+     * [ro.comp.hl.product_base_version]: [MAR-LGRP1-CHN 2.0.0.185]
+     * [ro.comp.hl.product_cust_version]: [MAR-AL00-CUST 2.0.0.185(C00)]
+     * [ro.huawei.build.display.id]: [MAR-AL00 2.0.0.185(C00E185R1P5)]
+     * [hw_sc.build.platform.version]: [2.0.0]
+     *
+     * 所以综合取舍下来最优解是：
+     * [hw_sc.build.platform.version]: [4.2.0]
+     * [ro.huawei.build.display.id]: [LIO-AL00 4.2.0.120(SP1C00E100R5P4)]
+     * [ro.comp.hl.product_base_version]: [LIO-LGRP1-CHN 4.2.0.120(SP1)]
+     * [persist.sys.hiview.base_version]: [LIO-LGRP1-CHN 4.2.0.120(SP1)]
      */
     static final String[] OS_VERSION_NAME_HARMONY_OS = { "hw_sc.build.platform.version",
                                                          "ro.huawei.build.display.id",
-                                                         "hwouc.hwpatch.version",
-                                                         "persist.mygote.build.id",
-                                                         "persist.sys.hiview.base_version",
-                                                         "ro.comp.hl.product_base_version" };
-    /**
-     * 实测下面的属性在 HarmonyOS 2.0、3.0、4.0、4.2 上面都存在，但是在 4.3 上面不存在
-     * [ro.build.ohos.devicetype]: [phone]
-     * [ro.build.ohos.devicetype]: [tablet]
-     * [persist.sys.ohos.osd.cloud.switch]: [true]
-     */
-    // static final String[] OS_CONDITIONS_HARMONY_OS = { "ro.build.ohos.devicetype",
-    //                                                   "persist.sys.ohos.osd.cloud.switch" };
+                                                         "ro.comp.hl.product_base_version",
+                                                         "persist.sys.hiview.base_version" };
 
     static final String OS_NAME_EMUI = "EMUI";
     /**
