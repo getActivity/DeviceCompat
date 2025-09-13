@@ -29,11 +29,6 @@ public final class DeviceOs {
     static final String SYSTEM_PROPERTY_BUILD_VERSION_INCREMENTAL = "ro.build.version.incremental";
     static final String SYSTEM_PROPERTY_BUILD_DISPLAY_ID = "ro.build.display.id";
 
-    /* ---------------------------------------- 我是一条华丽的分割线 ---------------------------------------- */
-
-    static final String[] OS_VERSION_NAME_UNKNOWN = { SYSTEM_PROPERTY_BUILD_DISPLAY_ID,
-                                                      SYSTEM_PROPERTY_BUILD_VERSION_INCREMENTAL };
-
     /* ---------------------------------------- 下面是小米或者红米的系统 ---------------------------------------- */
 
     /**
@@ -164,12 +159,89 @@ public final class DeviceOs {
 
     static final String OS_NAME_MAGIC_OS = "MagicOS";
     /**
-     * 经过测试，得出以下结论
-     * MagicOS 7.0 存放系统版本的属性是 msc.config.magic.version，
-     * MagicOS 4.0 和 Magic 4.1 用的是 ro.build.version.magic 属性
+     * MagicOS 9.0 返回：[msc.config.magic.version]: [9.0]
+     * MagicOS 7.1 返回：[msc.config.magic.version]: [7.1]
+     * MagicOS 7.0 返回：[msc.config.magic.version]: [7.0]
+     * MagicUI 6.1 返回：[msc.config.magic.version]: [6.1]
+     * MagicUI 3.1.1 返回：空
+     * MagicUI 3.0.1 返回：空
+     *
+     * MagicOS 9.0 返回：[ro.build.version.magic]: [MagicOS_9.0.0]
+     * MagicOS 7.1 返回：[ro.build.version.magic]: [MagicOS_7.1.0]
+     * MagicOS 7.0 返回：[ro.build.version.magic]: [MagicOS_7.1.0]（获取到的是错误的）
+     * MagicUI 6.1 返回：[ro.build.version.magic]: [MagicUI_6.1.0]
+     * MagicUI 3.1.1 返回：[ro.build.version.magic]: [3.1.1]
+     * MagicUI 3.0.1 返回：[ro.build.version.magic]: [3.0.1]
      */
-    static final String[] OS_VERSION_NAME_MAGIC_OS = { "msc.config.magic.version",
-                                                       "ro.build.version.magic" };
+    static final String[] OS_CONDITIONS_NAME_MAGIC_OS = { "msc.config.magic.version",
+                                                          "ro.build.version.magic" };
+
+    /**
+     * MagicOS 9.0 版本属性：
+     * [mscw.hnouc.patch.display.version]: [9.0.0.175(C00E175R110P22H7)]
+     * [mscw.hnouc.patch.version]: [9.0.0.175(C00E175R110P22patch07)]
+     * [persist.sys.hiview.base_version]: [BVL-LGRP1-CHN 9.0.0.175]
+     * [persist.sys.hiview.cust_version]: [BVL-AN16-CUST 9.0.0.175(C00)]
+     * [ro.build.display.id]: [BVL-AN16 9.0.0.175(C00E175R110P22)]
+     * [ro.build.ver.physical]: [BVL-AN16 9.0.0.175(C00E175R110P22)]
+     * [ro.build.version.incremental]: [9.0.0.175C00E175R110P22]
+     * [ro.comp.hl.product_base_version]: [BVL-LGRP1-CHN 9.0.0.175]
+     * [ro.comp.hl.product_cust_version]: [BVL-AN16-CUST 9.0.0.175(C00)]
+     * [ro.honor.build.display.id]: [BVL-AN16 9.0.0.175(C00E175R110P22)]
+     * [ro.odm.build.version.incremental]: [9.0.0.175C00E175R110P22]
+     *
+     * MagicOS 7.1 版本属性：
+     * [mscw.hnouc.patch.display.version]: [7.1.0.216(CNC00E171R3P1H1)]
+     * [mscw.hnouc.patch.version]: [7.1.0.216(CNC00E171R3P1patch01)]
+     * [persist.sys.hiview.base_version]: [ELNN-LGRP11-CHN 7.1.0.216]
+     * [ro.build.display.id]: [ELN-W09 7.1.0.216(CNC00E171R3P1)]
+     * [ro.build.ver.physical]: [ELN-W09 7.1.0.216(CNC00E171R3P1)]
+     * [ro.build.version.incremental]: [7.1.0.216CNC00E171R3P1]
+     * [ro.comp.hl.product_base_version]: [ELNN-LGRP11-CHN 7.1.0.216]
+     * [ro.honor.build.display.id]: [ELN-W09 7.1.0.216(CNC00E171R3P1)]
+     * [ro.odm.build.version.incremental]: [7.1.0.216CNC00E171R3P1]
+     *
+     * MagicOS 7.0 版本属性：
+     * [persist.sys.hiview.base_version]: [ANY-LGRP1-CHN 7.0.0.225]
+     * [ro.build.display.id]: [ANY-AN00 7.0.0.225(C00E225R1P4)]
+     * [ro.comp.hl.product_base_version]: [ANY-LGRP1-CHN 7.0.0.225]
+     * [ro.honor.build.display.id]: [ANY-AN00 7.0.0.225(C00E225R1P4)]
+     *
+     * MagicUI 6.1 版本属性：
+     * [mscw.hnouc.patch.version]: [6.1.0.152(C00E145R1P4patch01)]
+     * [persist.sys.hiview.base_version]: [VNE-LGRP1-CHN 6.1.0.152]
+     * [ro.build.display.id]: [VNE-AN00 6.1.0.152(C00E145R1P4)]
+     * [ro.build.ver.physical]: [VNE-AN00 6.1.0.152(C00E145R1P4)]
+     * [ro.build.version.incremental]: [6.1.0.152C00]
+     * [ro.comp.hl.product_base_version]: [VNE-LGRP1-CHN 6.1.0.152]
+     * [ro.honor.build.display.id]: [VNE-AN00 6.1.0.152(C00E145R1P4)]
+     *
+     * MagicUI 3.1.1 版本属性：
+     * [persist.mygote.build.id]: [TEL-AN00a 3.1.1.115(C00E110R3P1)]
+     * [persist.sys.hiview.base_version]: [TEL-LGRP1-CHN 3.1.1.115]
+     * [ro.build.display.id]: [TEL-AN00a 3.1.1.115(C00E110R3P1)]
+     * [ro.build.version.incremental]: [3.1.1.115C00]
+     * [ro.comp.hl.product_base_version]: [TEL-LGRP1-CHN 3.1.1.115]
+     * [ro.huawei.build.display.id]: [TEL-AN00a 3.1.1.115(C00E110R3P1)]
+     * [ro.huawei.build.version.incremental]: [3.1.1.115C00]
+     *
+     * MagicUI 3.0.1 版本属性：
+     * [persist.mygote.build.id]: [OXF-AN00 3.0.1.178(C00E175R3P3)]
+     * [persist.sys.hiview.base_version]: [OXF-LGRP1-CHN 3.0.1.178]
+     * [ro.build.display.id]: [OXF-AN00 3.0.1.178(C00E175R3P3)]
+     * [ro.build.version.incremental]: [3.0.1.178C00]
+     * [ro.comp.hl.product_base_version]: [OXF-LGRP1-CHN 3.0.1.178]
+     * [ro.huawei.build.display.id]: [OXF-AN00 3.0.1.178(C00E175R3P3)]
+     * [ro.huawei.build.version.incremental]: [3.0.1.178C00]
+     *
+     * 所以综合取舍下来最优解是：
+     * [ro.build.display.id]: [BVL-AN16 9.0.0.175(C00E175R110P22)]
+     * [ro.honor.build.display.id]: [ANY-AN00 7.0.0.225(C00E225R1P4)]
+     */
+    static final String[] OS_VERSION_NAME_MAGIC_OS = { SYSTEM_PROPERTY_BUILD_DISPLAY_ID,
+                                                       "ro.honor.build.display.id",
+                                                       OS_CONDITIONS_NAME_MAGIC_OS[0],
+                                                       OS_CONDITIONS_NAME_MAGIC_OS[1] };
 
     static final String OS_NAME_HARMONY_OS = "HarmonyOS";
     /**
@@ -452,13 +524,10 @@ public final class DeviceOs {
             }
         }
 
-        if (sCurrentOsName == null) {
-            String magicOsVersion = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_MAGIC_OS);
-            if (!TextUtils.isEmpty(magicOsVersion)) {
-                sCurrentOsName = OS_NAME_MAGIC_OS;
-                sCurrentOriginalOsVersionName = magicOsVersion;
-                sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
-            }
+        if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_NAME_MAGIC_OS)) {
+            sCurrentOsName = OS_NAME_MAGIC_OS;
+            sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_MAGIC_OS);
+            sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
         }
 
         if (sCurrentOsName == null) {
