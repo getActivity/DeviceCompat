@@ -131,6 +131,7 @@ public final class DeviceOs {
      * [ro.vivo.os.build.display.id]: [OriginOS 1.0]
      *
      * [ro.vivo.os.build.display.id]: [Funtouch OS_10]
+     * [ro.vivo.os.build.display.id]: [Funtouch OS_4.0]
      * [ro.vivo.os.build.display.id]: [Funtouch 0S_2.5]
      */
     static final String OS_CONDITIONS_VIVO_OS = "ro.vivo.os.build.display.id";
@@ -156,19 +157,8 @@ public final class DeviceOs {
                                                         "ro.build.software.version" };
 
     static final String OS_NAME_FUNTOUCH_OS = "FuntouchOS";
-    // [ro.vivo.os.name]: [Funtouch]
-    // 不要用 ro.vivo.os.name 属性判断是否为 FuntouchOS 系统，因为在 FuntouchOS 和 OriginOs 系统上面获取到的值是 Funtouch
-    // static final String OS_CONDITIONS_FUNTOUCH_OS = "ro.vivo.os.name";
-    /**
-     * [ro.vivo.os.version]: [2.5]
-     * [ro.vivo.rom.version]: [rom_2.5]
-     * [ro.vivo.rom]: [rom_ 2.5]
-     * [ro.vivo.os.build.display.id]: [Funtouch OS_2.5]
-     */
-    static final String[] OS_VERSION_NAME_FUNTOUCH_OS = { "ro.vivo.os.version",
-                                                          "ro.vivo.rom.version",
-                                                          "ro.vivo.rom",
-                                                          OS_CONDITIONS_VIVO_OS };
+
+    static final String OS_VERSION_NAME_FUNTOUCH_OS = OS_CONDITIONS_VIVO_OS;
 
     /* ---------------------------------------- 下面是华为或者荣耀的系统 ---------------------------------------- */
 
@@ -454,8 +444,9 @@ public final class DeviceOs {
                     sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_ORIGIN_OS);
                     sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
                 } else if (vivoOsName.toLowerCase().contains("funtouch")) {
+                    // 不要用 ro.vivo.os.name 属性判断是否为 FuntouchOS 系统，因为在 FuntouchOS 和 OriginOs 系统上面获取到的值是 Funtouch
                     sCurrentOsName = OS_NAME_FUNTOUCH_OS;
-                    sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_FUNTOUCH_OS);
+                    sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_FUNTOUCH_OS);
                     sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
                 }
             }
