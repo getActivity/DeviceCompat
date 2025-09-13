@@ -154,6 +154,31 @@ public final class DeviceOs {
 
     static final String OS_NAME_FUNTOUCH_OS = "FuntouchOS";
 
+    /**
+     * FuntouchOS 4.0 版本属性：
+     * [ro.vivo.os.build.display.id]: [Funtouch OS_4.0]
+     * [ro.vivo.os.version]: [4.0]
+     * [ro.vivo.rom]: [rom_4.0]
+     * [ro.vivo.rom.version]: [rom_4.0]
+     * [ro.vivo.product.version]: [PD1730_A_1.13.15]（获取到的是错误）
+     * [ro.build.netaccess.version]: [PD1730_A_1.13.15]（获取到的是错误）
+     * [ro.build.software.version]: [PD1730_A_1.13.15]（获取到的是错误）
+     * [ro.build.version.bbk]: [PD1730_A_1.13.15]（获取到的是错误）
+     * [ro.vivo.product.version]: [PD1730_A_1.13.15]（获取到的是错误）
+     *
+     * FuntouchOS 10.0 版本属性：
+     * [ro.vivo.os.build.display.id]: [Funtouch OS_10]
+     * [ro.build.netaccess.version]: [PD1813E_A_7.10.42]
+     * [ro.build.software.version]: [PD1813E_A_7.10.42]
+     * [ro.build.version.bbk]: [PD1813E_A_7.10.42]
+     * [ro.vivo.product.version]: [PD1813E_A_7.10.42]
+     * [ro.vivo.os.version]: [11.0]（获取到的是错误）
+     * [ro.vivo.rom]: [rom_11.0]（获取到的是错误）
+     * [ro.vivo.rom.version]: [rom_11.0]（获取到的是错误）
+     *
+     * 所以综合取舍下来最优解是：
+     * [ro.vivo.os.build.display.id]: [Funtouch OS_10]
+     */
     static final String OS_VERSION_NAME_FUNTOUCH_OS = OS_CONDITIONS_VIVO_OS;
 
     /* ---------------------------------------- 下面是华为或者荣耀的系统 ---------------------------------------- */
