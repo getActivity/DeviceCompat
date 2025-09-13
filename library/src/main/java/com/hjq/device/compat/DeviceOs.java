@@ -293,15 +293,15 @@ public final class DeviceOs {
      * [hw_sc.build.platform.version]: [2.0.0]
      *
      * 所以综合取舍下来最优解是：
-     * [hw_sc.build.platform.version]: [4.2.0]
      * [ro.huawei.build.display.id]: [LIO-AL00 4.2.0.120(SP1C00E100R5P4)]
      * [ro.comp.hl.product_base_version]: [LIO-LGRP1-CHN 4.2.0.120(SP1)]
      * [persist.sys.hiview.base_version]: [LIO-LGRP1-CHN 4.2.0.120(SP1)]
+     * [hw_sc.build.platform.version]: [4.2.0]
      */
-    static final String[] OS_VERSION_NAME_HARMONY_OS = { "hw_sc.build.platform.version",
-                                                         "ro.huawei.build.display.id",
+    static final String[] OS_VERSION_NAME_HARMONY_OS = { "ro.huawei.build.display.id",
                                                          "ro.comp.hl.product_base_version",
-                                                         "persist.sys.hiview.base_version" };
+                                                         "persist.sys.hiview.base_version",
+                                                         "hw_sc.build.platform.version" };
 
     static final String OS_NAME_EMUI = "EMUI";
     /**
