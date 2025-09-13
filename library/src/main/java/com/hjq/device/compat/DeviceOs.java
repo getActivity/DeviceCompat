@@ -305,6 +305,13 @@ public final class DeviceOs {
                                                          "persist.sys.hiview.base_version",
                                                          "hw_sc.build.platform.version" };
 
+    /**
+     * [ro.build.ohos.devicetype]: [phone]
+     * [persist.sys.ohos.osd.cloud.switch]: [true]
+     */
+    static final String[] OS_CONDITIONS_HARMONY_OS = { "ro.build.ohos.devicetype",
+                                                       "persist.sys.ohos.osd.cloud.switch" };
+
     static final String OS_NAME_EMUI = "EMUI";
     /**
      * [ro.build.version.emui]: [EmotionUI_8.0.0]
@@ -568,21 +575,10 @@ public final class DeviceOs {
             sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
         }
 
-        if (sCurrentOsName == null) {
-            try {
-                Class<?> buildExClass = Class.forName("com.huawei.system.BuildEx");
-                Method getOsBrandMethod = buildExClass.getMethod("getOsBrand");
-                getOsBrandMethod.setAccessible(true);
-                Object osBrand = getOsBrandMethod.invoke(buildExClass);
-                // 在 HarmonyOS 2.0、3.0 上测试，osBrand 字段的值等于 harmony，但是这里为了逻辑严谨，还是用 contains 去判断
-                if (osBrand != null && String.valueOf(osBrand).toLowerCase().contains("harmony")) {
-                    sCurrentOsName = OS_NAME_HARMONY_OS;
-                    sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_HARMONY_OS);
-                    sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
-                }
-            } catch (Exception ignore) {
-                // default implementation ignored
-            }
+        if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_HARMONY_OS)) {
+            sCurrentOsName = OS_NAME_HARMONY_OS;
+            sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_HARMONY_OS);
+            sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
         }
 
         if (sCurrentOsName == null) {
@@ -731,6 +727,27 @@ public final class DeviceOs {
                 sCurrentOsName = OS_NAME_360_UI;
                 sCurrentOriginalOsVersionName = osVersion;
                 sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
+            }
+        }
+
+        if (sCurrentOsName == null) {
+            try {
+                // 如果走到这个判断中来，则证明用系统属性的方式已经判断不了 HarmonyOS，只能用代码反射特定类的方式去判断
+                // 这里其实也可以用 ohos.system.version.SystemVersion 这个类来判断，但是考虑这种方式比较小众，所以就没有采用
+                Class<?> buildExClass = Class.forName("com.huawei.system.BuildEx");
+                Method getOsBrandMethod = buildExClass.getMethod("getOsBrand");
+                getOsBrandMethod.setAccessible(true);
+                Object osBrand = getOsBrandMethod.invoke(buildExClass);
+                // 在 HarmonyOS 2.0、3.0 上测试，osBrand 字段的值等于 harmony，但是这里为了逻辑严谨，还是用 contains 去判断
+                if (osBrand != null && String.valueOf(osBrand).toLowerCase().contains("harmony")) {
+                    sCurrentOsName = OS_NAME_HARMONY_OS;
+                    // 如果真的走到这里来，用系统属性大概率也是获取不到 HarmonyOS 的版本，
+                    // 因为前面无法用系统属性判断是否为 HarmonyOS 系统，这样写是死马当作活马医
+                    sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_HARMONY_OS);
+                    sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
+                }
+            } catch (Exception ignore) {
+                // default implementation ignored
             }
         }
 
