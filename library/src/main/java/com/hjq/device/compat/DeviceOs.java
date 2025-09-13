@@ -127,6 +127,10 @@ public final class DeviceOs {
     /**
      * [ro.vivo.os.build.display.id]: [OriginOS 4]
      * [ro.vivo.os.build.display.id]: [OriginOS 5]
+     * [ro.vivo.os.build.display.id]: [OriginOS 3]
+     * [ro.vivo.os.build.display.id]: [OriginOS 1.0]
+     *
+     * [ro.vivo.os.build.display.id]: [Funtouch OS_10]
      * [ro.vivo.os.build.display.id]: [Funtouch 0S_2.5]
      */
     static final String OS_CONDITIONS_VIVO_OS = "ro.vivo.os.build.display.id";
@@ -134,20 +138,20 @@ public final class DeviceOs {
     static final String OS_NAME_ORIGIN_OS = "OriginOS";
     /**
      * [ro.vivo.product.version]: [PD2359C_A_15.1.19.20.W10.V000L1]
-     * [ro.vivo.product.version.incremental]: [15.1.19.20.W10.V000L1]
-     * [ro.vivo.build.version.incremental]: [15.1.19.20.W10]
-     * [ro.vivo.build.version]: [PD2359C_A_15.1.19.20.W10]
      * [ro.vivo.default.version]: [PD2309_A_15.1.19.20.W10.V000L1]
-     * [ro.build.display.id]: [PD2309_A_15.1.19.20.W10.V000L1]
-     * [ro.vivo.system.product.version]: [PD2309_A_15.1.19.20.W10]
+     * [ro.vivo.build.version.incremental]: [15.1.19.20.W10]
+     *
+     * 下面的属性在 OriginOS3 ~ OriginOS5 上面有返回，但是 OriginOS1 上面没有返回：
+     * [ro.vivo.product.version.incremental]: [15.1.19.20.W10.V000L1]
+     * [ro.vivo.build.version]: [PD2359C_A_15.1.19.20.W10]
      * [ro.build.software.version]: [PD2359C_A_15.1.19.20.W10]
+     * [ro.vivo.system.product.version]: [PD2309_A_15.1.19.20.W10]
      */
     static final String[] OS_VERSION_NAME_ORIGIN_OS = { "ro.vivo.product.version",
-                                                        "ro.vivo.product.version.incremental",
-                                                        "ro.vivo.build.version.incremental",
-                                                        "ro.vivo.build.version",
                                                         "ro.vivo.default.version",
-                                                        SYSTEM_PROPERTY_BUILD_DISPLAY_ID,
+                                                        "ro.vivo.build.version.incremental",
+                                                        "ro.vivo.product.version.incremental",
+                                                        "ro.vivo.build.version",
                                                         "ro.vivo.system.product.version",
                                                         "ro.build.software.version" };
 
