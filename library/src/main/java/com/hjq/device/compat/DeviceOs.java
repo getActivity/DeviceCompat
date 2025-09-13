@@ -386,6 +386,18 @@ public final class DeviceOs {
      */
     static final String OS_CONDITIONS_NUBIA_UI = "ro.build.nubia.rom.name";
 
+    /* ---------------------------------------- 下面是华硕的系统 ---------------------------------------- */
+
+    static final String OS_NAME_ROG_UI = "ROGUI";
+    /**
+     * [ro.build.version.incremental]: [33.0210.0210.235-0]
+     */
+    static final String OS_VERSION_NAME_ROG_UI = SYSTEM_PROPERTY_BUILD_VERSION_INCREMENTAL;
+    /**
+     * [ro.asus.rog]: [1]
+     */
+    static final String OS_CONDITIONS_ROG_UI = "ro.asus.rog";
+
     /* ---------------------------------------- 下面是 360 的系统 ---------------------------------------- */
 
     static final String OS_NAME_360_UI = "360UI";
@@ -606,6 +618,14 @@ public final class DeviceOs {
             if (!TextUtils.isEmpty(osName) && osName.toLowerCase().contains("nubiaui")) {
                 sCurrentOsName = OS_NAME_NUBIA_UI;
                 sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_NUBIA_UI);
+                sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
+            }
+        }
+
+        if (sCurrentOsName == null) {
+            if (SystemPropertyCompat.isSystemPropertyExist(OS_CONDITIONS_ROG_UI)) {
+                sCurrentOsName = OS_NAME_ROG_UI;
+                sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_ROG_UI);
                 sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
             }
         }
@@ -891,6 +911,13 @@ public final class DeviceOs {
      */
     public static boolean isNubiaUi() {
         return TextUtils.equals(sCurrentOsName, OS_NAME_NUBIA_UI);
+    }
+
+    /**
+     * 判断当前设备的厂商系统是否为 ROGUI（华硕手机的系统）
+     */
+    public static boolean isRogUi() {
+        return TextUtils.equals(sCurrentOsName, OS_NAME_ROG_UI);
     }
 
     /**

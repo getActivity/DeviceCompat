@@ -148,6 +148,9 @@ DeviceOs.isZui();
 // 判断当前设备的厂商系统是否为 nubiaUI（努比亚手机的老系统）
 DeviceOs.isNubiaUi();
 
+// 判断当前设备的厂商系统是否为 ROGUI（华硕手机的系统）
+DeviceOs.isRogUi();
+
 // 判断当前设备的厂商系统是否为 360UI（360 手机的系统）
 DeviceOs.is360Ui();
 
