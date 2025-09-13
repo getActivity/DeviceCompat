@@ -684,18 +684,6 @@ public final class DeviceOs {
             }
         }
 
-        if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_SMARTISAN_OS)) {
-            sCurrentOsName = OS_NAME_SMARTISAN_OS;
-            sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_SMARTISAN_OS);
-            sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
-        }
-
-        if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_EUI_OS)) {
-            sCurrentOsName = OS_NAME_EUI_OS;
-            sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_EUI_OS);
-            sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
-        }
-
         if (sCurrentOsName == null) {
             String zuxOsName = SystemPropertyCompat.getSystemPropertyValue(OS_CONDITIONS_ZUX_OS);
             // ZUXOS 一定要放在 ZUI 之前判断，因为 ZUXOS 是 ZUI 的另外一个分支
@@ -719,12 +707,22 @@ public final class DeviceOs {
             }
         }
 
-        if (sCurrentOsName == null) {
-            if (SystemPropertyCompat.isSystemPropertyExist(OS_CONDITIONS_ROG_UI)) {
-                sCurrentOsName = OS_NAME_ROG_UI;
-                sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_ROG_UI);
-                sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
-            }
+        if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyExist(OS_CONDITIONS_ROG_UI)) {
+            sCurrentOsName = OS_NAME_ROG_UI;
+            sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_ROG_UI);
+            sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
+        }
+
+        if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_SMARTISAN_OS)) {
+            sCurrentOsName = OS_NAME_SMARTISAN_OS;
+            sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_SMARTISAN_OS);
+            sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
+        }
+
+        if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_EUI_OS)) {
+            sCurrentOsName = OS_NAME_EUI_OS;
+            sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_EUI_OS);
+            sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
         }
 
         if (sCurrentOsName == null) {
