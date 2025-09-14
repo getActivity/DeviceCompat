@@ -732,7 +732,7 @@ public final class DeviceOs {
                 // RedMagicOS 8.0 是基于 Android 13、RedMagicOS 9.0 是基于 Android 14、RedMagicOS 10.0 是基于 Android 15
                 // 实测 RedMagicOS 10.0 及之后的版本可以通过 ro.build.display.id 属性识别到是 RedMagicOS，所以永远不会走到这里来
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1 &&
-                    (getBigVersionCodeByVersionName(Build.VERSION.RELEASE) - getOsBigVersionCode()) >= 5) {
+                    (extractBigVersionCodeByText(Build.VERSION.RELEASE) - getOsBigVersionCode()) >= 5) {
                     sCurrentOsName = OS_NAME_RED_MAGIC_OS;
                 }
             }
@@ -1120,7 +1120,7 @@ public final class DeviceOs {
      * @return               如果获取不到则返回 -1
      */
     public static int getOsBigVersionCode() {
-        return getBigVersionCodeByVersionName(getOsVersionName());
+        return extractBigVersionCodeByText(getOsVersionName());
     }
 
     /**
@@ -1182,13 +1182,18 @@ public final class DeviceOs {
         return "";
     }
 
-    private static int getBigVersionCodeByVersionName(@NonNull String versionName) {
-        if (TextUtils.isEmpty(versionName)) {
-            return 0;
+    /**
+     * 从文本提取大版本号
+     *
+     * @return               如果获取不到则返回 -1
+     */
+    private static int extractBigVersionCodeByText(@Nullable String text) {
+        if (text == null || text.isEmpty()) {
+            return -1;
         }
-        String[] array = versionName.split("\\.");
+        String[] array = text.split("\\.");
         if (array.length == 0) {
-            return 0;
+            return -1;
         }
         try {
             return Integer.parseInt(array[0]);
