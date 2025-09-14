@@ -47,6 +47,7 @@ public final class DeviceOs {
                                            "ro.miui.region",
                                            "ro.vendor.miui.region" };
 
+    static final int OS_TYPE_HYPER_OS = -1248529104;
     static final String OS_NAME_HYPER_OS = "HyperOS";
     /**
      * [ro.mi.os.version.incremental]: [OS1.0.3.0.TKXCNXM]
@@ -63,6 +64,7 @@ public final class DeviceOs {
 
     static final String[] OS_REGION_HYPER_OS = OS_REGION_MI;
 
+    static final int OS_TYPE_MIUI = 2366768;
     static final String OS_NAME_MIUI = "MIUI";
 
     /**
@@ -100,12 +102,14 @@ public final class DeviceOs {
 
     /* ---------------------------------------- 下面是真我、OPPO 的系统 ---------------------------------------- */
 
+    static final int OS_TYPE_REALME_UI = -859411254;
     static final String OS_NAME_REALME_UI = "realmeUI";
     /**
      * [ro.build.version.realmeui]: [V5.0]
      */
     static final String OS_VERSION_NAME_REALME_UI = "ro.build.version.realmeui";
 
+    static final int OS_TYPE_COLOR_OS = -1680767897;
     static final String OS_NAME_COLOR_OS = "ColorOS";
 
     /**
@@ -132,7 +136,9 @@ public final class DeviceOs {
      */
     static final String OS_CONDITIONS_VIVO_OS = "ro.vivo.os.build.display.id";
 
+    static final int OS_TYPE_ORIGIN_OS = 1443687338;
     static final String OS_NAME_ORIGIN_OS = "OriginOS";
+
     /**
      * [ro.vivo.product.version]: [PD2359C_A_15.1.19.20.W10.V000L1]
      * [ro.vivo.default.version]: [PD2309_A_15.1.19.20.W10.V000L1]
@@ -152,6 +158,7 @@ public final class DeviceOs {
                                                         "ro.vivo.system.product.version",
                                                         "ro.build.software.version" };
 
+    static final int OS_TYPE_FUNTOUCH_OS = -294058204;
     static final String OS_NAME_FUNTOUCH_OS = "FuntouchOS";
 
     /**
@@ -183,7 +190,9 @@ public final class DeviceOs {
 
     /* ---------------------------------------- 下面是华为或者荣耀的系统 ---------------------------------------- */
 
+    static final int OS_TYPE_MAGIC_OS = -1801284559;
     static final String OS_NAME_MAGIC_OS = "MagicOS";
+
     /**
      * MagicOS 9.0 返回：[msc.config.magic.version]: [9.0]
      * MagicOS 7.1 返回：[msc.config.magic.version]: [7.1]
@@ -271,6 +280,7 @@ public final class DeviceOs {
                                                        "ro.comp.hl.product_base_version",
                                                         SYSTEM_PROPERTY_BUILD_DISPLAY_ID };
 
+    static final int OS_TYPE_HARMONY_OS = 1583864138;
     static final String OS_NAME_HARMONY_OS = "HarmonyOS";
 
     /**
@@ -337,6 +347,7 @@ public final class DeviceOs {
     static final String[] OS_CONDITIONS_HARMONY_OS = { "ro.build.ohos.devicetype",
                                                        "persist.sys.ohos.osd.cloud.switch" };
 
+    static final int OS_TYPE_EMUI = 2132284;
     static final String OS_NAME_EMUI = "EMUI";
     /**
      * [ro.build.version.emui]: [EmotionUI_8.0.0]
@@ -352,6 +363,7 @@ public final class DeviceOs {
 
     /* ---------------------------------------- 下面是三星的系统 ---------------------------------------- */
 
+    static final int OS_TYPE_ONE_UI = 76334938;
     static final String OS_NAME_ONE_UI = "OneUI";
 
     /**
@@ -365,12 +377,15 @@ public final class DeviceOs {
 
     /* ---------------------------------------- 下面是一加的系统 ---------------------------------------- */
 
+    static final int OS_TYPE_OXYGEN_OS = -1363277916;
     static final String OS_NAME_OXYGEN_OS = "OxygenOS";
+
     /**
      * [ro.oxygen.version]: [9.0.4]
      */
     static final String OS_VERSION_NAME_OXYGEN_OS = "ro.oxygen.version";
 
+    static final int OS_TYPE_H2_OS = 2195534;
     static final String OS_NAME_H2_OS = "H2OS";
     /**
      * Android 7.1.1：[ro.rom.version]: [H2OS V3.5]
@@ -381,6 +396,7 @@ public final class DeviceOs {
 
     /* ---------------------------------------- 下面是魅族的系统 ---------------------------------------- */
 
+    static final int OS_TYPE_FLYME = 67983659;
     static final String OS_NAME_FLYME = "Flyme";
     /**
      * [ro.build.display.id]: [Flyme 6.2.0.2A]
@@ -419,12 +435,16 @@ public final class DeviceOs {
      */
     static final String OS_VERSION_NAME_ZTE_OS = SYSTEM_PROPERTY_BUILD_DISPLAY_ID;
 
+    static final int OS_TYPE_RED_MAGIC_OS = -417455456;
     static final String OS_NAME_RED_MAGIC_OS = "RedMagicOS";
 
+    static final int OS_TYPE_NEBULA_AIOS = -1668450325;
     static final String OS_NAME_NEBULA_AIOS = "NebulaAIOS";
 
+    static final int OS_TYPE_MY_OS = 2412720;
     static final String OS_NAME_MY_OS = "MyOS";
 
+    static final int OS_TYPE_MIFAVOR_UI = -203064298;
     static final String OS_NAME_MIFAVOR_UI = "MifavorUI";
     /**
      * [ro.build.MiFavor_version]: [10.1]
@@ -434,6 +454,7 @@ public final class DeviceOs {
 
     /* ---------------------------------------- 下面是锤子的系统 ---------------------------------------- */
 
+    static final int OS_TYPE_SMARTISAN_OS = 1805724132;
     static final String OS_NAME_SMARTISAN_OS = "SmartisanOS";
     static final String OS_VERSION_NAME_SMARTISAN_OS = "ro.smartisan.version";
     static final String[] OS_CONDITIONS_SMARTISAN_OS = { "ro.smartisan.sa",
@@ -441,6 +462,7 @@ public final class DeviceOs {
 
     /* ---------------------------------------- 下面是乐视的系统 ---------------------------------------- */
 
+    static final int OS_TYPE_EUI_OS = 69017;
     static final String OS_NAME_EUI_OS = "EUI";
     /**
      * [ro.letv.release.version]: [6.0.030S]
@@ -466,6 +488,7 @@ public final class DeviceOs {
 
     /* ---------------------------------------- 下面是联想、摩托罗拉的系统 ---------------------------------------- */
 
+    static final int OS_TYPE_ZUX_OS = 85736225;
     static final String OS_NAME_ZUX_OS = "ZUXOS";
     /**
      * [ro.config.lgsi.fp.incremental]: [ZUXOS_1.1.350_250418_PRC]
@@ -478,7 +501,7 @@ public final class DeviceOs {
      */
     static final String OS_CONDITIONS_ZUX_OS = "ro.config.lgsi.os.name";
 
-
+    static final int OS_TYPE_ZUI = 89198;
     static final String OS_NAME_ZUI = "ZUI";
     /**
      * [ro.com.zui.version]: [3.5]
@@ -498,6 +521,7 @@ public final class DeviceOs {
 
     /* ---------------------------------------- 下面是努比亚的老系统 ---------------------------------------- */
 
+    static final int OS_TYPE_NUBIA_UI = -2010470489;
     static final String OS_NAME_NUBIA_UI = "nubiaUI";
     /**
      * [ro.build.nubia.rom.code]: [V1.0]
@@ -517,6 +541,7 @@ public final class DeviceOs {
 
     /* ---------------------------------------- 下面是华硕的系统 ---------------------------------------- */
 
+    static final int OS_TYPE_ROG_UI = 78153150;
     static final String OS_NAME_ROG_UI = "ROGUI";
     /**
      * [ro.build.version.incremental]: [33.0210.0210.235-0]
@@ -529,12 +554,14 @@ public final class DeviceOs {
 
     /* ---------------------------------------- 下面是 360 的系统 ---------------------------------------- */
 
+    static final int OS_TYPE_360_UI = 48757121;
     static final String OS_NAME_360_UI = "360UI";
     /**
      * Android 8.0：[ro.build.uiversion]: [360UI:V3.0]
      */
     static final String OS_VERSION_NAME_360_UI = "ro.build.uiversion";
 
+    private static int sCurrentOsType;
     @Nullable
     private static String sCurrentOsName;
     @Nullable
@@ -550,10 +577,12 @@ public final class DeviceOs {
         // 需要注意的是：该逻辑需要在判断 MIUI 系统之前判断，因为在 HyperOS 系统上面判断当前设备的厂商系统是否为 MIUI 系统也会返回 true
         // 这是因为 HyperOS 系统本身就是从 MIUI 系统演变而来，有这个问题也很正常，主要是厂商为了系统兼容性而保留的
         if (SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_HYPER_OS)) {
+            sCurrentOsType = OS_TYPE_HYPER_OS;
             sCurrentOsName = OS_NAME_HYPER_OS;
             sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_HYPER_OS);
             sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
         } else if (SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_MIUI)) {
+            sCurrentOsType = OS_TYPE_MIUI;
             sCurrentOsName = OS_NAME_MIUI;
             sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_MIUI);
             sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
@@ -563,12 +592,14 @@ public final class DeviceOs {
             String realmeUiVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_REALME_UI);
             // realmeUI 一定要放在 ColorOS 之前判断，因为 realmeUI 是 ColorOS 的另外一个分支
             if (!TextUtils.isEmpty(realmeUiVersion)) {
+                sCurrentOsType = OS_TYPE_REALME_UI;
                 sCurrentOsName = OS_NAME_REALME_UI;
                 sCurrentOriginalOsVersionName = realmeUiVersion;
                 sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
             } else {
                 String colorOsVersion = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_COLOR_OS);
                 if (!TextUtils.isEmpty(colorOsVersion)) {
+                    sCurrentOsType = OS_TYPE_COLOR_OS;
                     sCurrentOsName = OS_NAME_COLOR_OS;
                     sCurrentOriginalOsVersionName = colorOsVersion;
                     sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
@@ -580,6 +611,7 @@ public final class DeviceOs {
             String vivoOsName = SystemPropertyCompat.getSystemPropertyValue(OS_CONDITIONS_VIVO_OS);
             if (!TextUtils.isEmpty(vivoOsName)) {
                 if (vivoOsName.toLowerCase().contains("origin")) {
+                    sCurrentOsType = OS_TYPE_ORIGIN_OS;
                     sCurrentOsName = OS_NAME_ORIGIN_OS;
                     // OriginOS 5 获取到的版本包含 15.x.x，例如：[ro.vivo.product.version]: [PD2429_A_15.0.18.12.W10.V000L1]
                     // OriginOS 4 获取到的版本包含 14.x.x，例如：[ro.vivo.product.version]: [PD2220D_A_14.2.6.5.W10.V000L1]
@@ -587,6 +619,7 @@ public final class DeviceOs {
                     sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
                 } else if (vivoOsName.toLowerCase().contains("funtouch")) {
                     // 不要用 ro.vivo.os.name 属性判断是否为 FuntouchOS 系统，因为在 FuntouchOS 和 OriginOs 系统上面获取到的值是 Funtouch
+                    sCurrentOsType = OS_TYPE_FUNTOUCH_OS;
                     sCurrentOsName = OS_NAME_FUNTOUCH_OS;
                     sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_FUNTOUCH_OS);
                     sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
@@ -595,12 +628,14 @@ public final class DeviceOs {
         }
 
         if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_NAME_MAGIC_OS)) {
+            sCurrentOsType = OS_TYPE_MAGIC_OS;
             sCurrentOsName = OS_NAME_MAGIC_OS;
             sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_MAGIC_OS);
             sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
         }
 
         if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_HARMONY_OS)) {
+            sCurrentOsType = OS_TYPE_HARMONY_OS;
             sCurrentOsName = OS_NAME_HARMONY_OS;
             sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_HARMONY_OS);
             sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
@@ -610,6 +645,7 @@ public final class DeviceOs {
             String emuiVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_EMUI);
             // 在 MagicUI 6.1.0 上会返回 [ro.build.version.emui]: [MagicUI_6.1.0]，这里要注意过滤掉
             if (!TextUtils.isEmpty(emuiVersion) && emuiVersion.toLowerCase().contains("emotionui")) {
+                sCurrentOsType = OS_TYPE_EMUI;
                 sCurrentOsName = OS_NAME_EMUI;
                 sCurrentOriginalOsVersionName = emuiVersion;
                 sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
@@ -619,6 +655,7 @@ public final class DeviceOs {
         if (sCurrentOsName == null) {
             String oneUiVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_ONE_UI);
             if (!TextUtils.isEmpty(oneUiVersion)) {
+                sCurrentOsType = OS_TYPE_ONE_UI;
                 sCurrentOsName = OS_NAME_ONE_UI;
                 if (oneUiVersion.matches(REGEX_NUMBER)) {
                     try {
@@ -641,6 +678,7 @@ public final class DeviceOs {
                     Field semPlatformIntField = Build.VERSION.class.getDeclaredField("SEM_PLATFORM_INT");
                     semPlatformIntField.setAccessible(true);
                     int semPlatformVersion = semPlatformIntField.getInt(null);
+                    sCurrentOsType = OS_TYPE_ONE_UI;
                     sCurrentOsName = OS_NAME_ONE_UI;
                     int superfluousValue = 90000;
                     if (semPlatformVersion >= superfluousValue) {
@@ -661,6 +699,7 @@ public final class DeviceOs {
         if (sCurrentOsName == null) {
             String oxygenOsVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_OXYGEN_OS);
             if (!TextUtils.isEmpty(oxygenOsVersion)) {
+                sCurrentOsType = OS_TYPE_OXYGEN_OS;
                 sCurrentOsName = OS_NAME_OXYGEN_OS;
                 sCurrentOriginalOsVersionName = oxygenOsVersion;
                 sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
@@ -669,6 +708,7 @@ public final class DeviceOs {
         if (sCurrentOsName == null) {
             String h2OsVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_H2_OS);
             if (!TextUtils.isEmpty(h2OsVersion)) {
+                sCurrentOsType = OS_TYPE_H2_OS;
                 sCurrentOsName = OS_NAME_H2_OS;
                 sCurrentOriginalOsVersionName = h2OsVersion;
                 sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
@@ -676,6 +716,7 @@ public final class DeviceOs {
         }
 
         if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_FLYME)) {
+            sCurrentOsType = OS_TYPE_FLYME;
             sCurrentOsName = OS_NAME_FLYME;
             sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_FLYME);
             sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
@@ -686,18 +727,22 @@ public final class DeviceOs {
             if (!TextUtils.isEmpty(osVersion)) {
                 String lowerCaseOsVersion = osVersion.toLowerCase();
                 if (lowerCaseOsVersion.contains("nebulaaios")) {
+                    sCurrentOsType = OS_TYPE_NEBULA_AIOS;
                     sCurrentOsName = OS_NAME_NEBULA_AIOS;
                     sCurrentOriginalOsVersionName = osVersion;
                     sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
                 } else if (lowerCaseOsVersion.contains("redmagicos")) {
+                    sCurrentOsType = OS_TYPE_RED_MAGIC_OS;
                     sCurrentOsName = OS_NAME_RED_MAGIC_OS;
                     sCurrentOriginalOsVersionName = osVersion;
                     sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
                 } else if (lowerCaseOsVersion.contains("myos")) {
+                    sCurrentOsType = OS_TYPE_MY_OS;
                     sCurrentOsName = OS_NAME_MY_OS;
                     sCurrentOriginalOsVersionName = osVersion;
                     sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
                 } else if (lowerCaseOsVersion.contains("zte")) {
+                    sCurrentOsType = OS_TYPE_MIFAVOR_UI;
                     sCurrentOsName = OS_NAME_MIFAVOR_UI;
                     sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_MIFAVOR_UI);
                     sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
@@ -708,6 +753,7 @@ public final class DeviceOs {
         if (sCurrentOsName == null) {
             String osName = SystemPropertyCompat.getSystemPropertyValue(OS_CONDITIONS_NUBIA_UI);
             if (!TextUtils.isEmpty(osName) && osName.toLowerCase().contains("nubiaui")) {
+                sCurrentOsType = OS_TYPE_NUBIA_UI;
                 sCurrentOsName = OS_NAME_NUBIA_UI;
                 sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_NUBIA_UI);
                 sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
@@ -733,6 +779,7 @@ public final class DeviceOs {
                 // 实测 RedMagicOS 10.0 及之后的版本可以通过 ro.build.display.id 属性识别到是 RedMagicOS，所以永远不会走到这里来
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1 &&
                     (extractBigVersionCodeByText(Build.VERSION.RELEASE) - getOsBigVersionCode()) >= 5) {
+                    sCurrentOsType = OS_TYPE_RED_MAGIC_OS;
                     sCurrentOsName = OS_NAME_RED_MAGIC_OS;
                 }
             }
@@ -742,10 +789,12 @@ public final class DeviceOs {
             String zuxOsName = SystemPropertyCompat.getSystemPropertyValue(OS_CONDITIONS_ZUX_OS);
             // ZUXOS 一定要放在 ZUI 之前判断，因为 ZUXOS 是 ZUI 的另外一个分支
             if (!TextUtils.isEmpty(zuxOsName) && zuxOsName.toLowerCase().contains("zuxos")) {
+                sCurrentOsType = OS_TYPE_ZUX_OS;
                 sCurrentOsName = OS_NAME_ZUX_OS;
                 sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_ZUX_OS);
                 sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
             } else if (SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_ZUI)) {
+                sCurrentOsType = OS_TYPE_ZUI;
                 sCurrentOsName = OS_NAME_ZUI;
                 sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_ZUI);
                 sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
@@ -753,18 +802,21 @@ public final class DeviceOs {
         }
 
         if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyExist(OS_CONDITIONS_ROG_UI)) {
+            sCurrentOsType = OS_TYPE_ROG_UI;
             sCurrentOsName = OS_NAME_ROG_UI;
             sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_ROG_UI);
             sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
         }
 
         if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_SMARTISAN_OS)) {
+            sCurrentOsType = OS_TYPE_SMARTISAN_OS;
             sCurrentOsName = OS_NAME_SMARTISAN_OS;
             sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_SMARTISAN_OS);
             sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
         }
 
         if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_EUI_OS)) {
+            sCurrentOsType = OS_TYPE_EUI_OS;
             sCurrentOsName = OS_NAME_EUI_OS;
             sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_EUI_OS);
             sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
@@ -773,6 +825,7 @@ public final class DeviceOs {
         if (sCurrentOsName == null) {
             String osVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_360_UI);
             if (!TextUtils.isEmpty(osVersion) && osVersion.toLowerCase().contains("360ui")) {
+                sCurrentOsType = OS_TYPE_360_UI;
                 sCurrentOsName = OS_NAME_360_UI;
                 sCurrentOriginalOsVersionName = osVersion;
                 sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
@@ -789,6 +842,7 @@ public final class DeviceOs {
                 Object osBrand = getOsBrandMethod.invoke(buildExClass);
                 // 在 HarmonyOS 2.0、3.0 上测试，osBrand 字段的值等于 harmony，但是这里为了逻辑严谨，还是用 contains 去判断
                 if (osBrand != null && String.valueOf(osBrand).toLowerCase().contains("harmony")) {
+                    sCurrentOsType = OS_TYPE_HARMONY_OS;
                     sCurrentOsName = OS_NAME_HARMONY_OS;
                     // 如果真的走到这里来，用系统属性大概率也是获取不到 HarmonyOS 的版本，
                     // 因为前面无法用系统属性判断是否为 HarmonyOS 系统，这样写是死马当作活马医
@@ -817,7 +871,7 @@ public final class DeviceOs {
      * 判断当前设备的厂商系统是否为 HyperOS（小米手机、红米手机的系统）
      */
     public static boolean isHyperOs() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_HYPER_OS);
+        return sCurrentOsType == OS_TYPE_HYPER_OS;
     }
 
     /**
@@ -863,7 +917,7 @@ public final class DeviceOs {
      * 判断当前设备的厂商系统是否为 MIUI（小米手机、红米手机的老系统）
      */
     public static boolean isMiui() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_MIUI);
+        return sCurrentOsType == OS_TYPE_MIUI;
     }
 
     /**
@@ -938,154 +992,154 @@ public final class DeviceOs {
      * 判断当前是否为 realmeUI（真我手机的系统）
      */
     public static boolean isRealmeUi() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_REALME_UI);
+        return sCurrentOsType == OS_TYPE_REALME_UI;
     }
 
     /**
      * 判断当前设备的厂商系统是否为 ColorOS（ OPPO、一加手机的系统）
      */
     public static boolean isColorOs() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_COLOR_OS);
+        return sCurrentOsType == OS_TYPE_COLOR_OS;
     }
 
     /**
      * 判断当前设备的厂商系统是否为 OriginOS（ vivo 手机的系统）
      */
     public static boolean isOriginOs() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_ORIGIN_OS);
+        return sCurrentOsType == OS_TYPE_ORIGIN_OS;
     }
 
     /**
      * 判断当前设备的厂商系统是否为 FuntouchOS（vivo 手机的老系统）
      */
     public static boolean isFuntouchOs() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_FUNTOUCH_OS);
+        return sCurrentOsType == OS_TYPE_FUNTOUCH_OS;
     }
 
     /**
      * 判断当前是否为 MagicOs 或者 MagicUI（荣耀手机的系统）
      */
     public static boolean isMagicOs() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_MAGIC_OS);
+        return sCurrentOsType == OS_TYPE_MAGIC_OS;
     }
 
     /**
      * 判断当前设备的厂商系统是否为 HarmonyOS（华为手机、荣耀手机的系统）
      */
     public static boolean isHarmonyOs() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_HARMONY_OS);
+        return sCurrentOsType == OS_TYPE_HARMONY_OS;
     }
 
     /**
      * 判断当前设备的厂商系统是否为 EMUI 或者 EmotionUI（华为手机、荣耀手机的老系统）
      */
     public static boolean isEmui() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_EMUI);
+        return sCurrentOsType == OS_TYPE_EMUI;
     }
 
     /**
      * 判断当前设备的厂商系统是否为 OneUI（三星手机的系统）
      */
     public static boolean isOneUi() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_ONE_UI);
+        return sCurrentOsType == OS_TYPE_ONE_UI;
     }
 
     /**
      * 判断当前设备的厂商系统是否为 OxygenOS（一加手机的老系统，相当于 H2OS 的海外版）
      */
     public static boolean isOxygenOs() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_OXYGEN_OS);
+        return sCurrentOsType == OS_TYPE_OXYGEN_OS;
     }
 
     /**
      * 判断当前设备的厂商系统是否为 H2OS（一加手机的老系统，相当于 OxygenOS 的国内版）
      */
     public static boolean isH2Os() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_H2_OS);
+        return sCurrentOsType == OS_TYPE_H2_OS;
     }
 
     /**
      * 判断当前设备的厂商系统是否为 Flyme（魅族手机的系统）
      */
     public static boolean isFlyme() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_FLYME);
+        return sCurrentOsType == OS_TYPE_FLYME;
     }
 
     /**
      * 判断当前设备的厂商系统是否为 RedMagicOS（努比亚红魔手机的系统，努比亚红魔是中兴旗下的子品牌）
      */
     public static boolean isRedMagicOs() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_RED_MAGIC_OS);
+        return sCurrentOsType == OS_TYPE_RED_MAGIC_OS;
     }
 
     /**
      * 判断当前设备的厂商系统是否为 NebulaAIOS（努比亚手机的系统）
      */
     public static boolean isNebulaAiOs() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_NEBULA_AIOS);
+        return sCurrentOsType == OS_TYPE_NEBULA_AIOS;
     }
 
     /**
      * 判断当前设备的厂商系统是否为 MyOS（中兴手机、努比亚手机的系统）
      */
     public static boolean isMyOs() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_MY_OS);
+        return sCurrentOsType == OS_TYPE_MY_OS;
     }
 
     /**
      * 判断当前设备的厂商系统是否为 MifavorUI（中兴手机的老系统）
      */
     public static boolean isMifavorUi() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_MIFAVOR_UI);
+        return sCurrentOsType == OS_TYPE_MIFAVOR_UI;
     }
 
     /**
      * 判断当前设备的厂商系统是否为 SmartisanOS（锤子手机的系统）
      */
     public static boolean isSmartisanOs() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_SMARTISAN_OS);
+        return sCurrentOsType == OS_TYPE_SMARTISAN_OS;
     }
 
     /**
      * 判断当前设备的厂商系统是否为 EUI（乐视手机的系统）
      */
     public static boolean isEui() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_EUI_OS);
+        return sCurrentOsType == OS_TYPE_EUI_OS;
     }
 
     /**
      * 判断当前设备的厂商系统是否为 ZUXOS（联想手机、摩托罗拉手机的系统）
      */
     public static boolean isZuxOs() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_ZUX_OS);
+        return sCurrentOsType == OS_TYPE_ZUX_OS;
     }
 
     /**
      * 判断当前设备的厂商系统是否为 ZUI（联想手机、摩托罗拉手机的老系统）
      */
     public static boolean isZui() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_ZUI);
+        return sCurrentOsType == OS_TYPE_ZUI;
     }
 
     /**
      * 判断当前设备的厂商系统是否为 nubiaUI（努比亚手机的老系统）
      */
     public static boolean isNubiaUi() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_NUBIA_UI);
+        return sCurrentOsType == OS_TYPE_NUBIA_UI;
     }
 
     /**
      * 判断当前设备的厂商系统是否为 ROGUI（华硕手机的系统）
      */
     public static boolean isRogUi() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_ROG_UI);
+        return sCurrentOsType == OS_TYPE_ROG_UI;
     }
 
     /**
      * 判断当前设备的厂商系统是否为 360UI（360 手机的系统）
      */
     public static boolean is360Ui() {
-        return TextUtils.equals(sCurrentOsName, OS_NAME_360_UI);
+        return sCurrentOsType == OS_TYPE_360_UI;
     }
 
     /**
