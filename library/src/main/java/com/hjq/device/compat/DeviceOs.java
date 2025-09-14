@@ -685,12 +685,12 @@ public final class DeviceOs {
             String osVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_ZTE_OS);
             if (!TextUtils.isEmpty(osVersion)) {
                 String lowerCaseOsVersion = osVersion.toLowerCase();
-                if (lowerCaseOsVersion.contains("redmagicos")) {
-                    sCurrentOsName = OS_NAME_RED_MAGIC_OS;
+                if (lowerCaseOsVersion.contains("nebulaaios")) {
+                    sCurrentOsName = OS_NAME_NEBULA_AIOS;
                     sCurrentOriginalOsVersionName = osVersion;
                     sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
-                } else if (lowerCaseOsVersion.contains("nebulaaios")) {
-                    sCurrentOsName = OS_NAME_NEBULA_AIOS;
+                } else if (lowerCaseOsVersion.contains("redmagicos")) {
+                    sCurrentOsName = OS_NAME_RED_MAGIC_OS;
                     sCurrentOriginalOsVersionName = osVersion;
                     sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
                 } else if (lowerCaseOsVersion.contains("myos")) {
@@ -706,6 +706,39 @@ public final class DeviceOs {
         }
 
         if (sCurrentOsName == null) {
+            String osName = SystemPropertyCompat.getSystemPropertyValue(OS_CONDITIONS_NUBIA_UI);
+            if (!TextUtils.isEmpty(osName) && osName.toLowerCase().contains("nubiaui")) {
+                sCurrentOsName = OS_NAME_NUBIA_UI;
+                sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_NUBIA_UI);
+                sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
+                // 最近发现在 RedMagicOS 6.0 Android 13 获取到系统属性的是：
+                // [ro.build.nubia.rom.name]: [nubiaUI]
+                // [ro.build.nubia.rom.code]: [V6.0]
+                // 会导致将 RedMagicOS 误判成 nubiaUI 系统
+                // Buy Nubia Z30 Pro - Giztop：https://www.giztop.com/nubia-z30-pro.html
+                // 努比亚Z30 Pro的系统UI体验怎么样，好用吗_九锋网：https://www.jiuphone.com/ask/2021/05217409.html
+                // ZTE nubia Play - Full phone specifications：https://www.gsmarena.com/zte_nubia_play-10193.php
+                // 努比亚科技 - 维基百科 --- Nubia Technology - Wikipedia：https://en.wikipedia.org/wiki/Nubia_Technology
+                // 从上面三个链接可以得出来一个信息：nubiaUI 8.0 基于 Android 10、nubiaUI 9.0 基于 Android 11，nubiaUI 9.0 是最后一个版本
+                // 另外通过分析 RedMagicOS 系统的历史，可以得出来一个结论：
+                // 1. https://en.wikipedia.org/wiki/Nubia_Technology，
+                // 2. https://beebom.com/nubia-red-magic-review/
+                // 3. https://product.pconline.com.cn/mobile/nubia/1091411_detail.html
+                // 4. https://g.pconline.com.cn/product/mobile/nubia/1091429_detail.html
+                // 5. https://blog.csdn.net/romleyuan/article/details/138323889
+                // 6. https://bbs.redmagic.com/detail/2815906
+                // RedMagicOS 1.0 是基于 Android 8.1，RedMagicOS 2.0 是基于 Android 9.0，RedMagicOS 3.0 是基于 Android 10
+                // RedMagicOS 4.0、4.5 是基于 Android 11，RedMagicOS 5.0 是基于 Android 12，RedMagicOS 6.0 是基于 Android 13
+                // RedMagicOS 8.0 是基于 Android 13、RedMagicOS 9.0 是基于 Android 14、RedMagicOS 10.0 是基于 Android 15
+                // 实测 RedMagicOS 10.0 及之后的版本可以通过 ro.build.display.id 属性识别到是 RedMagicOS，所以永远不会走到这里来
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1 &&
+                    (getBigVersionCodeByVersionName(Build.VERSION.RELEASE) - getOsBigVersionCode()) >= 5) {
+                    sCurrentOsName = OS_NAME_RED_MAGIC_OS;
+                }
+            }
+        }
+
+        if (sCurrentOsName == null) {
             String zuxOsName = SystemPropertyCompat.getSystemPropertyValue(OS_CONDITIONS_ZUX_OS);
             // ZUXOS 一定要放在 ZUI 之前判断，因为 ZUXOS 是 ZUI 的另外一个分支
             if (!TextUtils.isEmpty(zuxOsName) && zuxOsName.toLowerCase().contains("zuxos")) {
@@ -715,15 +748,6 @@ public final class DeviceOs {
             } else if (SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_ZUI)) {
                 sCurrentOsName = OS_NAME_ZUI;
                 sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_ZUI);
-                sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
-            }
-        }
-
-        if (sCurrentOsName == null) {
-            String osName = SystemPropertyCompat.getSystemPropertyValue(OS_CONDITIONS_NUBIA_UI);
-            if (!TextUtils.isEmpty(osName) && osName.toLowerCase().contains("nubiaui")) {
-                sCurrentOsName = OS_NAME_NUBIA_UI;
-                sCurrentOriginalOsVersionName = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_NUBIA_UI);
                 sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
             }
         }
@@ -1096,20 +1120,7 @@ public final class DeviceOs {
      * @return               如果获取不到则返回 -1
      */
     public static int getOsBigVersionCode() {
-        String osVersionName = getOsVersionName();
-        if (TextUtils.isEmpty(osVersionName)) {
-            return 0;
-        }
-        String[] array = osVersionName.split("\\.");
-        if (array.length == 0) {
-            return 0;
-        }
-        try {
-            return Integer.parseInt(array[0]);
-        } catch (Exception e) {
-            // java.lang.NumberFormatException: Invalid int: "0 "
-            return -1;
-        }
+        return getBigVersionCodeByVersionName(getOsVersionName());
     }
 
     /**
@@ -1169,5 +1180,21 @@ public final class DeviceOs {
             }
         }
         return "";
+    }
+
+    private static int getBigVersionCodeByVersionName(@NonNull String versionName) {
+        if (TextUtils.isEmpty(versionName)) {
+            return 0;
+        }
+        String[] array = versionName.split("\\.");
+        if (array.length == 0) {
+            return 0;
+        }
+        try {
+            return Integer.parseInt(array[0]);
+        } catch (Exception e) {
+            // java.lang.NumberFormatException: Invalid int: "0 "
+            return -1;
+        }
     }
 }
