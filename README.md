@@ -173,26 +173,56 @@ DeviceOs.getOriginalOsVersionName();
 * 判断设备品牌
 
 ```java
-// 判断当前设备的品牌是否为华为
-DeviceBrand.isHuaWei();
-
-// 判断当前设备的品牌是否为荣耀
-DeviceBrand.isHonor();
-
-// 判断当前设备的品牌是否为 vivo
-DeviceBrand.isVivo();
+// 判断当前设备的品牌是否为红米
+DeviceBrand.isRedMi();
 
 // 判断当前设备的品牌是否为小米
 DeviceBrand.isXiaoMi();
 
-// 判断当前设备的品牌是否为红米
-DeviceBrand.isRedMi();
+// 判断当前设备的品牌是否为真我
+DeviceBrand.isRealMe();
+
+// 判断当前设备的品牌是否为一加
+DeviceBrand.isOnePlus();
 
 // 判断当前设备的品牌是否为 OPPO
 DeviceBrand.isOppo();
 
-// 判断当前设备的品牌是否为真我
-DeviceBrand.isRealMe();
+// 判断当前设备的品牌是否为 vivo
+DeviceBrand.isVivo();
+
+// 判断当前设备的品牌是否为荣耀
+DeviceBrand.isHonor();
+
+// 判断当前设备的品牌是否为华为
+DeviceBrand.isHuaWei();
+
+// 判断当前设备的品牌是否为魅族
+DeviceBrand.isMeiZu();
+
+// 判断当前设备的品牌是否为三星
+DeviceBrand.isSamsung();
+
+// 判断当前设备的品牌是否为努比亚
+DeviceBrand.isNubia();
+
+// 判断当前设备的品牌是否为中兴
+DeviceBrand.isZte();
+
+// 判断当前设备的品牌是否为摩托罗拉
+DeviceBrand.isMotorola();
+
+// 判断当前设备的品牌是否为联想
+DeviceBrand.isLenovo();
+
+// 判断当前设备的品牌是否为华硕
+DeviceBrand.isAsus();
+
+// 判断当前设备的品牌是否为索尼
+DeviceBrand.isSony();
+
+// 判断当前设备的品牌是否为锤子
+DeviceBrand.isSmartisan();
 
 // 判断当前设备的品牌是否为乐视
 DeviceBrand.isLeEco();
@@ -200,47 +230,17 @@ DeviceBrand.isLeEco();
 // 判断当前设备的品牌是否为 360
 DeviceBrand.is360();
 
-// 判断当前设备的品牌是否为中兴
-DeviceBrand.isZte();
-
-// 判断当前设备的品牌是否为一加
-DeviceBrand.isOnePlus();
-
-// 判断当前设备的品牌是否为努比亚
-DeviceBrand.isNubia();
-
 // 判断当前设备的品牌是否为酷派
 DeviceBrand.isCoolPad();
 
 // 判断当前设备的品牌是否为 LG
 DeviceBrand.isLg();
 
-// 判断当前设备的品牌是否为 Google
-DeviceBrand.isGoogle();
-
-// 判断当前设备的品牌是否为三星
-DeviceBrand.isSamsung();
-
-// 判断当前设备的品牌是否为魅族
-DeviceBrand.isMeiZu();
-
-// 判断当前设备的品牌是否为联想
-DeviceBrand.isLenovo();
-
-// 判断当前设备的品牌是否为锤子
-DeviceBrand.isSmartisan();
-
 // 判断当前设备的品牌是否为 HTC
 DeviceBrand.isHtc();
 
-// 判断当前设备的品牌是否为索尼
-DeviceBrand.isSony();
-
 // 判断当前设备的品牌是否为金立
 DeviceBrand.isGionee();
-
-// 判断当前设备的品牌是否为摩托罗拉
-DeviceBrand.isMotorola();
 
 // 判断当前设备的品牌是否为传音
 DeviceBrand.isTranssion();
@@ -265,6 +265,9 @@ DeviceBrand.isMeiTu();
 
 // 判断当前设备的品牌是否为诺基亚
 DeviceBrand.isNokia();
+
+// 判断当前设备的品牌是否为 Google
+DeviceBrand.isGoogle();
 
 // 获取当前设备的品牌名称
 DeviceBrand.getBrandName();

@@ -12,47 +12,62 @@ import android.text.TextUtils;
  */
 public final class DeviceBrand {
 
-    private static final String BRAND_NAME_HUAWEI = "HUAWEI";
-    private static final String[] BRAND_ID_LOWER_CASE_HUAWEI = { "huawei" };
-
-    private static final String BRAND_NAME_VIVO = "vivo";
-    private static final String[] BRAND_ID_LOWER_CASE_VIVO = { "vivo" };
+    private static final String BRAND_NAME_REDMI = "Redmi";
+    private static final String[] BRAND_ID_LOWER_CASE_REDMI = { "redmi" };
 
     private static final String BRAND_NAME_XIAOMI = "Xiaomi";
     private static final String[] BRAND_ID_LOWER_CASE_XIAOMI = { "xiaomi" };
 
-    private static final String BRAND_NAME_REDMI = "Redmi";
-    private static final String[] BRAND_ID_LOWER_CASE_REDMI = { "redmi" };
-
-    private static final String BRAND_NAME_OPPO = "OPPO";
-    private static final String[] BRAND_ID_LOWER_CASE_OPPO = { "oppo" };
-
     private static final String BRAND_NAME_REALME = "realme";
     private static final String[] BRAND_ID_LOWER_CASE_REALME = { "realme" };
-
-    private static final String BRAND_NAME_LEECO  = "LeEco";
-    private static final String[] BRAND_ID_LOWER_CASE_LEECO = { "leeco", "letv" };
-
-    private static final String BRAND_NAME_360 = "360";
-    private static final String[] BRAND_ID_LOWER_CASE_360 = { "360", "qiku" };
-
-    private static final String BRAND_NAME_ZTE = "ZTE";
-    private static final String[] BRAND_ID_LOWER_CASE_ZTE = { "zte" };
 
     private static final String BRAND_NAME_ONEPLUS = "OnePlus";
     private static final String[] BRAND_ID_LOWER_CASE_ONEPLUS = { "oneplus" };
 
-    private static final String BRAND_NAME_NUBIA = "nubia";
-    private static final String[] BRAND_ID_LOWER_CASE_NUBIA = { "nubia" };
+    private static final String BRAND_NAME_OPPO = "OPPO";
+    private static final String[] BRAND_ID_LOWER_CASE_OPPO = { "oppo" };
 
-    private static final String BRAND_NAME_SAMSUNG = "Samsung";
-    private static final String[] BRAND_ID_LOWER_CASE_SAMSUNG = { "samsung" };
+    private static final String BRAND_NAME_VIVO = "vivo";
+    private static final String[] BRAND_ID_LOWER_CASE_VIVO = { "vivo" };
 
     private static final String BRAND_NAME_HONOR = "HONOR";
     private static final String[] BRAND_ID_LOWER_CASE_HONOR = { "honor" };
 
+    private static final String BRAND_NAME_HUAWEI = "HUAWEI";
+    private static final String[] BRAND_ID_LOWER_CASE_HUAWEI = { "huawei" };
+
+    private static final String BRAND_NAME_MEIZU = "MEIZU";
+    private static final String[] BRAND_ID_LOWER_CASE_MEIZU = { "meizu" };
+
+    private static final String BRAND_NAME_SAMSUNG = "Samsung";
+    private static final String[] BRAND_ID_LOWER_CASE_SAMSUNG = { "samsung" };
+
+    private static final String BRAND_NAME_NUBIA = "nubia";
+    private static final String[] BRAND_ID_LOWER_CASE_NUBIA = { "nubia" };
+
+    private static final String BRAND_NAME_ZTE = "ZTE";
+    private static final String[] BRAND_ID_LOWER_CASE_ZTE = { "zte" };
+
+    private static final String BRAND_NAME_MOTOROLA = "motorola";
+    private static final String[] BRAND_ID_LOWER_CASE_MOTOROLA = { "motorola" };
+
+    private static final String BRAND_NAME_LENOVO = "Lenovo";
+    private static final String[] BRAND_ID_LOWER_CASE_LENOVO = { "lenovo", "zuk" };
+
+    private static final String BRAND_NAME_LEECO  = "LeEco";
+    private static final String[] BRAND_ID_LOWER_CASE_LEECO = { "leeco", "letv" };
+
+    private static final String BRAND_NAME_ASUS = "ASUS";
+    private static final String[] BRAND_ID_LOWER_CASE_ASUS = { "asus" };
+
+    private static final String BRAND_NAME_SONY = "SONY";
+    private static final String[] BRAND_ID_LOWER_CASE_SONY = { "sony" };
+
     private static final String BRAND_NAME_SMARTISAN = "Smartisan";
     private static final String[] BRAND_ID_LOWER_CASE_SMARTISAN = { "smartisan", "deltainno" };
+
+    private static final String BRAND_NAME_360 = "360";
+    private static final String[] BRAND_ID_LOWER_CASE_360 = { "360", "qiku" };
 
     private static final String BRAND_NAME_COOLPAD = "Coolpad";
     private static final String[] BRAND_ID_LOWER_CASE_COOLPAD = { "coolpad", "yulong", "cp" };
@@ -60,29 +75,11 @@ public final class DeviceBrand {
     private static final String BRAND_NAME_LG = "LG";
     private static final String[] BRAND_ID_LOWER_CASE_LG = { "lg", "lge" };
 
-    private static final String BRAND_NAME_GOOGLE = "Google";
-    private static final String[] BRAND_ID_LOWER_CASE_GOOGLE = { "google" };
-
-    private static final String BRAND_NAME_MEIZU = "MEIZU";
-    private static final String[] BRAND_ID_LOWER_CASE_MEIZU = { "meizu" };
-
-    private static final String BRAND_NAME_LENOVO = "Lenovo";
-    private static final String[] BRAND_ID_LOWER_CASE_LENOVO = { "lenovo", "zuk" };
-
     private static final String BRAND_NAME_HTC = "HTC";
     private static final String[] BRAND_ID_LOWER_CASE_HTC = { "htc" };
 
-    private static final String BRAND_NAME_SONY = "SONY";
-    private static final String[] BRAND_ID_LOWER_CASE_SONY = { "sony" };
-
     private static final String BRAND_NAME_GIONEE = "Gionee";
     private static final String[] BRAND_ID_LOWER_CASE_GIONEE = { "gionee", "amigo" };
-
-    private static final String BRAND_NAME_MOTOROLA = "motorola";
-    private static final String[] BRAND_ID_LOWER_CASE_MOTOROLA = { "motorola" };
-
-    private static final String BRAND_NAME_ASUS = "ASUS";
-    private static final String[] BRAND_ID_LOWER_CASE_ASUS = { "asus" };
 
     private static final String BRAND_NAME_TRANSSION = "Transsion";
     private static final String[] BRAND_ID_LOWER_CASE_TRANSSION = { "infinix mobility limited", "itel", "tecno" };
@@ -107,6 +104,9 @@ public final class DeviceBrand {
 
     private static final String BRAND_NAME_NOKIA = "NOKIA";
     private static final String[] BRAND_ID_LOWER_CASE_NOKIA = { "nokia" };
+
+    private static final String BRAND_NAME_GOOGLE = "Google";
+    private static final String[] BRAND_ID_LOWER_CASE_GOOGLE = { "google" };
     
     @NonNull
     private static final String CURRENT_BRAND_NAME;
@@ -115,54 +115,52 @@ public final class DeviceBrand {
         String brand = Build.BRAND.toLowerCase();
         String manufacturer = Build.MANUFACTURER.toLowerCase();
 
-        if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_HUAWEI)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_HUAWEI;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_VIVO)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_VIVO;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_REDMI)) {
+        if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_REDMI)) {
             CURRENT_BRAND_NAME = BRAND_NAME_REDMI;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_XIAOMI)) {
             CURRENT_BRAND_NAME = BRAND_NAME_XIAOMI;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_OPPO)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_OPPO;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_REALME)) {
             CURRENT_BRAND_NAME = BRAND_NAME_REALME;
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_ONEPLUS)) {
+            CURRENT_BRAND_NAME = BRAND_NAME_ONEPLUS;
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_OPPO)) {
+            CURRENT_BRAND_NAME = BRAND_NAME_OPPO;
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_VIVO)) {
+            CURRENT_BRAND_NAME = BRAND_NAME_VIVO;
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_HONOR)) {
+            CURRENT_BRAND_NAME = BRAND_NAME_HONOR;
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_HUAWEI)) {
+            CURRENT_BRAND_NAME = BRAND_NAME_HUAWEI;
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_MEIZU)) {
+            CURRENT_BRAND_NAME = BRAND_NAME_MEIZU;
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_SAMSUNG)) {
+            CURRENT_BRAND_NAME = BRAND_NAME_SAMSUNG;
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_NUBIA)) {
+            CURRENT_BRAND_NAME = BRAND_NAME_NUBIA;
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_ZTE)) {
+            CURRENT_BRAND_NAME = BRAND_NAME_ZTE;
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_MOTOROLA)) {
+            CURRENT_BRAND_NAME = BRAND_NAME_MOTOROLA;
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_LENOVO)) {
+            CURRENT_BRAND_NAME = BRAND_NAME_LENOVO;
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_ASUS)) {
+            CURRENT_BRAND_NAME = BRAND_NAME_ASUS;
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_SONY)) {
+            CURRENT_BRAND_NAME = BRAND_NAME_SONY;
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_SMARTISAN)) {
+            CURRENT_BRAND_NAME = BRAND_NAME_SMARTISAN;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_LEECO)) {
             CURRENT_BRAND_NAME = BRAND_NAME_LEECO;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_360)) {
             CURRENT_BRAND_NAME = BRAND_NAME_360;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_ZTE)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_ZTE;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_ONEPLUS)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_ONEPLUS;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_NUBIA)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_NUBIA;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_SAMSUNG)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_SAMSUNG;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_HONOR)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_HONOR;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_SMARTISAN)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_SMARTISAN;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_COOLPAD)) {
             CURRENT_BRAND_NAME = BRAND_NAME_COOLPAD;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_LG)) {
             CURRENT_BRAND_NAME = BRAND_NAME_LG;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_GOOGLE)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_GOOGLE;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_MEIZU)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_MEIZU;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_LENOVO)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_LENOVO;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_HTC)) {
             CURRENT_BRAND_NAME = BRAND_NAME_HTC;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_SONY)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_SONY;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_GIONEE)) {
             CURRENT_BRAND_NAME = BRAND_NAME_GIONEE;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_MOTOROLA)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_MOTOROLA;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_ASUS)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_ASUS;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_TRANSSION)) {
             CURRENT_BRAND_NAME = BRAND_NAME_TRANSSION;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_DOOV)) {
@@ -179,6 +177,8 @@ public final class DeviceBrand {
             CURRENT_BRAND_NAME = BRAND_NAME_MEITU;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_NOKIA)) {
             CURRENT_BRAND_NAME = BRAND_NAME_NOKIA;
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_GOOGLE)) {
+            CURRENT_BRAND_NAME = BRAND_NAME_GOOGLE;
         } else {
             if (!TextUtils.isEmpty(brand)) {
                 CURRENT_BRAND_NAME = brand;
@@ -191,24 +191,10 @@ public final class DeviceBrand {
     }
 
     /**
-     * 判断当前设备的品牌是否为华为
+     * 判断当前设备的品牌是否为红米
      */
-    public static boolean isHuaWei() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_HUAWEI);
-    }
-
-    /**
-     * 判断当前设备的品牌是否为荣耀
-     */
-    public static boolean isHonor() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_HONOR);
-    }
-
-    /**
-     * 判断当前设备的品牌是否为 vivo
-     */
-    public static boolean isVivo() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_VIVO);
+    public static boolean isRedMi() {
+        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_REDMI);
     }
 
     /**
@@ -219,10 +205,17 @@ public final class DeviceBrand {
     }
 
     /**
-     * 判断当前设备的品牌是否为红米
+     * 判断当前设备的品牌是否为真我
      */
-    public static boolean isRedMi() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_REDMI);
+    public static boolean isRealMe() {
+        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_REALME);
+    }
+
+    /**
+     * 判断当前设备的品牌是否为一加
+     */
+    public static boolean isOnePlus() {
+        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_ONEPLUS);
     }
 
     /**
@@ -233,10 +226,87 @@ public final class DeviceBrand {
     }
 
     /**
-     * 判断当前设备的品牌是否为真我
+     * 判断当前设备的品牌是否为 vivo
      */
-    public static boolean isRealMe() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_REALME);
+    public static boolean isVivo() {
+        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_VIVO);
+    }
+
+    /**
+     * 判断当前设备的品牌是否为荣耀
+     */
+    public static boolean isHonor() {
+        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_HONOR);
+    }
+
+    /**
+     * 判断当前设备的品牌是否为华为
+     */
+    public static boolean isHuaWei() {
+        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_HUAWEI);
+    }
+
+    /**
+     * 判断当前设备的品牌是否为魅族
+     */
+    public static boolean isMeiZu() {
+        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_MEIZU);
+    }
+
+    /**
+     * 判断当前设备的品牌是否为三星
+     */
+    public static boolean isSamsung() {
+        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_SAMSUNG);
+    }
+
+    /**
+     * 判断当前设备的品牌是否为努比亚
+     */
+    public static boolean isNubia() {
+        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_NUBIA);
+    }
+
+    /**
+     * 判断当前设备的品牌是否为中兴
+     */
+    public static boolean isZte() {
+        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_ZTE);
+    }
+
+    /**
+     * 判断当前设备的品牌是否为摩托罗拉
+     */
+    public static boolean isMotorola() {
+        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_MOTOROLA);
+    }
+
+    /**
+     * 判断当前设备的品牌是否为联想
+     */
+    public static boolean isLenovo() {
+        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_LENOVO);
+    }
+
+    /**
+     * 判断当前设备的品牌是否为华硕
+     */
+    public static boolean isAsus() {
+        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_ASUS);
+    }
+
+    /**
+     * 判断当前设备的品牌是否为索尼
+     */
+    public static boolean isSony() {
+        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_SONY);
+    }
+
+    /**
+     * 判断当前设备的品牌是否为锤子
+     */
+    public static boolean isSmartisan() {
+        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_SMARTISAN);
     }
 
     /**
@@ -254,27 +324,6 @@ public final class DeviceBrand {
     }
 
     /**
-     * 判断当前设备的品牌是否为中兴
-     */
-    public static boolean isZte() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_ZTE);
-    }
-
-    /**
-     * 判断当前设备的品牌是否为一加
-     */
-    public static boolean isOnePlus() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_ONEPLUS);
-    }
-
-    /**
-     * 判断当前设备的品牌是否为努比亚
-     */
-    public static boolean isNubia() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_NUBIA);
-    }
-
-    /**
      * 判断当前设备的品牌是否为酷派
      */
     public static boolean isCoolPad() {
@@ -289,41 +338,6 @@ public final class DeviceBrand {
     }
 
     /**
-     * 判断当前设备的品牌是否为 Google
-     */
-    public static boolean isGoogle() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_GOOGLE);
-    }
-
-    /**
-     * 判断当前设备的品牌是否为三星
-     */
-    public static boolean isSamsung() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_SAMSUNG);
-    }
-
-    /**
-     * 判断当前设备的品牌是否为魅族
-     */
-    public static boolean isMeiZu() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_MEIZU);
-    }
-
-    /**
-     * 判断当前设备的品牌是否为联想
-     */
-    public static boolean isLenovo() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_LENOVO);
-    }
-
-    /**
-     * 判断当前设备的品牌是否为锤子
-     */
-    public static boolean isSmartisan() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_SMARTISAN);
-    }
-
-    /**
      * 判断当前设备的品牌是否为 HTC
      */
     public static boolean isHtc() {
@@ -331,24 +345,10 @@ public final class DeviceBrand {
     }
 
     /**
-     * 判断当前设备的品牌是否为索尼
-     */
-    public static boolean isSony() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_SONY);
-    }
-
-    /**
      * 判断当前设备的品牌是否为金立
      */
     public static boolean isGionee() {
         return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_GIONEE);
-    }
-
-    /**
-     * 判断当前设备的品牌是否为摩托罗拉
-     */
-    public static boolean isMotorola() {
-        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_MOTOROLA);
     }
 
     /**
@@ -393,7 +393,6 @@ public final class DeviceBrand {
         return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_KTOUCH);
     }
 
-
     /**
      * 判断当前设备的品牌是否为美图
      */
@@ -406,6 +405,13 @@ public final class DeviceBrand {
      */
     public static boolean isNokia() {
         return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_NOKIA);
+    }
+
+    /**
+     * 判断当前设备的品牌是否为 Google
+     */
+    public static boolean isGoogle() {
+        return TextUtils.equals(CURRENT_BRAND_NAME, BRAND_NAME_GOOGLE);
     }
     
     /**
