@@ -12,22 +12,22 @@ import android.text.TextUtils;
  */
 public final class DeviceBrand {
 
-    private static final String BRAND_NAME_HUAWEI = "HuaWei";
+    private static final String BRAND_NAME_HUAWEI = "HUAWEI";
     private static final String[] BRAND_ID_LOWER_CASE_HUAWEI = { "huawei" };
 
-    private static final String BRAND_NAME_VIVO = "Vivo";
+    private static final String BRAND_NAME_VIVO = "vivo";
     private static final String[] BRAND_ID_LOWER_CASE_VIVO = { "vivo" };
 
-    private static final String BRAND_NAME_XIAOMI = "XiaoMi";
+    private static final String BRAND_NAME_XIAOMI = "Xiaomi";
     private static final String[] BRAND_ID_LOWER_CASE_XIAOMI = { "xiaomi" };
 
-    private static final String BRAND_NAME_REDMI = "RedMi";
+    private static final String BRAND_NAME_REDMI = "Redmi";
     private static final String[] BRAND_ID_LOWER_CASE_REDMI = { "redmi" };
 
-    private static final String BRAND_NAME_OPPO = "Oppo";
+    private static final String BRAND_NAME_OPPO = "OPPO";
     private static final String[] BRAND_ID_LOWER_CASE_OPPO = { "oppo" };
 
-    private static final String BRAND_NAME_REALME = "RealMe";
+    private static final String BRAND_NAME_REALME = "realme";
     private static final String[] BRAND_ID_LOWER_CASE_REALME = { "realme" };
 
     private static final String BRAND_NAME_LEECO  = "LeEco";
@@ -42,19 +42,19 @@ public final class DeviceBrand {
     private static final String BRAND_NAME_ONEPLUS = "OnePlus";
     private static final String[] BRAND_ID_LOWER_CASE_ONEPLUS = { "oneplus" };
 
-    private static final String BRAND_NAME_NUBIA = "Nubia";
+    private static final String BRAND_NAME_NUBIA = "nubia";
     private static final String[] BRAND_ID_LOWER_CASE_NUBIA = { "nubia" };
 
     private static final String BRAND_NAME_SAMSUNG = "Samsung";
     private static final String[] BRAND_ID_LOWER_CASE_SAMSUNG = { "samsung" };
 
-    private static final String BRAND_NAME_HONOR = "Honor";
+    private static final String BRAND_NAME_HONOR = "HONOR";
     private static final String[] BRAND_ID_LOWER_CASE_HONOR = { "honor" };
 
     private static final String BRAND_NAME_SMARTISAN = "Smartisan";
     private static final String[] BRAND_ID_LOWER_CASE_SMARTISAN = { "smartisan", "deltainno" };
 
-    private static final String BRAND_NAME_COOLPAD = "CoolPad";
+    private static final String BRAND_NAME_COOLPAD = "Coolpad";
     private static final String[] BRAND_ID_LOWER_CASE_COOLPAD = { "coolpad", "yulong", "cp" };
 
     private static final String BRAND_NAME_LG = "LG";
@@ -63,7 +63,7 @@ public final class DeviceBrand {
     private static final String BRAND_NAME_GOOGLE = "Google";
     private static final String[] BRAND_ID_LOWER_CASE_GOOGLE = { "google" };
 
-    private static final String BRAND_NAME_MEIZU = "MeiZu";
+    private static final String BRAND_NAME_MEIZU = "MEIZU";
     private static final String[] BRAND_ID_LOWER_CASE_MEIZU = { "meizu" };
 
     private static final String BRAND_NAME_LENOVO = "Lenovo";
@@ -72,16 +72,16 @@ public final class DeviceBrand {
     private static final String BRAND_NAME_HTC = "HTC";
     private static final String[] BRAND_ID_LOWER_CASE_HTC = { "htc" };
 
-    private static final String BRAND_NAME_SONY = "Sony";
+    private static final String BRAND_NAME_SONY = "SONY";
     private static final String[] BRAND_ID_LOWER_CASE_SONY = { "sony" };
 
     private static final String BRAND_NAME_GIONEE = "Gionee";
     private static final String[] BRAND_ID_LOWER_CASE_GIONEE = { "gionee", "amigo" };
 
-    private static final String BRAND_NAME_MOTOROLA = "Motorola";
+    private static final String BRAND_NAME_MOTOROLA = "motorola";
     private static final String[] BRAND_ID_LOWER_CASE_MOTOROLA = { "motorola" };
 
-    private static final String BRAND_NAME_ASUS = "Asus";
+    private static final String BRAND_NAME_ASUS = "ASUS";
     private static final String[] BRAND_ID_LOWER_CASE_ASUS = { "asus" };
 
     private static final String BRAND_NAME_TRANSSION = "Transsion";
@@ -90,7 +90,7 @@ public final class DeviceBrand {
     private static final String BRAND_NAME_DOOV = "DOOV";
     private static final String[] BRAND_ID_LOWER_CASE_DOOV = { "DOOV" };
 
-    private static final String BRAND_NAME_PHILIPS = "Philips";
+    private static final String BRAND_NAME_PHILIPS = "PHILIPS";
     private static final String[] BRAND_ID_LOWER_CASE_PHILIPS = { "philips" };
     
     private static final String BRAND_NAME_BLACKSHARK = "BlackShark";
@@ -102,10 +102,10 @@ public final class DeviceBrand {
     private static final String BRAND_NAME_KTOUCH = "K-Touch";
     private static final String[] BRAND_ID_LOWER_CASE_KTOUCH = { "k-touch", "ktouch" };
     
-    private static final String BRAND_NAME_MEITU = "MeiTu";
+    private static final String BRAND_NAME_MEITU = "Meitu";
     private static final String[] BRAND_ID_LOWER_CASE_MEITU = { "meitu" };
 
-    private static final String BRAND_NAME_NOKIA = "Nokia";
+    private static final String BRAND_NAME_NOKIA = "NOKIA";
     private static final String[] BRAND_ID_LOWER_CASE_NOKIA = { "nokia" };
     
     @NonNull
