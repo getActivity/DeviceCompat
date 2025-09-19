@@ -211,6 +211,18 @@ public final class DeviceOs {
     static final String[] OS_CONDITIONS_NAME_MAGIC_OS = { "msc.config.magic.version",
                                                           "ro.build.version.magic" };
 
+    static final int OS_TYPE_HARMONY_OS_NEXT = 1439029257;
+    static final String OS_NAME_HARMONY_OS_NEXT = "HarmonyOS NEXT";
+
+    /**
+     * [ro.product.anco.devicetype]: [phone]
+     * [ro.product.os.dist.anco.apiversion]: [50101]
+     * [ro.product.os.dist.anco.releasetype]: [Release]
+     */
+    static final String[] OS_CONDITIONS_HARMONY_OS_NEXT = { "ro.product.anco.devicetype",
+                                                            "ro.product.os.dist.anco.apiversion",
+                                                            "ro.product.os.dist.anco.releasetype" };
+
     /**
      * MagicOS 9.0 版本属性：
      * [mscw.hnouc.patch.display.version]: [9.0.0.175(C00E175R110P22H7)]
@@ -634,6 +646,15 @@ public final class DeviceOs {
             sCurrentBeautificationVersionName = extractVersionNameByText(sCurrentOriginalOsVersionName);
         }
 
+        // 判断是否为纯血鸿蒙应该要放在残血鸿蒙之前，因为纯血鸿蒙有 persist.sys.ohos.osd.cloud.switch 这个系统属性
+        // 经过验证得出：如果这段代码放在残血鸿蒙之后再进行判断，会出现误判的情况，所以这里需要注意代码判断的顺序
+        if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_HARMONY_OS_NEXT)) {
+            sCurrentOsType = OS_TYPE_HARMONY_OS_NEXT;
+            sCurrentOsName = OS_NAME_HARMONY_OS_NEXT;
+            sCurrentOriginalOsVersionName = "";
+            sCurrentBeautificationVersionName = "";
+        }
+
         if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_HARMONY_OS)) {
             sCurrentOsType = OS_TYPE_HARMONY_OS;
             sCurrentOsName = OS_NAME_HARMONY_OS;
@@ -1028,6 +1049,13 @@ public final class DeviceOs {
      */
     public static boolean isHarmonyOs() {
         return sCurrentOsType == OS_TYPE_HARMONY_OS;
+    }
+
+    /**
+     * 判断是否在 HarmonyOS NEXT（纯血鸿蒙）的卓易通上面运行
+     */
+    public static boolean isHarmonyOsNext() {
+        return sCurrentOsType == OS_TYPE_HARMONY_OS_NEXT;
     }
 
     /**
