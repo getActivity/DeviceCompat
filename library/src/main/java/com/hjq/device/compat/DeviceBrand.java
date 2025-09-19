@@ -119,10 +119,10 @@ public final class DeviceBrand {
             CURRENT_BRAND_NAME = BRAND_NAME_HUAWEI;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_VIVO)) {
             CURRENT_BRAND_NAME = BRAND_NAME_VIVO;
-        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_XIAOMI)) {
-            CURRENT_BRAND_NAME = BRAND_NAME_XIAOMI;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_REDMI)) {
             CURRENT_BRAND_NAME = BRAND_NAME_REDMI;
+        } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_XIAOMI)) {
+            CURRENT_BRAND_NAME = BRAND_NAME_XIAOMI;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_OPPO)) {
             CURRENT_BRAND_NAME = BRAND_NAME_OPPO;
         } else if (compareBrand(brand, manufacturer, BRAND_ID_LOWER_CASE_REALME)) {
