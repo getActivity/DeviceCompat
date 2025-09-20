@@ -107,7 +107,7 @@ DeviceOs.isMagicOs();
 DeviceOs.isHarmonyOs();
 
 // 判断是否在 HarmonyOS NEXT（纯血鸿蒙）的卓易通上面运行
-DeviceOs.isHarmonyOsNext();
+DeviceOs.isHarmonyOsNextByZyt();
 
 // 判断当前设备的厂商系统是否为 EMUI 或者 EmotionUI（华为手机、荣耀手机的老系统）
 DeviceOs.isEmui();
