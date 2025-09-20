@@ -28,7 +28,8 @@
             android:id="@+id/tv_system_property_messages"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="empty" />
+            android:text="empty"
+            android:textIsSelectable="true" />
 
     </android.support.v4.widget.NestedScrollView>
 
