@@ -674,6 +674,7 @@ public final class DeviceOs {
         }
 
         if (sCurrentOsName == null) {
+            // 参考三星设置的源码：com.samsung.android.settings.deviceinfo.softwareinfo.OneUIVersionPreferenceController.getDisplayVersion()
             String oneUiVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_ONE_UI);
             if (!TextUtils.isEmpty(oneUiVersion)) {
                 sCurrentOsType = OS_TYPE_ONE_UI;
@@ -1219,7 +1220,7 @@ public final class DeviceOs {
         int threeVersion = oneUiVersionCode % 100;
         if (threeVersion > 0) {
             // OneUI 5.1.1 的版本号是 50101，计算出来的结果是 5.1.1
-            // OneUI 6.1 的版本号是 60101，计算出来的结果是 6.1.1，虽然不太准但也是没有办法
+            // OneUI 6.1 的版本号是 60101，计算出来的结果是 6.1.1
             return oneVersion + "." + (twoVersion / 100) + "." + threeVersion;
         } else {
             // OneUI 8.0 的版本号是 80000，计算出来的结果是 8.0
