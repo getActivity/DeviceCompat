@@ -211,15 +211,15 @@ public final class DeviceOs {
     static final String[] OS_CONDITIONS_NAME_MAGIC_OS = { "msc.config.magic.version",
                                                           "ro.build.version.magic" };
 
-    static final int OS_TYPE_HARMONY_OS_NEXT_BY_ZYT = -1214041693;
-    static final String OS_NAME_HARMONY_OS_NEXT_BY_ZYT = "HarmonyOS NEXT ZhuoYiTong";
+    static final int OS_TYPE_ZYT_ON_HARMONY_OS_NEXT = -1214041693;
+    static final String OS_NAME_ZYT_ON_HARMONY_OS_NEXT = "HarmonyOS NEXT ZhuoYiTong";
 
     /**
      * [ro.product.anco.devicetype]: [phone]
      * [ro.product.os.dist.anco.apiversion]: [50101]
      * [ro.product.os.dist.anco.releasetype]: [Release]
      */
-    static final String[] OS_CONDITIONS_HARMONY_OS_NEXT_BY_ZYT = { "ro.product.anco.devicetype",
+    static final String[] OS_CONDITIONS_ZYT_ON_HARMONY_OS_NEXT = { "ro.product.anco.devicetype",
                                                                    "ro.product.os.dist.anco.apiversion",
                                                                    "ro.product.os.dist.anco.releasetype" };
 
@@ -648,9 +648,9 @@ public final class DeviceOs {
 
         // 判断是否为纯血鸿蒙应该要放在残血鸿蒙之前，因为纯血鸿蒙有 persist.sys.ohos.osd.cloud.switch 这个系统属性
         // 经过验证得出：如果这段代码放在残血鸿蒙之后再进行判断，会出现误判的情况，所以这里需要注意代码判断的顺序
-        if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_HARMONY_OS_NEXT_BY_ZYT)) {
-            sCurrentOsType = OS_TYPE_HARMONY_OS_NEXT_BY_ZYT;
-            sCurrentOsName = OS_NAME_HARMONY_OS_NEXT_BY_ZYT;
+        if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_ZYT_ON_HARMONY_OS_NEXT)) {
+            sCurrentOsType = OS_TYPE_ZYT_ON_HARMONY_OS_NEXT;
+            sCurrentOsName = OS_NAME_ZYT_ON_HARMONY_OS_NEXT;
             sCurrentOriginalOsVersionName = "";
             sCurrentBeautificationVersionName = "";
         }
@@ -1055,8 +1055,8 @@ public final class DeviceOs {
     /**
      * 判断是否在 HarmonyOS NEXT（纯血鸿蒙）的卓易通上面运行
      */
-    public static boolean isHarmonyOsNextByZyt() {
-        return sCurrentOsType == OS_TYPE_HARMONY_OS_NEXT_BY_ZYT;
+    public static boolean isZytOnHarmonyOsNext() {
+        return sCurrentOsType == OS_TYPE_ZYT_ON_HARMONY_OS_NEXT;
     }
 
     /**

@@ -137,9 +137,9 @@ public final class DeviceMarketName {
     private static final String MARKET_NAME_HARMONY_OS = MARKET_NAME_HUAWEI_OR_HONOR;
 
     /**
-     * HarmonyOS NEXT 设备市场名称系统属性
+     * 卓易通 HarmonyOS NEXT 设备市场名称系统属性
      */
-    private static final String MARKET_NAME_HARMONY_OS_NEXT_BY_ZYT = MARKET_NAME_HUAWEI_OR_HONOR;
+    private static final String MARKET_NAME_ZYT_ON_HARMONY_OS_NEXT = MARKET_NAME_HUAWEI_OR_HONOR;
 
     /**
      * MagicOS 设备市场名称系统属性
@@ -329,8 +329,8 @@ public final class DeviceMarketName {
         if (TextUtils.isEmpty(sMarketName)) {
             if (DeviceOs.isHarmonyOs()) {
                 traversalMarketNameSystemPropertyKeys(MARKET_NAME_HARMONY_OS);
-            } else if (DeviceOs.isHarmonyOsNextByZyt()) {
-                traversalMarketNameSystemPropertyKeys(MARKET_NAME_HARMONY_OS_NEXT_BY_ZYT);
+            } else if (DeviceOs.isZytOnHarmonyOsNext()) {
+                traversalMarketNameSystemPropertyKeys(MARKET_NAME_ZYT_ON_HARMONY_OS_NEXT);
             } else if (DeviceOs.isMagicOs()) {
                 traversalMarketNameSystemPropertyKeys(MARKET_NAME_MAGIC_OS);
             } else if (DeviceOs.isEmui()) {
