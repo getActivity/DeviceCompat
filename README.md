@@ -273,6 +273,13 @@ DeviceBrand.isGoogle();
 DeviceBrand.getBrandName();
 ```
 
+* 获取设备的市场名称
+
+```java
+// 例如：Xiaomi Pad 5
+DeviceMarketName.getMarketName(@NonNull Context context);
+```
+
 * 获取和判断系统属性相关的方法
 
 ```java

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.hjq.bar.OnTitleBarListener;
 import com.hjq.bar.TitleBar;
 import com.hjq.device.compat.DeviceBrand;
+import com.hjq.device.compat.DeviceMarketName;
 import com.hjq.device.compat.DeviceOs;
 
 public final class MainActivity extends AppCompatActivity implements OnClickListener {
@@ -23,7 +24,8 @@ public final class MainActivity extends AppCompatActivity implements OnClickList
 
         TextView messageView = findViewById(R.id.tv_main_messages);
         StringBuilder stringBuilder = new StringBuilder()
-            .append("\nBrandName: " + DeviceBrand.getBrandName())
+            .append("BrandName: " + DeviceBrand.getBrandName())
+            .append("\nMarketName: " + DeviceMarketName.getMarketName(this))
             .append("\nOsName: " + DeviceOs.getOsName())
             .append("\nOriginalOsVersionName: " + DeviceOs.getOsVersionName())
             .append("\nOsVersionName: " + DeviceOs.getOsVersionName())

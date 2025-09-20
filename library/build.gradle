@@ -5,10 +5,6 @@ android {
 
     resourcePrefix "demo_"
 
-    defaultConfig {
-        minSdk 14
-    }
-
     android.libraryVariants.configureEach { variant ->
         // aar 输出文件名配置
         variant.outputs.all { output ->

@@ -16,31 +16,40 @@
         app:leftIcon="@null"
         app:title="https://github.com/getActivity/DeviceCompat" />
 
-    <TextView
-        android:id="@+id/tv_main_messages"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_main_about_device"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Go to About Device Page" />
+        <TextView
+            android:id="@+id/tv_main_messages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" />
 
-    <Button
-        android:id="@+id/btn_main_get_system_property"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Get System Property Info" />
+        <Button
+            android:id="@+id/btn_main_about_device"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Go to About Device Page" />
 
-    <Button
-        android:id="@+id/btn_main_android_settings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Go to Android Settings Page" />
+        <Button
+            android:id="@+id/btn_main_get_system_property"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Get System Property Info" />
+
+        <Button
+            android:id="@+id/btn_main_android_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Go to Android Settings Page" />
+
+    </LinearLayout>
 
 </LinearLayout>

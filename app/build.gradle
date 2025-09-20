@@ -5,7 +5,6 @@ android {
 
     defaultConfig {
         applicationId "com.hjq.device.compat.demo"
-        minSdk 16
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
