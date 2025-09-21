@@ -442,9 +442,9 @@ public final class DeviceMarketName {
             // [ro.product.brand]: [meizu]
             // [ro.product.model]: [MEIZU 20 Pro]
             // [ro.product.name]: [meizu_20Pro_CN]
-            String productBrand = SystemPropertyCompat.getSystemPropertyValue(Build.BRAND);
-            String productModel = SystemPropertyCompat.getSystemPropertyValue(Build.MODEL);
-            String productName = SystemPropertyCompat.getSystemPropertyValue(Build.PRODUCT);
+            String productBrand = Build.BRAND;
+            String productModel = Build.MODEL;
+            String productName = Build.PRODUCT;
 
             String productBrandLowerCase = productBrand.trim().toLowerCase();
             String productModelLowerCase = productModel.trim().toLowerCase();
