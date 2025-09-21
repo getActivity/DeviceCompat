@@ -488,9 +488,10 @@ public final class DeviceMarketName {
         marketName = marketName.trim();
 
         // [ro.product.marketname]: [Mi 10 Ultra]
-        if ((DeviceBrand.isXiaoMi() || DeviceBrand.isRedMi()) && marketName.startsWith("Mi")) {
+        // [ro.product.model]: [MI PAD 4]
+        if ((DeviceBrand.isXiaoMi() || DeviceBrand.isRedMi()) && marketName.matches("^[M|m][I|i].+")) {
             marketName = (DeviceBrand.isRedMi() ? DeviceBrand.BRAND_NAME_REDMI : DeviceBrand.BRAND_NAME_XIAOMI) +
-                " " + marketName.replace("Mi", "").trim();
+                          " " + marketName.replaceFirst("^[M|m][I|i]", "").trim();
         }
 
         if (DeviceBrand.isHonor() && marketName.contains("荣耀")) {
