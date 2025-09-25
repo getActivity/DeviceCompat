@@ -5,6 +5,19 @@ android {
 
     resourcePrefix "demo_"
 
+//    lintOptions {
+//        // 忽略 lint 检查
+//        ignoreWarnings = true
+//    }
+
+    lintOptions {
+        abortOnError false        // true by default
+        checkAllWarnings false
+        checkReleaseBuilds false
+        ignoreWarnings true       // false by default
+        quiet true                // false by default
+    }
+
     android.libraryVariants.configureEach { variant ->
         // aar 输出文件名配置
         variant.outputs.all { output ->
