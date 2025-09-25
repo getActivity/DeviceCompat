@@ -28,7 +28,7 @@ public final class MainActivity extends AppCompatActivity implements OnClickList
             .append("\nMarketName: " + DeviceMarketName.getMarketName(this))
             .append("\nOsName: " + DeviceOs.getOsName())
             .append("\nOsVersionName: " + DeviceOs.getOsVersionName())
-            .append("\nOsBigVersion: " + DeviceOs.getOsBigVersionCode())
+            .append("\nOsBigVersionCode: " + DeviceOs.getOsBigVersionCode())
             .append("\nAndroidVersion: Android " + Build.VERSION.RELEASE)
             .append("\nAndroidApiLevel: " + Build.VERSION.SDK_INT);
         messageView.setText(stringBuilder);
