@@ -215,11 +215,30 @@ public final class DeviceOs {
     static final String OS_NAME_ZYT_ON_HARMONY_OS_NEXT = "HarmonyOS NEXT ZhuoYiTong";
 
     /**
+     * HarmonyOS NEXT 6.0.0 版本属性：
+     * [ro.sys.anco.product.software.version]: [PLA-AL10 6.0.0.100(SP6C00E47R4P3)]
+     * [sys.anco.hwpatch.display.version]: []
+     *
+     * HarmonyOS NEXT 5.1.0 版本属性：
+     * [ro.sys.anco.product.software.version]: [ADL-AL00U 5.1.0.150(SP10C00E128R2P1)]
+     * [sys.anco.hwpatch.display.version]: [5.1.0.150(SP10C00E128R2P1patch03)]
+     *
+     * 所以综合取舍下来最优解是：
+     * [ro.sys.anco.product.software.version]: [PLA-AL10 6.0.0.100(SP6C00E47R4P3)]
+     */
+    static final String OS_VERSION_ZYT_ON_HARMONY_OS_NEXT = "ro.sys.anco.product.software.version";
+
+    /**
      * [ro.product.anco.devicetype]: [phone]
-     * [ro.product.os.dist.anco.apiversion]: [50101]
+     *
+     * [ro.product.os.dist.anco.apiversion]: [60000]
+     * [ro.product.os.dist.anco.apiversion]: [50005]
+     *
      * [ro.product.os.dist.anco.releasetype]: [Release]
+     * [ro.product.os.dist.anco.releasetype]: [Beta5]
      */
     static final String[] OS_CONDITIONS_ZYT_ON_HARMONY_OS_NEXT = { "ro.product.anco.devicetype",
+                                                                   OS_VERSION_ZYT_ON_HARMONY_OS_NEXT,
                                                                    "ro.product.os.dist.anco.apiversion",
                                                                    "ro.product.os.dist.anco.releasetype" };
 
@@ -642,7 +661,7 @@ public final class DeviceOs {
         if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_ZYT_ON_HARMONY_OS_NEXT)) {
             sCurrentOsType = OS_TYPE_ZYT_ON_HARMONY_OS_NEXT;
             sCurrentOsName = OS_NAME_ZYT_ON_HARMONY_OS_NEXT;
-            sCurrentOsVersionName = "";
+            sCurrentOsVersionName = getBestVersionNameBySystemProperties(OS_VERSION_ZYT_ON_HARMONY_OS_NEXT);
         }
 
         if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_HARMONY_OS)) {
