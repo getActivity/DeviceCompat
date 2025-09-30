@@ -6,6 +6,9 @@ import android.provider.Settings.Global;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 /**
  *    author : Android 轮子哥
@@ -281,6 +284,63 @@ public final class DeviceMarketName {
      */
     private static final String MARKET_NAME_360_UI = MARKET_NAME_360;
 
+    /** 机型市场名称前缀替换集合 */
+    private static final Map<String, String> PREFIX_REPLACE_MAP = new HashMap<>();
+
+    static {
+        // [ro.product.marketname]: [Mi 10 Ultra]
+        // [ro.product.model]: [MI PAD 4]
+        String miName = DeviceBrand.isRedMi() ? DeviceBrand.BRAND_NAME_REDMI : DeviceBrand.BRAND_NAME_XIAOMI;
+        PREFIX_REPLACE_MAP.put("Mi", miName);
+        PREFIX_REPLACE_MAP.put("MI", miName);
+        PREFIX_REPLACE_MAP.put("mi", miName);
+        PREFIX_REPLACE_MAP.put("小米", miName);
+
+        // 华为畅享 60
+        PREFIX_REPLACE_MAP.put("华为", DeviceBrand.BRAND_NAME_HUAWEI);
+
+        // [ro.config.marketing_name]: [荣耀平板X8 Pro]
+        PREFIX_REPLACE_MAP.put("荣耀平板", DeviceBrand.BRAND_NAME_HONOR + " Pad");
+        // [ro.config.marketing_name]: [荣耀X30]
+        // [ro.config.marketing_name]: [荣耀畅玩30]
+        PREFIX_REPLACE_MAP.put("荣耀", DeviceBrand.BRAND_NAME_HONOR);
+
+        // [ro.vendor.oplus.market.name]: [一加 12]
+        // [ro.vendor.oplus.market.name]: [一加 Ace 3 Pro]
+        PREFIX_REPLACE_MAP.put("一加", DeviceBrand.BRAND_NAME_ONEPLUS);
+
+        // [ro.vendor.oplus.market.name]: [真我GT5 Pro]
+        // [ro.vendor.oplus.market.name]: [真我Q3 Pro 5G]
+        // [ro.vendor.oplus.market.name]: [真我10 Pro+]
+        PREFIX_REPLACE_MAP.put("真我", DeviceBrand.BRAND_NAME_REALME);
+
+        // [ro.product.brand]: [meizu]
+        // [ro.product.model]: [MEIZU 20 Pro]
+        // [ro.product.name]: [meizu_20Pro_CN]
+        PREFIX_REPLACE_MAP.put("meizu", DeviceBrand.BRAND_NAME_MEIZU);
+        PREFIX_REPLACE_MAP.put("魅族", DeviceBrand.BRAND_NAME_MEIZU);
+
+        // [ro.zuk.product.market]: [拯救者电竞手机2 Pro]
+        PREFIX_REPLACE_MAP.put("拯救者电竞手机", DeviceBrand.BRAND_NAME_LENOVO + " Legion Phone");
+        // [ro.product.display]: [拯救者平板 Y700]
+        PREFIX_REPLACE_MAP.put("拯救者平板", DeviceBrand.BRAND_NAME_LENOVO + " Legion Tab");
+        PREFIX_REPLACE_MAP.put("联想", DeviceBrand.BRAND_NAME_LENOVO);
+
+        // [ro.vendor.product.ztename]: [红魔10 Air]
+        // [ro.vendor.product.ztename]: [红魔9 Pro游戏手机]
+        // [persist.sys.devicename]: [红魔7S Pro 氘锋透明版]
+        PREFIX_REPLACE_MAP.put("努比亚红魔", DeviceBrand.BRAND_NAME_NUBIA + " RedMagic");
+        PREFIX_REPLACE_MAP.put("红魔", DeviceBrand.BRAND_NAME_NUBIA + " RedMagic");
+        PREFIX_REPLACE_MAP.put("努比亚", DeviceBrand.BRAND_NAME_NUBIA);
+        // 中兴畅行50
+        PREFIX_REPLACE_MAP.put("中兴", DeviceBrand.BRAND_NAME_ZTE);
+
+        PREFIX_REPLACE_MAP.put("华硕", DeviceBrand.BRAND_NAME_ASUS);
+        PREFIX_REPLACE_MAP.put("黑鲨", DeviceBrand.BRAND_NAME_BLACKSHARK);
+        PREFIX_REPLACE_MAP.put("锤子", DeviceBrand.BRAND_NAME_SMARTISAN);
+        PREFIX_REPLACE_MAP.put("乐视", DeviceBrand.BRAND_NAME_LEECO);
+    }
+
     private DeviceMarketName() {
         // 私有化构造方法，禁止外部实例化
     }
@@ -471,9 +531,31 @@ public final class DeviceMarketName {
             }
         }
 
-        if (TextUtils.isEmpty(sMarketName)) {
-            traversalMarketNameSystemPropertyKeys(MARKET_NAME_NET);
+        if (!TextUtils.isEmpty(sMarketName)) {
+            return;
         }
+
+        String value = SystemPropertyCompat.getSystemPropertyValue(MARKET_NAME_NET);
+        // [net.hostname]: [android-42fffc50809f0094]
+        if (value.matches("^(?i)android")) {
+            return;
+        }
+
+        // [net.hostname]: [nova_6_(5G)-da9527a235b5b]
+        // [net.hostname]: [MAIMANG_7-ef21d90352d53d6]
+        // [net.hostname]: [nova_8-b271b8158e6c97ae]
+        // [net.hostname]: [HUAWEI_P30-65a958fef52110]
+        // [net.hostname]: [AQM-AL00-4b2ea8cb5ecb06d5]
+        // [net.hostname]: [HONOR_20_PRO-a6e52d54d2]
+        if (value.matches(".+-[a-zA-Z0-9]{10,}$")) {
+            value = value.replaceFirst("-[a-zA-Z0-9]{10,}$", "");
+        }
+
+        if (!isDeviceMarketNameLegitimacy(value)) {
+            return;
+        }
+
+        retrofitAndSetMarketName(value);
     }
 
     /**
@@ -487,35 +569,12 @@ public final class DeviceMarketName {
         // 字符串头尾删空
         marketName = marketName.trim();
 
-        // [ro.product.marketname]: [Mi 10 Ultra]
-        // [ro.product.model]: [MI PAD 4]
-        if ((DeviceBrand.isXiaoMi() || DeviceBrand.isRedMi()) && marketName.matches("^[M|m][I|i].+")) {
-            marketName = (DeviceBrand.isRedMi() ? DeviceBrand.BRAND_NAME_REDMI : DeviceBrand.BRAND_NAME_XIAOMI) +
-                          " " + marketName.replaceFirst("^[M|m][I|i]", "").trim();
-        }
-
-        if (DeviceBrand.isHonor() && marketName.contains("荣耀")) {
-            if (marketName.startsWith("荣耀平板")) {
-                // [ro.config.marketing_name]: [荣耀平板X8 Pro]
-                marketName = DeviceBrand.BRAND_NAME_HONOR + " Pad " + marketName.replaceFirst("荣耀平板", "").trim();
-            } else if (marketName.startsWith("荣耀")) {
-                // [ro.config.marketing_name]: [荣耀X30]
-                // [ro.config.marketing_name]: [荣耀畅玩30]
-                marketName = DeviceBrand.BRAND_NAME_HONOR + " " + marketName.replaceFirst("荣耀", "").trim();
+        Set<String> keys = PREFIX_REPLACE_MAP.keySet();
+        for (String key : keys) {
+            if (marketName.startsWith(key)) {
+                marketName = PREFIX_REPLACE_MAP.get(key) + " " + marketName.replaceFirst(key, "").trim();
+                break;
             }
-        }
-
-        // [ro.vendor.oplus.market.name]: [一加 12]
-        // [ro.vendor.oplus.market.name]: [一加 Ace 3 Pro]
-        if (DeviceBrand.isOnePlus() && marketName.startsWith("一加")) {
-            marketName = DeviceBrand.BRAND_NAME_ONEPLUS + " " + marketName.replaceFirst("一加", "").trim();
-        }
-
-        // [ro.vendor.oplus.market.name]: [真我GT5 Pro]
-        // [ro.vendor.oplus.market.name]: [真我Q3 Pro 5G]
-        // [ro.vendor.oplus.market.name]: [真我10 Pro+]
-        if (DeviceBrand.isRealMe() && marketName.startsWith("真我")) {
-            marketName = DeviceBrand.BRAND_NAME_REALME + " " + marketName.replaceFirst("真我", "").trim();
         }
 
         if (DeviceBrand.isHuaWei() && marketName.startsWith("nova")) {
@@ -534,35 +593,15 @@ public final class DeviceMarketName {
             marketName = DeviceBrand.BRAND_NAME_SAMSUNG + " " + marketName;
         }
 
-        // [ro.product.brand]: [meizu]
-        // [ro.product.model]: [MEIZU 20 Pro]
         // [ro.product.name]: [meizu_20Pro_CN]
-        if (DeviceBrand.isMeiZu() && marketName.startsWith("meizu")) {
-            marketName = DeviceBrand.BRAND_NAME_MEIZU + " " + marketName.replaceFirst("meizu", "").trim();
+        if (DeviceBrand.isMeiZu() && marketName.endsWith("_CN")) {
             marketName = marketName.replace("_CN", " ");
         }
 
-        // [ro.zuk.product.market]: [拯救者电竞手机2 Pro]
-        // [ro.product.display]: [拯救者平板 Y700]
         // [ro.product.en.display]: [Legion Phone2 Pro]
         // [ro.product.en.display]: [Legion Tab Y700]
-        if (DeviceBrand.isLenovo()) {
-            if (marketName.startsWith("拯救者电竞手机")) {
-                marketName = DeviceBrand.BRAND_NAME_LENOVO + " Legion Phone " + marketName.replaceFirst("拯救者电竞手机", "").trim();
-            } else if (marketName.startsWith("拯救者平板")) {
-                marketName = DeviceBrand.BRAND_NAME_LENOVO + " Legion Tab " + marketName.replaceFirst("拯救者平板", "").trim();
-            } else if (marketName.startsWith("联想")) {
-                marketName = DeviceBrand.BRAND_NAME_LENOVO + " " + marketName.replaceFirst("联想", "").trim();
-            } else if (marketName.startsWith("Legion")) {
-                marketName = DeviceBrand.BRAND_NAME_LENOVO + " " + marketName;
-            }
-        }
-
-        // [ro.vendor.product.ztename]: [红魔10 Air]
-        // [ro.vendor.product.ztename]: [红魔9 Pro游戏手机]
-        // [persist.sys.devicename]: [红魔7S Pro 氘锋透明版]
-        if (DeviceBrand.isNubia() && marketName.startsWith("红魔")) {
-            marketName = DeviceBrand.BRAND_NAME_NUBIA + " RedMagic " + marketName.replaceFirst("红魔", "").trim();
+        if (DeviceBrand.isLenovo() && marketName.startsWith("Legion")) {
+            marketName = DeviceBrand.BRAND_NAME_LENOVO + " " + marketName;
         }
 
         // [net.devicename]: [坚果 3]
@@ -587,11 +626,16 @@ public final class DeviceMarketName {
             marketName = marketName.replace("_", " ");
         }
 
+        // [net.hostname]: [OPPO-R17]
+        if (marketName.contains("-")) {
+            marketName = marketName.replace("-", " ");
+        }
+
         // [ro.vendor.oplus.market.enname]: [realme 10 Pro+ 5G]
         // [ro.vendor.oplus.market.name]: [真我10 Pro+]
-        // if (marketName.contains("Pro+")) {
-        //    marketName = marketName.replace("Pro+", "Pro Plus");
-        // }
+         if (marketName.contains("Pro+")) {
+            marketName = marketName.replace("Pro+", "Pro Plus");
+         }
 
         // [ro.vivo.internet.name]: [vivo Z3i Basic]
         // [ro.vivo.market.name]: [vivo Z3i 标准版]
@@ -630,7 +674,8 @@ public final class DeviceMarketName {
         // [ro.product.model]: [SM-T970]
         // [ro.product.model]: [SM-S9210]
         // [ro.product.model]: [SM-A5560]
-        if (marketName.matches("[A-Z]{2,3}-[A-Z|0-9]{4}")) {
+        // [ro.product.model]: [JKM-AL00b]
+        if (marketName.matches("[A-Z]{2,3}-[A-Z|0-9]{4}[a-zA-Z|0-9]*")) {
             return false;
         }
 
@@ -658,7 +703,7 @@ public final class DeviceMarketName {
         // [ro.product.model]: [M2101K7AG]
         // [ro.product.model]: [2201123C]
         // [ro.product.model]: [21121119SG]
-        if (marketName.matches("[A-Z|0-9]{5,}")) {
+        if (marketName.matches("[A-Z0-9]{5,}")) {
             return false;
         }
 
@@ -666,14 +711,14 @@ public final class DeviceMarketName {
         // [ro.product.model]: [1807-A01]
         // [ro.product.model]: [SCMR-W09]
         // [ro.product.name]: [SCMR-W09]
-        if (marketName.matches("[[A-Z]|[|0-9]]{4}-[A-Z|0-9]{3,}")) {
+        if (marketName.matches("[A-Z0-9]{4}-[A-Z0-9]{3,}")) {
             return false;
         }
 
         // 排除以下这种值
         // [ro.product.model]: [XT2301-5]
         // [ro.product.model]: [XT1924-9]
-        if (marketName.matches("[A-Z]{2}[|0-9]{4,}-[A-Z|0-9]+")) {
+        if (marketName.matches("[A-Z]{2}\\d{4,}-[A-Z0-9]+")) {
             return false;
         }
 
