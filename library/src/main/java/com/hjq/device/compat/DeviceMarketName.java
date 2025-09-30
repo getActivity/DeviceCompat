@@ -439,10 +439,12 @@ public final class DeviceMarketName {
         if (TextUtils.isEmpty(sMarketName) && DeviceOs.isOneUi()) {
             try {
                 // 获取到的值：Galaxy Z Flip7
-                // 参考三星设置的源码：com.samsung.android.settings.deviceinfo.aboutphone.DeviceInfoHeader.getDeviceName();
-                String deviceName = Global.getString(context.getContentResolver(), "device_name");
-                if (isDeviceMarketNameLegitimacy(deviceName)) {
-                    retrofitAndSetMarketName(Global.getString(context.getContentResolver(), "device_name"));
+                // 参考三星设置的源码：com.samsung.android.settings.deviceinfo.SecDeviceInfoUtils.getDefaultDeviceName();
+                // 不能读取 device_name 值，因为这个值是设备的名称，是可以被用户修改的
+                // 而是应该用 default_device_name 值，这样就算用户修改了设备的名称，也不会有影响
+                String defaultDeviceName = Global.getString(context.getContentResolver(), "default_device_name");
+                if (isDeviceMarketNameLegitimacy(defaultDeviceName)) {
+                    retrofitAndSetMarketName(defaultDeviceName);
                 }
             } catch (Exception ignored) {
                 // default implementation ignored
