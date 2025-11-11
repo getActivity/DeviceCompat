@@ -108,8 +108,8 @@ DeviceOs.isMagicOs();
 // 判断当前设备的厂商系统是否为 HarmonyOS（华为手机、荣耀手机的系统）
 DeviceOs.isHarmonyOs();
 
-// 判断是否在 HarmonyOS NEXT（纯血鸿蒙）的卓易通上面运行
-DeviceOs.isZytOnHarmonyOsNext();
+// 判断是否在 HarmonyOS NEXT（纯血鸿蒙）的卓易通或者出境易环境上运行
+DeviceOs.isHarmonyOsNextAndroidCompatible();
 
 // 判断当前设备的厂商系统是否为 EMUI 或者 EmotionUI（华为手机、荣耀手机的老系统）
 DeviceOs.isEmui();

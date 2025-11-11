@@ -211,8 +211,8 @@ public final class DeviceOs {
     static final String[] OS_CONDITIONS_NAME_MAGIC_OS = { "msc.config.magic.version",
                                                           "ro.build.version.magic" };
 
-    static final int OS_TYPE_ZYT_ON_HARMONY_OS_NEXT = -1214041693;
-    static final String OS_NAME_ZYT_ON_HARMONY_OS_NEXT = "HarmonyOS NEXT ZhuoYiTong";
+    static final int OS_TYPE_HARMONY_OS_NEXT_ANDROID_COMPATIBLE = -182666708;
+    static final String OS_NAME_HARMONY_OS_NEXT_ANDROID_COMPATIBLE = "HarmonyOS NEXT AndroidCompatible";
 
     /**
      * HarmonyOS NEXT 6.0.0 版本属性：
@@ -226,7 +226,7 @@ public final class DeviceOs {
      * 所以综合取舍下来最优解是：
      * [ro.sys.anco.product.software.version]: [PLA-AL10 6.0.0.100(SP6C00E47R4P3)]
      */
-    static final String OS_VERSION_ZYT_ON_HARMONY_OS_NEXT = "ro.sys.anco.product.software.version";
+    static final String OS_VERSION_HARMONY_OS_NEXT_ANDROID_COMPATIBLE = "ro.sys.anco.product.software.version";
 
     /**
      * [ro.product.anco.devicetype]: [phone]
@@ -237,10 +237,10 @@ public final class DeviceOs {
      * [ro.product.os.dist.anco.releasetype]: [Release]
      * [ro.product.os.dist.anco.releasetype]: [Beta5]
      */
-    static final String[] OS_CONDITIONS_ZYT_ON_HARMONY_OS_NEXT = { "ro.product.anco.devicetype",
-                                                                   OS_VERSION_ZYT_ON_HARMONY_OS_NEXT,
-                                                                   "ro.product.os.dist.anco.apiversion",
-                                                                   "ro.product.os.dist.anco.releasetype" };
+    static final String[] OS_CONDITIONS_HARMONY_OS_NEXT_ANDROID_COMPATIBLE = { "ro.product.anco.devicetype",
+                                                                               OS_VERSION_HARMONY_OS_NEXT_ANDROID_COMPATIBLE,
+                                                                               "ro.product.os.dist.anco.apiversion",
+                                                                               "ro.product.os.dist.anco.releasetype" };
 
     /**
      * MagicOS 9.0 版本属性：
@@ -658,10 +658,10 @@ public final class DeviceOs {
 
         // 判断是否为纯血鸿蒙应该要放在残血鸿蒙之前，因为纯血鸿蒙有 persist.sys.ohos.osd.cloud.switch 这个系统属性
         // 经过验证得出：如果这段代码放在残血鸿蒙之后再进行判断，会出现误判的情况，所以这里需要注意代码判断的顺序
-        if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_ZYT_ON_HARMONY_OS_NEXT)) {
-            sCurrentOsType = OS_TYPE_ZYT_ON_HARMONY_OS_NEXT;
-            sCurrentOsName = OS_NAME_ZYT_ON_HARMONY_OS_NEXT;
-            sCurrentOsVersionName = getBestVersionNameBySystemProperties(OS_VERSION_ZYT_ON_HARMONY_OS_NEXT);
+        if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_HARMONY_OS_NEXT_ANDROID_COMPATIBLE)) {
+            sCurrentOsType = OS_TYPE_HARMONY_OS_NEXT_ANDROID_COMPATIBLE;
+            sCurrentOsName = OS_NAME_HARMONY_OS_NEXT_ANDROID_COMPATIBLE;
+            sCurrentOsVersionName = getBestVersionNameBySystemProperties(OS_VERSION_HARMONY_OS_NEXT_ANDROID_COMPATIBLE);
         }
 
         if (sCurrentOsName == null && SystemPropertyCompat.isSystemPropertyAnyOneExist(OS_CONDITIONS_HARMONY_OS)) {
@@ -1038,10 +1038,17 @@ public final class DeviceOs {
     }
 
     /**
-     * 判断是否在 HarmonyOS NEXT（纯血鸿蒙）的卓易通上面运行
+     * @deprecated           该 API 已经过时，随时会被删除，请尽早迁移到 {@link #isHarmonyOsNextAndroidCompatible()}
      */
     public static boolean isZytOnHarmonyOsNext() {
-        return sCurrentOsType == OS_TYPE_ZYT_ON_HARMONY_OS_NEXT;
+        return isHarmonyOsNextAndroidCompatible();
+    }
+
+    /**
+     * 判断是否在 HarmonyOS NEXT（纯血鸿蒙）的卓易通或者出境易环境上运行
+     */
+    public static boolean isHarmonyOsNextAndroidCompatible() {
+        return sCurrentOsType == OS_TYPE_HARMONY_OS_NEXT_ANDROID_COMPATIBLE;
     }
 
     /**

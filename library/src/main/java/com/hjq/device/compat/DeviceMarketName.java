@@ -389,7 +389,7 @@ public final class DeviceMarketName {
         if (TextUtils.isEmpty(sMarketName)) {
             if (DeviceOs.isHarmonyOs()) {
                 traversalMarketNameSystemPropertyKeys(MARKET_NAME_HARMONY_OS);
-            } else if (DeviceOs.isZytOnHarmonyOsNext()) {
+            } else if (DeviceOs.isHarmonyOsNextAndroidCompatible()) {
                 traversalMarketNameSystemPropertyKeys(MARKET_NAME_ZYT_ON_HARMONY_OS_NEXT);
             } else if (DeviceOs.isMagicOs()) {
                 traversalMarketNameSystemPropertyKeys(MARKET_NAME_MAGIC_OS);
