@@ -115,12 +115,28 @@ public final class DeviceOs {
     /**
      * ColorOS 高版本：
      * [ro.build.version.oplusrom]: [V12.1]
-     *
+     */
+    static final String OS_CONDITIONS_NAME_COLOR_OS_NEW = "ro.build.version.oplusrom";
+
+    /**
+     * ColorOS 高版本：
+     * [ro.build.display.id]: [IN2010_13.1.0.190(CN01)]
+     * [ro.build.display.id.show]: [PJD110_15.0.0.840(CN01)]
+     * [persist.sys.oplus.ota_ver_display]: [IN2010_13.1.0.190(CN01)]
+     * [ro.build.version.oplusrom]: [V13.1.0]
+     * [ro.build.version.oplusrom.confidential]: [V13.1.0]
+     */
+    static final String[] OS_VERSION_NAME_COLOR_OS_NEW = { SYSTEM_PROPERTY_BUILD_DISPLAY_ID,
+                                                           "ro.build.display.id.show",
+                                                           "persist.sys.oplus.ota_ver_display",
+                                                           OS_CONDITIONS_NAME_COLOR_OS_NEW,
+                                                           "ro.build.version.oplusrom.confidential" };
+
+    /**
      * ColorOS 低版本：
      * [ro.build.version.opporom]: [V11.2]
      */
-    static final String[] OS_VERSION_NAME_COLOR_OS = { "ro.build.version.oplusrom",
-                                                       "ro.build.version.opporom" };
+    static final String OS_VERSION_NAME_COLOR_OS_OLD = "ro.build.version.opporom";
 
     /* ---------------------------------------- 下面是 VIVO 的系统 ---------------------------------------- */
 
@@ -622,8 +638,13 @@ public final class DeviceOs {
                 sCurrentOsType = OS_TYPE_REALME_UI;
                 sCurrentOsName = OS_NAME_REALME_UI;
                 sCurrentOsVersionName = getBestVersionNameByText(realmeUiVersion);
+            } else if (SystemPropertyCompat.isSystemPropertyExist(OS_CONDITIONS_NAME_COLOR_OS_NEW)) {
+                sCurrentOsType = OS_TYPE_COLOR_OS;
+                sCurrentOsName = OS_NAME_COLOR_OS;
+                // Github issue 地址：https://github.com/getActivity/DeviceCompat/issues/10
+                sCurrentOsVersionName = getBestVersionNameBySystemProperties(OS_VERSION_NAME_COLOR_OS_NEW);
             } else {
-                String colorOsVersion = SystemPropertyCompat.getSystemPropertyAnyOneValue(OS_VERSION_NAME_COLOR_OS);
+                String colorOsVersion = SystemPropertyCompat.getSystemPropertyValue(OS_VERSION_NAME_COLOR_OS_OLD);
                 if (!TextUtils.isEmpty(colorOsVersion)) {
                     sCurrentOsType = OS_TYPE_COLOR_OS;
                     sCurrentOsName = OS_NAME_COLOR_OS;
