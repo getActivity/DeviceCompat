@@ -14,7 +14,7 @@
 
 * 截至到目前，我是行业内第一个也是唯一一个开源这套方案的人，在这里先感谢网上的同行分享的各种方法和思路，让我在开发的过程中少走了很多弯路，另外我也很能理解为什么行业内一直没有人愿意站出来开源这种框架，因为过程非常麻烦，这不仅仅是一个技术问题，还是一个苦活，因为要针对成千上万的机型进行适配。
 
-![](picture/demo_os_color_os.jpg) ![](picture/demo_os_harmony_os.jpg) ![](picture/demo_os_harmony_os_next_zyt.jpg)
+![](picture/demo_os_color_os.jpg) ![](picture/demo_os_harmony_os.jpg) ![](picture/demo_os_harmony_os_next_android_compatible.jpg)
 
 ![](picture/demo_os_magic_os.jpg) ![](picture/demo_os_miui.jpg)  ![](picture/demo_os_one_ui.jpg)
 
